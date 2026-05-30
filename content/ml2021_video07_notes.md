@@ -200,8 +200,4 @@ graph TD
     B --> AC[未來方向: 平坦化誤差曲面];
     AC --> AD[改變網路架構/激活函數];
 
-    style A fill:#D0E7FF,stroke:#333,stroke-width:2px;
-    style H fill:#D0E7FF,stroke:#333,stroke-width:2px;
-    style V fill:#D0E7FF,stroke:#333,stroke-width:2px;
-    style Q fill:#D0E7FF,stroke:#333,stroke-width:2px;
 ```

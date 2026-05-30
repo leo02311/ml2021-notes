@@ -176,11 +176,6 @@ graph TD
     PyTorch整合設計 -- 提供 --> CrossEntropyLoss內建
     CrossEntropyLoss內建 -- 使用不當導致 --> 重複Softmax風險
 
-    classDef blue fill:#add8e6;
-    class 機器學習分類核心 blue
-    class Softmax詳解 blue
-    class 分類損失函數 blue
-    class 實作與理論 blue
 ```
 
 ---

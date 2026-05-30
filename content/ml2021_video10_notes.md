@@ -234,13 +234,6 @@ graph TD
     Pool_Principle --> Pool1
     Pool_Principle --> Pool2
 
-    style Pool1 fill:#ccf,stroke:#333,stroke-width:2px;
-    style Pool2 fill:#ccf,stroke:#333,stroke-width:2px;
-    style Conv1 fill:#bbf,stroke:#333,stroke-width:2px;
-    style Conv2 fill:#bbf,stroke:#333,stroke-width:2px;
-    style Flatten fill:#ffc,stroke:#333,stroke-width:2px;
-    style FC1 fill:#fbb,stroke:#333,stroke-width:2px;
-    style FC_Output fill:#fbb,stroke:#333,stroke-width:2px;
 ```
 
 ## 8. CNN 的應用範例：AlphaGo
