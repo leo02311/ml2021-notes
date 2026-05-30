@@ -36,9 +36,9 @@ tags:
 
 $$ y = c \cdot \frac{1}{1 + e^{-(b + w x_1)}} $$
 
-* **$w$ (Weight)**：改變斜坡的坡度。
-* **$b$ (Bias)**：將 Sigmoid 函數左右平移。
-* **$c$ (Constant)**：改變函數的最高高度。
+*   **$w$ (Weight)**：改變斜坡的坡度。
+*   **$b$ (Bias)**：將 Sigmoid 函數左右平移。
+*   **$c$ (Constant)**：改變函數的最高高度。
 
 只要組合足夠多個不同參數的 Sigmoid，就能組裝出極度複雜的預測模型。
 
@@ -48,9 +48,9 @@ $$ y = c \cdot \frac{1}{1 + e^{-(b + w x_1)}} $$
 
 當我們考慮多個特徵 (Feature) 以及多個 Sigmoid 時，可以將這些複雜的加總用矩陣 (Matrix) 與向量 (Vector) 簡潔地表示：
 
-1. **特徵相乘**：$\mathbf{r} = \mathbf{W}\mathbf{x} + \mathbf{b}$
-2. **激勵函數**：$\mathbf{a} = \sigma(\mathbf{r})$ （其中 $\sigma$ 為 Sigmoid）
-3. **最終輸出**：$y = \mathbf{c}^T \mathbf{a} + b$
+1.  **特徵相乘**：$\mathbf{r} = \mathbf{W}\mathbf{x} + \mathbf{b}$
+2.  **激勵函數**：$\mathbf{a} = \sigma(\mathbf{r})$ （其中 $\sigma$ 為 Sigmoid）
+3.  **最終輸出**：$y = \mathbf{c}^T \mathbf{a} + b$
 
 我們將所有的未知數 ($\mathbf{W}, \mathbf{b}, \mathbf{c}, b$) 全部展開並拉直，統稱為一個巨大的向量 **$\theta$**。
 
@@ -61,9 +61,9 @@ $$ y = c \cdot \frac{1}{1 + e^{-(b + w x_1)}} $$
 與線性模型完全相同，現在我們擁有了超多參數 $\theta$，我們依然需要定義 **Loss Function $L(\theta)$** 來衡量參數的好壞。
 
 尋找最佳參數 $\theta^*$ 的暴力破解法已經不可能做到，我們必須仰賴 **梯度下降 (Gradient Descent)**：
-1. 隨機初始化 $\theta^0$。
-2. 對每個參數計算微分（即計算 Gradient $\mathbf{g} = \nabla L(\theta^0)$）。
-3. 更新參數：$\theta^1 = \theta^0 - \eta \mathbf{g}$ （$\eta$ 為 Learning Rate）。
+1.  隨機初始化 $\theta^0$。
+2.  對每個參數計算微分（即計算 Gradient $\mathbf{g} = \nabla L(\theta^0)$）。
+3.  更新參數：$\theta^1 = \theta^0 - \eta \mathbf{g}$ （$\eta$ 為 Learning Rate）。
 
 ---
 
