@@ -1,5 +1,5 @@
 ---
-title: "第11堂課：[ML 2021 (English version)] Lecture 9: Convolutional Neural Networks"
+title: "第11堂課：Convolutional Neural Networks"
 tags:
   - MachineLearning
   - ML2021
@@ -9,7 +9,7 @@ tags:
   - ConvolutionalNeuralNetworks
 ---
 
-# 【機器學習 2021】第11堂課：[ML 2021 (English version)] Lecture 9: Convolutional Neural Networks
+# 第11堂課：Convolutional Neural Networks
 
 ## 1. 課程概覽與 CNN 簡介
 

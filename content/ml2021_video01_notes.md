@@ -5,7 +5,7 @@ tags:
   - Introduction
 ---
 
-# 【機器學習 2021】第01堂課：機器學習基本概念 (Introduction)
+# 第01堂課：機器學習基本概念
 
 > [!NOTE]
 > 講師：李宏毅 (Hung-yi Lee)

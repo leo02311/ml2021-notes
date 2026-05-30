@@ -8,7 +8,7 @@ tags:
   - SequenceLabeling
 ---
 
-# 【機器學習 2021】第12堂課：Self-Attention 簡介 - 處理變長序列輸入
+# 第12堂課：Self-Attention 簡介 - 處理變長序列輸入
 
 ## 課程介紹與背景
 

@@ -9,7 +9,7 @@ tags:
   - DeepLearning
 ---
 
-# 【機器學習 2021】第14堂課：[ML 2021 (English version)] Lecture 10: Self-attention (1/2)
+# 第14堂課：自注意力機制 (Self-Attention) - 處理變長序列輸入
 
 這堂課將介紹一種常見的神經網路架構：**自注意力機制 (Self-Attention)**。它主要用於解決輸入為變長序列向量的問題，這在許多機器學習任務中都非常普遍。
 

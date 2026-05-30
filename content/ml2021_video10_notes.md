@@ -1,5 +1,5 @@
 ---
-title: "第10堂課：【機器學習2021】卷積神經網路 (Convolutional Neural Networks, CNN)"
+title: "第10堂課：卷積神經網路 (Convolutional Neural Networks, CNN)"
 tags:
   - MachineLearning
   - ML2021
@@ -9,7 +9,7 @@ tags:
   - ImageProcessing
 ---
 
-# 【機器學習 2021】第10堂課：【機器學習2021】卷積神經網路 (Convolutional Neural Networks, CNN)
+# 第10堂課：卷積神經網路 (Convolutional Neural Networks, CNN)
 
 ## 1. 引言：Network 架構與 CNN 簡介
 

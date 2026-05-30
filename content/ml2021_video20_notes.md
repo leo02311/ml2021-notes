@@ -1,5 +1,5 @@
 ---
-title: "第20堂課：[ML 2021 (English version)] Lecture 13: Transformer (2/2)"
+title: "第20堂課：Transformer (2/2)"
 tags:
   - MachineLearning
   - ML2021
@@ -16,7 +16,7 @@ tags:
   - GuidedAttention
 ---
 
-# 【機器學習 2021】第20堂課：[ML 2021 (English version)] Lecture 13: Transformer (2/2)
+# 第20堂課：Transformer (2/2)
 
 本堂課將深入探討機器學習模型中的 **Decoder (解碼器)**，這是繼兩週前討論 **Encoder (編碼器)** 之後的重要內容。我們將聚焦於其運作原理、內部結構、訓練方法，以及多種優化技巧。
 

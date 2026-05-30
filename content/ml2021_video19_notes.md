@@ -1,5 +1,5 @@
 ---
-title: "第19堂課：[ML 2021 (English version)] Lecture 12: Transformer (1/2)"
+title: "第19堂課：Transformer (1/2)"
 tags:
   - MachineLearning
   - ML2021
@@ -9,7 +9,7 @@ tags:
   - SelfAttention
 ---
 
-# 【機器學習 2021】第19堂課：[ML 2021 (English version)] Lecture 12: Transformer (1/2)
+# 第19堂課：Transformer (1/2)
 
 ## 什麼是 Transformer？
 

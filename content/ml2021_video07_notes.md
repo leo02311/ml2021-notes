@@ -1,11 +1,11 @@
 ---
-title: "第07堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)"
+title: "第07堂課：What to do when optimization fails? (3/4)"
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 【機器學習 2021】第07堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)
+# 第07堂課：What to do when optimization fails? (3/4)
 
 ## 課程大綱
 

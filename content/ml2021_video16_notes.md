@@ -8,7 +8,7 @@ tags:
   - DeepLearning
 ---
 
-# 【機器學習 2021】第16堂課：Batch Normalization
+# 第16堂課：Batch Normalization
 
 ## 1. Batch Normalization (BN) 簡介與動機
 

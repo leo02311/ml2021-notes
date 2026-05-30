@@ -8,7 +8,7 @@ tags:
   - DeepLearning
 ---
 
-# 【機器學習 2021】第17堂課：批次正規化 (Batch Normalization)
+# 第17堂課：批次正規化 (Batch Normalization)
 
 ## 1. 引言：訓練困難與批次正規化概述
 

@@ -1,11 +1,11 @@
 ---
-title: "第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)"
+title: "第15堂課：Self-attention (2/2)"
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 【機器學習 2021】第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)
+# 第15堂課：Self-attention (2/2)
 
 ## 1. 自注意力機制 (Self-Attention Mechanism) 概述
 

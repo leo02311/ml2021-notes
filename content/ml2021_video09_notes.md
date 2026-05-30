@@ -1,5 +1,5 @@
 ---
-title: "第09堂課：[ML 2021 (English version)] Lecture 8: Classification (Short Version)"
+title: "第09堂課：Classification (Short Version)"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - CrossEntropy
 ---
 
-# 【機器學習 2021】第09堂課：[ML 2021 (English version)] Lecture 8: Classification (Short Version)
+# 第09堂課：Classification (Short Version)
 
 ## 課程概述
 
