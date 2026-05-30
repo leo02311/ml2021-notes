@@ -1,5 +1,5 @@
 ---
-title: 第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)
+title: "第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)"
 tags:
   - MachineLearning
   - ML2021

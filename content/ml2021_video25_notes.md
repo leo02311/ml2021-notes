@@ -1,5 +1,5 @@
 ---
-title: 第25堂課：GAN 的魔幻應用 - 非監督學習
+title: "第25堂課：GAN 的魔幻應用 - 非監督學習"
 tags:
   - MachineLearning
   - ML2021

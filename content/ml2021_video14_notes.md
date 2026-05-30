@@ -1,5 +1,5 @@
 ---
-title: 第14堂課：自注意力機制 (Self-Attention) - 處理變長序列輸入
+title: "第14堂課：自注意力機制 (Self-Attention) - 處理變長序列輸入"
 tags:
   - MachineLearning
   - ML2021

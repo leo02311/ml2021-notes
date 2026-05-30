@@ -1,5 +1,5 @@
 ---
-title: 第9堂課：[ML 2021 (English version)] Lecture 8: Classification (Short Version)
+title: "第9堂課：[ML 2021 (English version)] Lecture 8: Classification (Short Version)"
 tags:
   - MachineLearning
   - ML2021

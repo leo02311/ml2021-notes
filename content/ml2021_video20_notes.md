@@ -1,5 +1,5 @@
 ---
-title: 第20堂課：[ML 2021 (English version)] Lecture 13: Transformer (2/2)
+title: "第20堂課：[ML 2021 (English version)] Lecture 13: Transformer (2/2)"
 tags:
   - MachineLearning
   - ML2021

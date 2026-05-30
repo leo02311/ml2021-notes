@@ -1,5 +1,5 @@
 ---
-title: 第7堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)
+title: "第7堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)"
 tags:
   - MachineLearning
   - ML2021

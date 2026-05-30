@@ -1,5 +1,5 @@
 ---
-title: 第12堂課：Self-Attention 簡介 - 處理變長序列輸入
+title: "第12堂課：Self-Attention 簡介 - 處理變長序列輸入"
 tags:
   - MachineLearning
   - ML2021

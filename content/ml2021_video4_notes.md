@@ -1,5 +1,5 @@
 ---
-title: 第4堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (一)： 局部最小值 (local minima) 與鞍點 (saddle point)
+title: "第4堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (一)： 局部最小值 (local minima) 與鞍點 (saddle point)"
 tags:
   - MachineLearning
   - ML2021
