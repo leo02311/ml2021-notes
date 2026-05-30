@@ -199,9 +199,9 @@ Self-Attention 接收一排輸入向量 `a1, a2, a3, a4`，輸出相同數量且
 ```mermaid
 graph TD
     subgraph Self-Attention 運作機制
-        A[輸入序列: a1, a2, a3, a4] --> B1[Query 生成: a1 * Wq --> q1]
-        A --> B2[Key 生成: a_i * Wk --> k_i]
-        A --> B3[Value 生成: a_i * Wv --> v_i]
+        A[輸入序列: a1, a2, a3, a4] --> B1[Query 生成: a1 * Wq -大於 q1]
+        A --> B2[Key 生成: a_i * Wk -大於 k_i]
+        A --> B3[Value 生成: a_i * Wv -大於 v_i]
 
         B1 --> C[計算 Attention Score (α)]
         B2 --> C

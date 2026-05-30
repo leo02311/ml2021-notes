@@ -270,7 +270,7 @@ graph TD
 
         SA_Related[自注意力機制相關]
         SA_Related --> Transformer_Arch[Transformer 架構]
-        SA_Related --> Attention_Paper["Attention Is All You Need" 論文]
+        SA_Related --> Attention_Paper['Attention Is All You Need' 論文]
     end
 
     Input_Seq --> 步驟一

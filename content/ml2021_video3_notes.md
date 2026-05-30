@@ -67,22 +67,22 @@ tags:
 
 ```mermaid
 graph TD
-    Start["結果不理想"] --> CheckTrain["步驟一：檢查 Training Loss"]
+    Start['結果不理想'] --> CheckTrain['步驟一：檢查 Training Loss']
     
-    CheckTrain -->|Loss 很大| TrainFail["訓練失敗"]
-    TrainFail --> Bias["Model Bias (模型太弱)"]
-    TrainFail --> Opt["Optimization 失敗 (找不到最佳解)"]
-    Bias -.->|解法| ModelUp["增加特徵、加深網路"]
+    CheckTrain -->|Loss 很大| TrainFail['訓練失敗']
+    TrainFail --> Bias['Model Bias (模型太弱)']
+    TrainFail --> Opt['Optimization 失敗 (找不到最佳解)']
+    Bias -.->|解法| ModelUp['增加特徵、加深網路']
     
-    CheckTrain -->|Loss 很小| CheckTest["步驟二：檢查 Testing Loss"]
-    CheckTest -->|Loss 很小| Success["完美收工"]
-    CheckTest -->|Loss 很大| Overfit["Overfitting (過度擬合)"]
+    CheckTrain -->|Loss 很小| CheckTest['步驟二：檢查 Testing Loss']
+    CheckTest -->|Loss 很小| Success['完美收工']
+    CheckTest -->|Loss 很大| Overfit['Overfitting (過度擬合)']
     
-    Overfit --> Fix1["方向一：增加資料"]
-    Fix1 --> Aug["Data Augmentation"]
+    Overfit --> Fix1['方向一：增加資料']
+    Fix1 --> Aug['Data Augmentation']
     
-    Overfit --> Fix2["方向二：限制模型"]
-    Fix2 --> Constrain["CNN, Early Stopping, Dropout, 正規化"]
+    Overfit --> Fix2['方向二：限制模型']
+    Fix2 --> Constrain['CNN, Early Stopping, Dropout, 正規化']
     
     Constrain -.->|限制過度| Bias
 ```
