@@ -101,9 +101,9 @@ graph TD
     S2 --> ES[Error Surface<br>誤差等高線圖]
 
     S3 --> GD[Gradient Descent 梯度下降]
-    GD --> Init[1. 隨機初始參數]
-    GD --> Diff[2. 計算對 Loss 的微分斜率]
-    GD --> Update[3. 更新參數]
+    GD --> Init[步驟一：隨機初始參數]
+    GD --> Diff[步驟二：計算對 Loss 的微分斜率]
+    GD --> Update[步驟三：更新參數]
     Update --> LR[Learning Rate 學習速率<br>屬於 Hyperparameter]
 ```
 
