@@ -384,3 +384,4 @@ graph TD
     K4[優化目標與評估指標不一致]
     K4 --> K4_1[Cross-Entropy vs. BLEU Score]
     K4_1 --> K4_2[解決方案: 強化學習 (RL)]
+```
