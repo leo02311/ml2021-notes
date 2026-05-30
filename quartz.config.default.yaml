@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: "李宏毅 ML2021 機器學習筆記"
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
