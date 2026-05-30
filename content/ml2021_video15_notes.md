@@ -227,58 +227,58 @@ tags:
 ```mermaid
 graph TD
     subgraph 自注意力核心流程
-        Input[輸入向量序列 (A)] --> PositionalEncoding[位置編碼];
-        PositionalEncoding --> QKV_Generation(生成 Q, K, V 矩陣);
-        QKV_Generation --> Q(Query 矩陣);
-        QKV_Generation --> K(Key 矩陣);
-        QKV_Generation --> V(Value 矩陣);
-        QKV_Generation --- Wq_Param(Wq: Learnable Parameter);
-        QKV_Generation --- Wk_Param(Wk: Learnable Parameter);
-        QKV_Generation --- Wv_Param(Wv: Learnable Parameter);
+        Input["輸入向量序列 (A)"] --> PositionalEncoding["位置編碼"];
+        PositionalEncoding --> QKV_Generation("生成 Q, K, V 矩陣");
+        QKV_Generation --> Q("Query 矩陣");
+        QKV_Generation --> K("Key 矩陣");
+        QKV_Generation --> V("Value 矩陣");
+        QKV_Generation --- Wq_Param("Wq: Learnable Parameter");
+        QKV_Generation --- Wk_Param("Wk: Learnable Parameter");
+        QKV_Generation --- Wv_Param("Wv: Learnable Parameter");
 
-        Q --> AttentionCalculation(計算注意力分數 A);
+        Q --> AttentionCalculation("計算注意力分數 A");
         K --> AttentionCalculation;
-        AttentionCalculation --> AttentionNormalization(歸一化注意力分數 A');
-        AttentionNormalization --> WeightedSum(計算加權和);
+        AttentionCalculation --> AttentionNormalization("歸一化注意力分數 A'");
+        AttentionNormalization --> WeightedSum("計算加權和");
         V --> WeightedSum;
-        WeightedSum --> Output[輸出向量序列 (O)];
+        WeightedSum --> Output["輸出向量序列 (O)"];
     end
 
     subgraph 多頭自注意力
-        QKV_Generation --> MultiHead_Split(將 Q, K, V 分割成多個頭);
-        MultiHead_Split --> Head_One[頭 1 注意力];
-        MultiHead_Split --> Head_N[頭 N 注意力];
-        Head_One & Head_N --> ConcatHeads(連接所有頭的輸出);
-        ConcatHeads --> LinearTransform(線性轉換);
-        LinearTransform --> Output_MultiHead[多頭自注意力輸出];
+        QKV_Generation --> MultiHead_Split("將 Q, K, V 分割成多個頭");
+        MultiHead_Split --> Head_One["頭 1 注意力"];
+        MultiHead_Split --> Head_N["頭 N 注意力"];
+        Head_One & Head_N --> ConcatHeads("連接所有頭的輸出");
+        ConcatHeads --> LinearTransform("線性轉換");
+        LinearTransform --> Output_MultiHead["多頭自注意力輸出"];
         Output_MultiHead --- Output;
     end
 
     subgraph 位置編碼類型
         PositionalEncoding --> Handcrafted_PE(手動設計 (e.g., Sine/Cosine));
-        PositionalEncoding --> Learned_PE(從資料學習);
+        PositionalEncoding --> Learned_PE("從資料學習");
     end
 
     subgraph 自注意力應用與比較
-        Output --> App_Speech[語音處理];
-        App_Speech --> Truncated_SelfAttention[截斷式自注意力];
-        Output --> App_Image[影像處理];
-        App_Image --> Compare_CNN(與 CNN 比較);
-        Compare_CNN --> CNN_Restricted[CNN (受限且固定感受野)];
-        Compare_CNN --> SA_Flexible[自注意力 (彈性且學習感受野)];
-        Compare_CNN --> Data_Impact[資料量影響性能];
-        Data_Impact --> Small_Data_CNN(小資料量: CNN 較優);
-        Data_Impact --> Large_Data_SA(大資料量: 自注意力較優);
-        App_Image --> Hybrid_Conformer[混合模型: Conformer];
+        Output --> App_Speech["語音處理"];
+        App_Speech --> Truncated_SelfAttention["截斷式自注意力"];
+        Output --> App_Image["影像處理"];
+        App_Image --> Compare_CNN("與 CNN 比較");
+        Compare_CNN --> CNN_Restricted["CNN (受限且固定感受野)"];
+        Compare_CNN --> SA_Flexible["自注意力 (彈性且學習感受野)"];
+        Compare_CNN --> Data_Impact["資料量影響性能"];
+        Data_Impact --> Small_Data_CNN("小資料量: CNN 較優");
+        Data_Impact --> Large_Data_SA("大資料量: 自注意力較優");
+        App_Image --> Hybrid_Conformer["混合模型: Conformer"];
 
-        Output --> App_RNN[取代 RNN];
-        App_RNN --> SA_Advantage[優勢: 並行化, 長距離依賴];
-        Output --> App_Graph[圖資料 (GNN)];
-        App_Graph --> Edge_Restriction[利用邊信息限制注意力];
+        Output --> App_RNN["取代 RNN"];
+        App_RNN --> SA_Advantage["優勢: 並行化, 長距離依賴"];
+        Output --> App_Graph["圖資料 (GNN)"];
+        App_Graph --> Edge_Restriction["利用邊信息限制注意力"];
     end
 
     subgraph 進階自注意力 (Efficient Transformers)
-        Output --> Advanced_SA[優化計算成本 (xxx-formers)];
-        Advanced_SA --> Speed_Performance_Tradeoff[速度 vs 性能權衡];
+        Output --> Advanced_SA["優化計算成本 (xxx-formers)"];
+        Advanced_SA --> Speed_Performance_Tradeoff["速度 vs 性能權衡"];
     end
 ```

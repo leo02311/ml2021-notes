@@ -71,20 +71,20 @@ $$ y = c \cdot \frac{1}{1 + e^{-(b + w x_1)}} $$
 
 ```mermaid
 graph TD
-    A['線性模型 Limitation'] -->|Model Bias| B['無法擬合複雜曲線']
-    B --> C['解決方案: 彈性函數']
-    C --> D['Piecewise Linear Curves']
-    D --> E['Hard Sigmoid 組合']
-    E --> F['Sigmoid 逼近平滑化']
+    A["'線性模型 Limitation'"] -->|Model Bias| B["'無法擬合複雜曲線'"]
+    B --> C["'解決方案: 彈性函數'"]
+    C --> D["'Piecewise Linear Curves'"]
+    D --> E["'Hard Sigmoid 組合'"]
+    E --> F["'Sigmoid 逼近平滑化'"]
     
-    F --> G['參數矩陣化']
-    G --> H['r = Wx + b']
-    H --> I['a = σ(r)']
-    I --> J['y = c^T a + b']
+    F --> G["'參數矩陣化'"]
+    G --> H["'r = Wx + b'"]
+    H --> I["'a = σ(r)'"]
+    I --> J["'y = c^T a + b'"]
     
-    J --> K['定義 Loss L(θ)']
-    K --> L['Gradient Descent 最佳化']
-    L --> M['更新參數 θ = θ - η∇L']
+    J --> K["'定義 Loss L("θ")'"]
+    K --> L["'Gradient Descent 最佳化'"]
+    L --> M["'更新參數 θ = θ - η∇L'"]
 ```
 
 ---

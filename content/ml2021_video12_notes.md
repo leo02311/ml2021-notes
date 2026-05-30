@@ -199,59 +199,59 @@ Self-Attention 接收一排輸入向量 `a1, a2, a3, a4`，輸出相同數量且
 ```mermaid
 graph TD
     subgraph Self-Attention 運作機制
-        A[輸入序列: a1, a2, a3, a4] --> B1[Query 生成: a1 * Wq -大於 q1]
-        A --> B2[Key 生成: a_i * Wk -大於 k_i]
-        A --> B3[Value 生成: a_i * Wv -大於 v_i]
+        A["輸入序列: a1, a2, a3, a4"] --> B1["Query 生成: a1 * Wq -大於 q1"]
+        A --> B2["Key 生成: a_i * Wk -大於 k_i"]
+        A --> B3["Value 生成: a_i * Wv -大於 v_i"]
 
-        B1 --> C[計算 Attention Score (α)]
+        B1 --> C["計算 Attention Score (α)"]
         B2 --> C
-        C --> D[α1,1 = q1 ⋅ k1]
-        C --> E[α1,2 = q1 ⋅ k2]
-        C --> F[α1,3 = q1 ⋅ k3]
-        C --> G[α1,4 = q1 ⋅ k4]
+        C --> D["α1,1 = q1 ⋅ k1"]
+        C --> E["α1,2 = q1 ⋅ k2"]
+        C --> F["α1,3 = q1 ⋅ k3"]
+        C --> G["α1,4 = q1 ⋅ k4"]
 
-        D --> H[SoftMax 歸一化]
+        D --> H["SoftMax 歸一化"]
         E --> H
         F --> H
         G --> H
-        H --> I[歸一化注意力權重 (α'1,x)]
+        H --> I["歸一化注意力權重 (α'1,x)"]
 
-        I --> J[加權求和 Values]
+        I --> J["加權求和 Values"]
         B3 --> J
-        J --> K[輸出向量 b1]
+        J --> K["輸出向量 b1"]
     end
 
     subgraph 核心概念
-        L[Self-Attention] --> M[處理變長序列輸入]
-        L --> N[考慮整體上下文資訊]
-        L --> P[生成與輸入等長輸出]
-        L --> Q[作為 Transformer 核心模組]
+        L["Self-Attention"] --> M["處理變長序列輸入"]
+        L --> N["考慮整體上下文資訊"]
+        L --> P["生成與輸入等長輸出"]
+        L --> Q["作為 Transformer 核心模組"]
     end
 
     subgraph 輸入類型
-        R[變長序列輸入] --> S[文字處理 (Word Embeddings)]
-        R --> T[聲音訊號 (Frames)]
-        R --> U[圖形資料 (Nodes as Vectors)]
+        R["變長序列輸入"] --> S["文字處理 (Word Embeddings)"]
+        R --> T["聲音訊號 (Frames)"]
+        R --> U["圖形資料 (Nodes as Vectors)"]
     end
 
     subgraph 輸出類型
-        V[模型輸出] --> W[類型一：序列標註]
-        V --> X[類型二：整段序列單一標註]
-        V --> Y[類型三：序列到序列]
+        V["模型輸出"] --> W["類型一：序列標註"]
+        V --> X["類型二：整段序列單一標註"]
+        V --> Y["類型三：序列到序列"]
     end
 
-    M -- 解決 --> U_FC[傳統FC網路限制]
-    M -- 解決 --> U_Win[擴展視窗限制]
+    M -- "解決" --> U_FC["傳統FC網路限制"]
+    M -- "解決" --> U_Win["擴展視窗限制"]
 
-    L -- 應用於 --> W
-    L -- 應用於 --> X
-    L -- 應用於 --> Y
-    L -- 核心模組 --> Q
+    L -- "應用於" --> W
+    L -- "應用於" --> X
+    L -- "應用於" --> Y
+    L -- "核心模組" --> Q
 
     M --> R
-    W --> Z[範例: 詞性標註, 語音音標]
-    X --> Z_SA[範例: 情感分析, 語者辨認]
-    Y --> Z_MT[範例: 機器翻譯, 語音辨識]
+    W --> Z["範例: 詞性標註, 語音音標"]
+    X --> Z_SA["範例: 情感分析, 語者辨認"]
+    Y --> Z_MT["範例: 機器翻譯, 語音辨識"]
 ```
 
 ## 隨堂測驗

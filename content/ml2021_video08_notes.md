@@ -122,7 +122,7 @@ graph TD
         迴歸類比法['迴歸類比法']
         數值化表示問題['數值化表示問題']
         類別表示方式['類別表示方式']
-        OneHotVector['One-hot Vector']
+        OneHotVector["'One-hot Vector'"]
         多輸出神經網路['多輸出神經網路']
         Softmax函數['Soft-max 函數']
     end
@@ -155,26 +155,26 @@ graph TD
         重複Softmax風險['重複 Soft-max 風險']
     end
 
-    分類問題 -- 需要 --> 類別表示方式
-    分類問題 -- 可嘗試 --> 迴歸類比法
-    迴歸類比法 -- 引發 --> 數值化表示問題
-    數值化表示問題 -- 解決方案 --> OneHotVector
-    OneHotVector -- 定義目標 --> 多輸出神經網路
-    多輸出神經網路 -- 輸出 --> Logits輸入
-    Logits輸入 -- 經處理 --> Softmax函數
-    Softmax函數 -- 細節 --> Softmax詳解
+    分類問題 -- "需要" --> 類別表示方式
+    分類問題 -- "可嘗試" --> 迴歸類比法
+    迴歸類比法 -- "引發" --> 數值化表示問題
+    數值化表示問題 -- "解決方案" --> OneHotVector
+    OneHotVector -- "定義目標" --> 多輸出神經網路
+    多輸出神經網路 -- "輸出" --> Logits輸入
+    Logits輸入 -- "經處理" --> Softmax函數
+    Softmax函數 -- "細節" --> Softmax詳解
     Softmax詳解 --> Softmax特性
-    機率分佈輸出 -- 作為輸入 --> 損失函數選擇
-    OneHotVector -- 作為目標 --> 損失函數選擇
-    損失函數選擇 -- 包含 --> MSE損失
-    損失函數選擇 -- 包含 --> 交叉熵損失
-    MSE損失 -- 造成 --> 優化挑戰
-    優化挑戰 -- 表現為 --> 梯度平坦區
-    交叉熵損失 -- 擁有 --> 優化優勢
-    交叉熵損失 -- 理論基礎 --> 最大似然關係
-    交叉熵損失 -- 實作於 --> PyTorch整合設計
-    PyTorch整合設計 -- 提供 --> CrossEntropyLoss內建
-    CrossEntropyLoss內建 -- 使用不當導致 --> 重複Softmax風險
+    機率分佈輸出 -- "作為輸入" --> 損失函數選擇
+    OneHotVector -- "作為目標" --> 損失函數選擇
+    損失函數選擇 -- "包含" --> MSE損失
+    損失函數選擇 -- "包含" --> 交叉熵損失
+    MSE損失 -- "造成" --> 優化挑戰
+    優化挑戰 -- "表現為" --> 梯度平坦區
+    交叉熵損失 -- "擁有" --> 優化優勢
+    交叉熵損失 -- "理論基礎" --> 最大似然關係
+    交叉熵損失 -- "實作於" --> PyTorch整合設計
+    PyTorch整合設計 -- "提供" --> CrossEntropyLoss內建
+    CrossEntropyLoss內建 -- "使用不當導致" --> 重複Softmax風險
 
 ```
 

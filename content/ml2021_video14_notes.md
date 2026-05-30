@@ -189,93 +189,93 @@ tags:
 ```mermaid
 graph TD
     subgraph 核心概念與問題
-        A[自注意力機制 Self-Attention] --> P1[處理變長序列輸入]
-        A --> P2[考量全局上下文資訊]
-        P1 --> P3[打破傳統網路固定輸入長度限制]
-        P2 --> P4[超越固定窗格 FCN 限制]
-        P3 & P4 --> B(傳統神經網路限制)
+        A["自注意力機制 Self-Attention"] --> P1["處理變長序列輸入"]
+        A --> P2["考量全局上下文資訊"]
+        P1 --> P3["打破傳統網路固定輸入長度限制"]
+        P2 --> P4["超越固定窗格 FCN 限制"]
+        P3 & P4 --> B("傳統神經網路限制")
     end
 
     subgraph 變長序列輸入範例
-        VLI[變長序列輸入]
-        VLI --> VLI_Text[文字: 句子]
-        VLI_Text --> VLI_Text_Rep[表示: 詞向量 (Word Embedding)]
-        VLI_Text_Rep --> VLI_Text_Rep_Types[類型: One-hot, Word Embedding]
+        VLI["變長序列輸入"]
+        VLI --> VLI_Text["文字: 句子"]
+        VLI_Text --> VLI_Text_Rep["表示: 詞向量 (Word Embedding)"]
+        VLI_Text_Rep --> VLI_Text_Rep_Types["類型: One-hot, Word Embedding"]
         
-        VLI --> VLI_Audio[語音: 聲學訊號]
-        VLI_Audio --> VLI_Audio_Rep[表示: 音框 (Frame)]
+        VLI --> VLI_Audio["語音: 聲學訊號"]
+        VLI_Audio --> VLI_Audio_Rep["表示: 音框 (Frame)"]
         
-        VLI --> VLI_Graph[圖形: 社交網路 / 分子]
-        VLI_Graph --> VLI_Graph_Rep[表示: 節點向量]
+        VLI --> VLI_Graph["圖形: 社交網路 / 分子"]
+        VLI_Graph --> VLI_Graph_Rep["表示: 節點向量"]
     end
 
     subgraph 序列模型輸出類型
-        SMO[序列模型輸出]
-        SMO --> SMO_Labeling[類型一: 序列標註 (Sequence Labeling)]
-        SMO_Labeling --> SMO_Labeling_Desc[輸入 N 輸出 N (本日重點)]
-        SMO_Labeling --> SMO_Labeling_Ex1[範例: 詞性標註 (POS Tagging)]
-        SMO_Labeling --> SMO_Labeling_Ex2[範例: 音素分類]
+        SMO["序列模型輸出"]
+        SMO --> SMO_Labeling["類型一: 序列標註 (Sequence Labeling)"]
+        SMO_Labeling --> SMO_Labeling_Desc["輸入 N 輸出 N (本日重點)"]
+        SMO_Labeling --> SMO_Labeling_Ex1["範例: 詞性標註 (POS Tagging)"]
+        SMO_Labeling --> SMO_Labeling_Ex2["範例: 音素分類"]
         
-        SMO --> SMO_Classification[類型二: 序列分類 (Sequence Classification)]
-        SMO_Classification --> SMO_Classification_Desc[輸入 N 輸出 1]
-        SMO_Classification --> SMO_Classification_Ex1[範例: 情感分析]
-        SMO_Classification --> SMO_Classification_Ex2[範例: 語者辨識]
+        SMO --> SMO_Classification["類型二: 序列分類 (Sequence Classification)"]
+        SMO_Classification --> SMO_Classification_Desc["輸入 N 輸出 1"]
+        SMO_Classification --> SMO_Classification_Ex1["範例: 情感分析"]
+        SMO_Classification --> SMO_Classification_Ex2["範例: 語者辨識"]
         
-        SMO --> SMO_Seq2Seq[類型三: 序列到序列 (Seq2Seq)]
-        SMO_Seq2Seq --> SMO_Seq2Seq_Desc[輸入 N 輸出 N' (未來討論)]
-        SMO_Seq2Seq --> SMO_Seq2Seq_Ex1[範例: 機器翻譯]
-        SMO_Seq2Seq --> SMO_Seq2Seq_Ex2[範例: 語音辨識]
+        SMO --> SMO_Seq2Seq["類型三: 序列到序列 (Seq2Seq)"]
+        SMO_Seq2Seq --> SMO_Seq2Seq_Desc["輸入 N 輸出 N' (未來討論)"]
+        SMO_Seq2Seq --> SMO_Seq2Seq_Ex1["範例: 機器翻譯"]
+        SMO_Seq2Seq --> SMO_Seq2Seq_Ex2["範例: 語音辨識"]
     end
 
     subgraph 自注意力機制詳解 (以生成輸出 b1 為例)
-        Input_Seq[輸入序列 a1, ..., aN]
+        Input_Seq["輸入序列 a1, ..., aN"]
 
         subgraph 步驟一: 計算注意力分數 (Alpha)
-            Input_a1[當前輸入向量 a1] --> WQ_Matrix(權重矩陣 W_Q)
-            WQ_Matrix --> Query_q1[Query q1]
+            Input_a1["當前輸入向量 a1"] --> WQ_Matrix("權重矩陣 W_Q")
+            WQ_Matrix --> Query_q1["Query q1"]
 
-            Input_All_aj[所有輸入向量 aj] --> WK_Matrix(權重矩陣 W_K)
-            WK_Matrix --> Keys_kj[Keys k1, ..., kN]
+            Input_All_aj["所有輸入向量 aj"] --> WK_Matrix("權重矩陣 W_K")
+            WK_Matrix --> Keys_kj["Keys k1, ..., kN"]
 
-            Query_q1 --> Dot_Product[點積運算]
+            Query_q1 --> Dot_Product["點積運算"]
             Keys_kj --> Dot_Product
-            Dot_Product --> Alpha_Scores[注意力分數 α1j]
-            Alpha_Scores -- 意義 --> Correlation_Degree[a1 與 aj 的相關程度]
+            Dot_Product --> Alpha_Scores["注意力分數 α1j"]
+            Alpha_Scores -- "意義" --> Correlation_Degree["a1 與 aj 的相關程度"]
         end
 
         subgraph 步驟二: Softmax 正規化
-            Alpha_Scores --> Softmax_Function(Softmax 函數)
-            Softmax_Function --> Alpha_Prime[正規化注意力分數 α'1j]
-            Alpha_Prime -- 特性 --> Prob_Distribution[0-1 之間，總和為 1]
+            Alpha_Scores --> Softmax_Function("Softmax 函數")
+            Softmax_Function --> Alpha_Prime["正規化注意力分數 α'1j"]
+            Alpha_Prime -- "特性" --> Prob_Distribution["0-1 之間，總和為 1"]
         end
 
         subgraph 步驟三: 生成 Value 向量
-            Input_All_aj --> WV_Matrix(權重矩陣 W_V)
-            WV_Matrix --> Values_vj[Values v1, ..., vN]
-            Values_vj -- 意義 --> Extracted_Info[向量 aj 包含的資訊]
+            Input_All_aj --> WV_Matrix("權重矩陣 W_V")
+            WV_Matrix --> Values_vj["Values v1, ..., vN"]
+            Values_vj -- "意義" --> Extracted_Info["向量 aj 包含的資訊"]
         end
 
         subgraph 步驟四: 加權求和得到輸出
-            Alpha_Prime --> Weighted_Sum_Op[加權求和]
+            Alpha_Prime --> Weighted_Sum_Op["加權求和"]
             Values_vj --> Weighted_Sum_Op
-            Weighted_Sum_Op --> Output_b1[輸出向量 b1]
-            Output_b1 -- 特性 --> Context_Aware[包含整個序列上下文資訊]
+            Weighted_Sum_Op --> Output_b1["輸出向量 b1"]
+            Output_b1 -- "特性" --> Context_Aware["包含整個序列上下文資訊"]
         end
     end
 
     subgraph 自注意力機制應用與相關
-        SA_Application[自注意力機制應用]
-        SA_Application --> SA_Stacking[可堆疊與 FCN 交替使用]
-        SA_Application --> SA_Global_Context[處理全局資訊]
+        SA_Application["自注意力機制應用"]
+        SA_Application --> SA_Stacking["可堆疊與 FCN 交替使用"]
+        SA_Application --> SA_Global_Context["處理全局資訊"]
 
-        SA_Related[自注意力機制相關]
-        SA_Related --> Transformer_Arch[Transformer 架構]
-        SA_Related --> Attention_Paper['Attention Is All You Need' 論文]
+        SA_Related["自注意力機制相關"]
+        SA_Related --> Transformer_Arch["Transformer 架構"]
+        SA_Related --> Attention_Paper["'Attention Is All You Need' 論文"]
     end
 
     Input_Seq --> 步驟一
     Input_Seq --> 步驟三
-    Output_b1 --> Output_Seq[輸出序列 b1, ..., bN]
+    Output_b1 --> Output_Seq["輸出序列 b1, ..., bN"]
     Output_Seq --> SMO_Labeling_Desc
 ```
 
