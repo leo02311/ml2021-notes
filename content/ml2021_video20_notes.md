@@ -1,5 +1,3 @@
-好的，我將扮演專業技術筆記整理專家，為您整理李宏毅教授機器學習課程第20堂的逐字稿，輸出為精美的 Markdown 筆記。
-
 ---
 title: 第20堂課：[ML 2021 (English version)] Lecture 13: Transformer (2/2)
 tags:

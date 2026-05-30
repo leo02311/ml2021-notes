@@ -1,5 +1,3 @@
-好的，這就為您將李宏毅教授的機器學習課程逐字稿整理成排版精美的 Markdown 筆記。
-
 ---
 title: 第9堂課：[ML 2021 (English version)] Lecture 8: Classification (Short Version)
 tags:

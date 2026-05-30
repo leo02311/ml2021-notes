@@ -1,5 +1,3 @@
-好的，這是一份根據李宏毅教授課程逐字稿整理而成的專業技術筆記。
-
 ---
 title: 第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)
 tags:

@@ -1,5 +1,3 @@
-好的，這是一堂李宏毅教授機器學習課程的逐字稿整理，我將其轉換成排版精美的 Markdown 技術筆記，並包含您所要求的所有項目。
-
 ---
 title: 第10堂課：【機器學習2021】卷積神經網路 (Convolutional Neural Networks, CNN)
 tags:

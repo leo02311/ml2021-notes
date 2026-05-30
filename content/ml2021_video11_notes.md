@@ -1,5 +1,3 @@
-好的，身為您的專業技術筆記整理專家，我已將李宏毅教授的機器學習課程逐字稿整理成排版精美的 Markdown 筆記。這份筆記涵蓋了課程的核心重點、兩種解釋 CNN 的角度、Mermaid 知識圖譜以及隨堂測驗。
-
 ---
 title: 第11堂課：[ML 2021 (English version)] Lecture 9: Convolutional Neural Networks
 tags:
