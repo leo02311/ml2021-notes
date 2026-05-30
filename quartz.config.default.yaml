@@ -7,7 +7,7 @@ configuration:
   analytics:
     provider: plausible
   locale: en-US
-  baseUrl: quartz.jzhao.xyz
+  baseUrl: leo02311.github.io/ml2021-notes
   ignorePatterns:
     - private
     - templates
