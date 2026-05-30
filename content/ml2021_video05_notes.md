@@ -109,7 +109,7 @@ Momentum 技巧就是將這種慣性概念引入 $\text{Gradient Descent}$。
 ### Momentum 的運作方式
 
 回顧一般的 **$\text{Vanilla Gradient Descent}$**：
-$$ \theta_{t+1} = \theta_t - $\eta$ \cdot g_t $$
+$$ \theta_{t+1} = \theta_t - \eta \cdot g_t $$
 其中 $\theta_t$ 是當前參數，$\eta$ 是學習率 ($\text{Learning Rate}$)，$g_t$ 是當前梯度。參數更新方向完全由當前梯度決定。
 
 **加入 Momentum 後的 $\text{Gradient Descent}$**：
@@ -121,7 +121,7 @@ $$ \theta_{t+1} = \theta_t - $\eta$ \cdot g_t $$
 3.  **計算移動向量**：新的移動向量 $m_t$ 由兩部分組成：
     *   前一步移動向量 $m_{t-1}$ 乘以一個衰減係數 $\lambda$ (慣性強度)。
     *   當前梯度的反方向 $g_t$ 乘以學習率 $\eta$。
-    $$ m_t = \lambda \cdot m_{t-1} - $\eta$ \cdot g_t $$
+    $$ m_t = \lambda \cdot m_{t-1} - \eta \cdot g_t $$
     其中 $\lambda$ 和 $\eta$ 都是需要調整的超參數。
 4.  **更新參數**：將計算出的移動向量加到當前參數上。
     $$ \theta_{t+1} = \theta_t + m_t $$

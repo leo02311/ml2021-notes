@@ -46,9 +46,7 @@ tags:
 
 最常用的特徵正規化方法是**標準化 (Standardization)**。對於一個維度的所有特徵值 $x$，其處理方式如下：
 
-$$
-\tilde{x} = \frac{x - \mu}{\sigma}
-$$
+$$ \tilde{x} = \frac{x - \mu}{\sigma} $$
 
 其中：
 *   $\mu$ (mu) 是該維度所有特徵值的平均值。
@@ -95,9 +93,7 @@ $$
 
 然後，對每個 $z_i$ 進行標準化：
 
-$$
-\tilde{z}_i = \frac{z_i - \mu}{\sigma}
-$$
+$$ \tilde{z}_i = \frac{z_i - \mu}{\sigma} $$
 
 這裡的減法和除法都是**元素級運算 (element-wise operation)**。
 
@@ -115,9 +111,7 @@ $$
 
 在標準化之後，批次正規化引入了兩個可學習的參數：$\gamma$ (gamma) 和 $\beta$ (beta)。
 
-$$
-\hat{z}_i = \gamma \odot \tilde{z}_i + \beta
-$$
+$$ \hat{z}_i = \gamma \odot \tilde{z}_i + \beta $$
 
 其中：
 *   $\gamma$ 是一個向量，與 $\tilde{z}_i$ 進行**元素級乘法** (scaling)。
@@ -146,10 +140,8 @@ $$
 
 *   **訓練期間**：每次處理一個批次，都會計算當前的 $\mu_t$ 和 $\sigma_t$。
 *   PyTorch 等深度學習框架會自動計算並維護這些統計量的移動平均值：
-    $$
-    \bar{\mu} \leftarrow p \cdot \bar{\mu} + (1 - p) \cdot \mu_t \\
-    \bar{\sigma} \leftarrow p \cdot \bar{\sigma} + (1 - p) \cdot \sigma_t
-    $$
+    $$ \bar{\mu} \leftarrow p \cdot \bar{\mu} + (1 - p) \cdot \mu_t \\
+    \bar{\sigma} \leftarrow p \cdot \bar{\sigma} + (1 - p) \cdot \sigma_t $$
     其中，$p$ 是一個超參數 (通常在 PyTorch 中設為 $0.1$)。
 
 *   **測試期間**：不再根據當前數據計算 $\mu$ 和 $\sigma$，而是直接使用訓練期間得到的最終移動平均值 $\bar{\mu}$ 和 $\bar{\sigma}$ 進行正規化。

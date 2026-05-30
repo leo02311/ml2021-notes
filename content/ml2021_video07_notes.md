@@ -48,17 +48,17 @@ tags:
 
 ### 3.2 梯度下降更新公式 (單一參數 $\theta_i$)
 原始公式：
-$$ $\theta_i$^{t+1} = $\theta_i$^t - $\eta$ \cdot g_i^t $$
+$$ \theta_i^{t+1} = \theta_i^t - \eta \cdot g_i^t $$
 
 自適應學習率公式：
-$$ $\theta_i$^{t+1} = $\theta_i$^t - \frac{$\eta$}{$\sigma_i^t$} \cdot g_i^t $$
+$$ \theta_i^{t+1} = \theta_i^t - \frac{\eta}{\sigma_i^t} \cdot g_i^t $$
 其中 $\sigma_i^t$ 是與參數 $i$ 和迭代 $t$ 相關的因子，用於動態調整學習率。
 
 ### 3.3 Adagrad
 
 *   **概念**：通過累積過去所有梯度的平方根來計算 $\sigma_i^t$。
 *   **$\sigma_i^t$ 計算**：
-    $$ $\sigma_i^t$ = \sqrt{\frac{1}{t+1} \sum_{k=0}^{t} (g_i^k)^2} $$
+    $$ \sigma_i^t = \sqrt{\frac{1}{t+1} \sum_{k=0}^{t} (g_i^k)^2} $$
     (通常為了簡化，分母的 $t+1$ 會被省略或使用小常數平滑，而只取 $\sqrt{\sum (g_i^k)^2}$ 或 $\sqrt{\text{歷史平均梯度平方}}$)
     在此課程的公式中，簡化為 $\sigma_i^t = \sqrt{\sum_{k=0}^{t} (g_i^k)^2}$，整個 $\frac{$\eta$}{$\sigma_i^t$}$ 算作當前學習率。
     更準確的描述是 $\sigma_t = \sqrt{\frac{\sum \text{squares of all past gradients}}{t+1}}$
@@ -72,7 +72,7 @@ $$ $\theta_i$^{t+1} = $\theta_i$^t - \frac{$\eta$}{$\sigma_i^t$} \cdot g_i^t $$
 
 *   **背景**：一個「傳奇」方法，最初由 Hinton 在 Coursera 課程中提出，並無正式論文，引用時需引用課程影片。
 *   **$\sigma_i^t$ 計算**：引入加權移動平均，更注重近期梯度。
-    $$ $\sigma_i^t$ = \sqrt{\alpha \cdot ($\sigma_i$^{t-1})^2 + (1-\alpha) \cdot (g_i^t)^2} $$
+    $$ \sigma_i^t = \sqrt{\alpha \cdot (\sigma_i^{t-1})^2 + (1-\alpha) \cdot (g_i^t)^2} $$
     其中 $\alpha$ 是一個超參數 (例如 $0.9, 0.99$)，控制歷史梯度的權重。
 *   **機制**：
     *   **快速響應**：當遇到陡峭的坡度時 (大梯度)，$(g_i^t)^2$ 瞬間增大，$\sigma_i^t$ 會快速增加，學習率迅速減小（像踩剎車）。

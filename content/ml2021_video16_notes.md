@@ -50,7 +50,7 @@ Batch Normalization 是一個用於改善深度學習模型訓練的技術。其
     1.  計算所有訓練資料中，第 $i$ 個維度的平均值 $\mu_i$。
     2.  計算所有訓練資料中，第 $i$ 個維度的標準差 $\sigma_i$。
     3.  將原始特徵值 $x_i$ 轉換為：
-        $$\tilde{x}_i = \frac{x_i - \mu_i}{$\sigma_i$}$$
+        $$ \tilde{x}_i = \frac{x_i - \mu_i}{\sigma_i} $$
 *   **效果**：經過標準化後，該維度上的數值將平均值為 $0$，方差為 $1$，分佈在 $0$ 上下。
 *   **好處**：使 Gradient Descent 收斂更快、訓練更順利。
 
@@ -79,13 +79,13 @@ Feature Normalization 不僅適用於輸入特徵 $x$，也應該考慮應用於
     *   在每次訓練迭代時，從訓練資料中取出一個 Batch 的資料 (例如 64 筆)。
     *   針對該 Batch 內的資料，計算隱藏層輸出 $z$ 的每個維度的平均值 $\mu_{\text{batch}}$ 和標準差 $\sigma_{\text{batch}}$。
     *   對該 Batch 內的 $z$ 進行正規化：
-        $$\tilde{z} = \frac{z - \mu_{\text{batch}}}{\sigma_{\text{batch}}}$$
+        $$ \tilde{z} = \frac{z - \mu_{\text{batch}}}{\sigma_{\text{batch}}} $$
     *   由於 $\mu_{\text{batch}}$ 和 $\sigma_{\text{batch}}$ 是根據當前 Batch 計算的，因此 Batch Normalization 將每個 Batch 中的範例關聯起來，它被視為網路的一部分。
 
 2.  **學習參數 $\gamma$ 和 $\beta$**：
     *   在 $\tilde{z}$ 之後，Batch Normalization 還會引入兩個可學習的參數：$\gamma$ (scale) 和 $\beta$ (shift)。
     *   最終的輸出是：
-        $$\hat{z} = \gamma \cdot \tilde{z} + \beta$$
+        $$ \hat{z} = \gamma \cdot \tilde{z} + \beta $$
     *   **目的**：有人認為強制平均值為 $0$ 和方差為 $1$ 可能限制了網路的表達能力。$\gamma$ 和 $\beta$ 允許網路調整 $\hat{z}$ 的分佈，使其不必強制平均值為 $0$ 和方差為 $1$，從而有更大的彈性。
     *   **初始值**：通常將 $\gamma$ 初始化為全 $1$ 向量，$\beta$ 初始化為全 $0$ 向量，這樣在訓練初期仍然保持正規化的好處。
 
@@ -96,10 +96,10 @@ Feature Normalization 不僅適用於輸入特徵 $x$，也應該考慮應用於
 *   **解決方案：Moving Average (移動平均)**：
     *   在訓練階段，每次計算出 $\mu_{\text{batch}}$ 和 $\sigma_{\text{batch}}$ 時，都會使用移動平均的方式來更新全局的 $\bar{\mu}$ 和 $\bar{\sigma}$。
     *   例如：
-        $$\bar{\mu}_{\text{new}} = P \cdot \bar{\mu}_{\text{old}} + (1 - P) \cdot \mu_{\text{batch\_current}}$$
+        $$ \bar{\mu}_{\text{new}} = P \cdot \bar{\mu}_{\text{old}} + (1 - P) \cdot \mu_{\text{batch\_current}} $$
         (其中 $P$ 為超參數，如 $0.9$ 或 $0.99$)。
     *   在測試階段，直接使用訓練過程中累積得到的全局 $\bar{\mu}$ 和 $\bar{\sigma}$ 來進行正規化：
-        $$\hat{z} = \gamma \cdot \left(\frac{z - \bar{\mu}}{\bar{\sigma}}\right) + \beta$$
+        $$ \hat{z} = \gamma \cdot \left(\frac{z - \bar{\mu}}{\bar{\sigma}}\right) + \beta $$
 
 ## 3. Batch Normalization 的實驗結果與效益
 
