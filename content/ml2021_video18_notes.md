@@ -32,6 +32,7 @@ Seq2seq 模型在多個領域都有關鍵應用，特別是當輸出序列的長
   <source media="(prefers-color-scheme: dark)" srcset="../assets/vid16_seq2seq_dark.png">
   <img alt="Cross-Attention Alignment Heatmap" src="../assets/vid16_seq2seq_light.png">
 </picture>
+
 *   **應用**：作業五將會實作機器翻譯。
 *   **輸入**：一種語言的句子（文字序列）。
 *   **輸出**：另一種語言的句子（文字序列）。
