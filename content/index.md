@@ -1,5 +1,11 @@
 ---
 title: "機器學習 (ML 2021) 筆記"
+tags:
+  - MachineLearning
+  - ML2021
+  - DeepLearning
+  - HungYiLee
+  - Notes
 ---
 
 歡迎來到機器學習 (ML 2021) 自動化課程筆記網站！
