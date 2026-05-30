@@ -1,5 +1,5 @@
 ---
-title: "第06堂課：類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)"
+title: "【機器學習2021】類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)"
 tags:
   - MachineLearning
   - ML2021
@@ -13,7 +13,7 @@ tags:
   - LearningRateDecay
 ---
 
-# 第06堂課：類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)
+# 第06堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)
 
 ## 課程引言：梯度下降 (Gradient Descent) 的挑戰
 

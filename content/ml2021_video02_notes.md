@@ -1,117 +1,76 @@
 ---
-title: "第02堂課：深度學習基礎 - 突破線性模型的限制"
+title: "[ML 2021 (English version)] Lecture 2: Predicting the views of this channel - ML Introduction (2/2)"
 tags:
   - MachineLearning
-  - DeepLearning
-  - Optimization
+  - ML2021
 ---
 
-# 第02堂課：深度學習基礎 - 突破線性模型的限制
+# 第02堂課：[ML 2021 (English version)] Lecture 2: Predicting the views of this channel - ML Introduction (2/2)
 
-在上一堂課中，我們認識了線性模型（Linear Model）：$y = b + w \cdot x_1$。
-然而，線性模型非常受限，它永遠只能畫出一條直線。真實世界中，特徵 $x$ 與預測目標 $y$ 的關係往往是非線性的（例如：前一天觀看人數太高，隔天反而變少，形成一個有峰值的曲線）。
-這種來自於模型本身的限制，我們稱之為 **Model Bias**。
+本堂課為李宏毅教授 2021 年機器學習課程的導論課，主要介紹課程目標、授課方式、作業與評分標準，以及各項嚴格的學術倫理規範。
 
-為了減少 Model Bias，我們需要寫出一個**更有彈性、帶有未知參數的複雜函數**。
+## 課程核心介紹
 
----
+*   **課程主旨**：專注於深度學習（Deep Learning）領域，涵蓋機器學習的最新技術。
+*   **授課風格**：採用「自助餐式」（Buffet style）教學，學生可根據興趣選擇深入學習的主題。
+*   **先修知識**：
+    *   數學基礎：微積分、線性代數、機率。
+    *   程式能力：需具備 Python 基礎，課程不教授 Python 語法，僅針對機器學習應用與 PyTorch 進行相關指導。
+*   **硬體要求**：提供 Google Colab 支援，無需自行安裝複雜硬體環境。
 
-## 2. 使用分段線性函數逼近連續曲線
-
-<div align="center">
-<picture>
-  <source srcset="assets/vid02_sigmoids_dark.png" media="(prefers-color-scheme: dark)">
-  <img src="assets/vid02_sigmoids_light.png" alt="Sigmoid Addition Approximation" style="max-width: 80%;">
-</picture>
-</div>
-
-任何連續的非線性曲線，都可以透過取點連線的方式，近似成**分段線性曲線 (Piecewise Linear Curves)**。
-而每一個分段線性曲線，都可以看作是一個常數，加上許多個「藍色函數 (Hard Sigmoid)」的組合。
-
-### 藍色函數 (Hard Sigmoid) 的特性
-* 當 $x$ 小於某個閾值時為定值。
-* 當 $x$ 大於某個閾值時為另一個定值。
-* 中間存在一段斜坡。
-
-只要我們有足夠多的藍色函數（設定不同的轉折點與斜率）並把它們相加，就能完美重構出任何複雜的 Piecewise Linear 曲線。
-
----
-
-## 3. Sigmoid 函數：讓神經網路平滑化
-
-由於 Hard Sigmoid 是有折角的，數學上較難處理，因此我們引入了一條 S 型的平滑曲線來逼近它，這就是鼎鼎大名的 **Sigmoid Function**：
-
-$$ y = c \cdot \frac{1}{1 + e^{-(b + w x_1)}} $$
-
-*   **$w$ (Weight)**：改變斜坡的坡度。
-*   **$b$ (Bias)**：將 Sigmoid 函數左右平移。
-*   **$c$ (Constant)**：改變函數的最高高度。
-
-只要組合足夠多個不同參數的 Sigmoid，就能組裝出極度複雜的預測模型。
-
----
-
-## 4. 線性代數表示法：神經網路的雛形
-
-當我們考慮多個特徵 (Feature) 以及多個 Sigmoid 時，可以將這些複雜的加總用矩陣 (Matrix) 與向量 (Vector) 簡潔地表示：
-
-1.  **特徵相乘**：$\mathbf{r} = \mathbf{W}\mathbf{x} + \mathbf{b}$
-2.  **激勵函數**：$\mathbf{a} = \sigma(\mathbf{r})$ （其中 $\sigma$ 為 Sigmoid）
-3.  **最終輸出**：$y = \mathbf{c}^T \mathbf{a} + b$
-
-我們將所有的未知數 ($\mathbf{W}, \mathbf{b}, \mathbf{c}, b$) 全部展開並拉直，統稱為一個巨大的向量 **$\theta$**。
-
----
-
-## 5. Loss 與最佳化 (Optimization)
-
-與線性模型完全相同，現在我們擁有了超多參數 $\theta$，我們依然需要定義 **Loss Function $L(\theta)$** 來衡量參數的好壞。
-
-尋找最佳參數 $\theta^*$ 的暴力破解法已經不可能做到，我們必須仰賴 **梯度下降 (Gradient Descent)**：
-1.  隨機初始化 $\theta^0$。
-2.  對每個參數計算微分（即計算 Gradient $\mathbf{g} = \nabla L(\theta^0)$）。
-3.  更新參數：$\theta^1 = \theta^0 - $\eta$ \mathbf{g}$ （$\eta$ 為 Learning Rate）。
-
----
-
-## 🧠 知識圖譜 (Knowledge Graph)
+## 課程知識圖譜
 
 ```mermaid
 graph TD
-    A["線性模型 Limitation"] -->|Model Bias| B["無法擬合複雜曲線"]
-    B --> C["解決方案: 彈性函數"]
-    C --> D["Piecewise Linear Curves"]
-    D --> E["Hard Sigmoid 組合"]
-    E --> F["Sigmoid 逼近平滑化"]
+    "Machine Learning 2021" --> "課程目標"
+    "Machine Learning 2021" --> "評分與作業"
+    "Machine Learning 2021" --> "學術倫理"
     
-    F --> G["參數矩陣化"]
-    G --> H["r = Wx + b"]
-    H --> I["a = σ(r)"]
-    I --> J["y = c^T a + b"]
+    "課程目標" --> "深度學習"
+    "課程目標" --> "最新技術"
     
-    J --> K["定義 Loss L(θ)"]
-    K --> L["Gradient Descent 最佳化"]
-    L --> M["更新參數 θ = θ - η∇L"]
+    "評分與作業" --> "15個作業"
+    "評分與作業" --> "最高分10個計分"
+    "評分與作業" --> "Kaggle競賽"
+    
+    "學術倫理" --> "禁止抄襲"
+    "學術倫理" --> "禁止合作/共謀"
+    "學術倫理" --> "懲罰機制"
 ```
 
----
+## 作業與評分機制
 
-## 📝 課後測驗
+本課程共安排 15 個作業，採用累積制，最終評分計算成績最高的 10 個作業。
 
-**Q1：什麼是 Model Bias？**
+*   **評分層級**：
+    *   **C-**：僅執行範例程式碼。
+    *   **A-**：依照課程指引完成實作。
+    *   **A+**：自行挑戰困難任務，閱讀相關論文並克服難題。
+*   **競賽與排行榜**：部分作業將在 Kaggle 或 JudgeBoi 平台上進行競賽。
+    *   **顯示名稱格式**：`<學號>_<自訂名稱>`（例如：`b93901106_pui_pui_pui`）。若格式錯誤將導致無法辨識成績。
+    *   **排行榜規則**：分為公開排行榜（Public Leaderboard）與私人排行榜（Private Leaderboard），私人分數僅在截止日期後揭曉。
+
+## 重要規則與懲罰
+
+*   **禁止抄襲**：變更變數名稱仍視為抄襲，系統會進行自動比對。
+*   **保護成果**：禁止外流程式碼或提供測試結果給他人。
+*   **懲罰機制**：
+    *   **初犯**：該學期總分乘以 $0.9$。
+    *   **再犯**：直接判定該課程不及格（Fail the course）。
+
+## 隨堂測驗
+
 <details>
-<summary>點擊查看答案</summary>
-Model Bias 指的是模型本身天生的限制。例如線性模型只能擬合直線，無法模擬真實世界複雜的非線性關係。
+<summary>點擊查看測驗 1：關於作業的計分方式為何？</summary>
+答：課程共 15 個作業，每個作業 10 分，但期末成績僅會選取分數最高的 10 個作業進行計算。
 </details>
 
-**Q2：在 Sigmoid 函數中，調整參數 $w$ 與 $b$ 分別會改變圖形的什麼？**
 <details>
-<summary>點擊查看答案</summary>
-調整 $w$ (Weight) 會改變 S 型曲線斜坡的「坡度」，而調整 $b$ (Bias) 則會將曲線「左右平移」。
+<summary>點擊查看測驗 2：在 Kaggle 競賽中，顯示名稱（Display Name）的正確格式為何？</summary>
+答：格式必須為 `<學號>_<自訂名稱>`。若格式錯誤，助教將無法正確紀錄您的成績。
 </details>
 
-**Q3：當模型的參數數量從兩個擴張到一萬個時，為何不能使用暴力嘗試法找最佳解？需要用什麼演算法？**
 <details>
-<summary>點擊查看答案</summary>
-因為參數過多時，組合數呈指數爆炸。我們必須使用「梯度下降 (Gradient Descent)」計算 Loss 對每一個參數的微分 (Gradient)，來指引參數更新的方向。
+<summary>點擊查看測驗 3：如果被發現違反課程作業規則，初犯的懲罰是什麼？</summary>
+答：初犯者該學期的總分將會乘以 0.9。若是第二次違規，則會導致直接當掉該課程。
 </details>
