@@ -1,5 +1,5 @@
 ---
-title: "第二堂課：深度學習基礎 - 突破線性模型的限制"
+title: "第02堂課：深度學習基礎 - 突破線性模型的限制"
 tags:
   - MachineLearning
   - DeepLearning
