@@ -10,5 +10,6 @@ title: 機器學習 (ML 2021) 筆記
 
 * [[ml2021_video1_notes|第一堂課：機器學習基本概念]]
 * [[ml2021_video2_notes|第二堂課：深度學習基礎 - 突破線性模型的限制]]
+* [[ml2021_video3_notes|第三堂課：機器學習任務攻略 (Overfitting & Optimization)]]
 
 （後續課程將由 AI 自動爬取並逐步上線更新！）
