@@ -29,11 +29,11 @@ tags:
 
 ### 影像分類目標
 - **任務：** 給予機器一張圖片，判斷其內容。
-- **輸入：** 固定大小的圖片，例如 100x100 像素解析度。即使圖片大小不一，通常也會先 Rescale 到固定大小。
-- **輸出：** 每個類別用 **One-Hot Vector** 表示 (ŷ)。
-    - 向量長度決定可辨識的物體種類數量（例如：2000 種物體，向量長度即為 2000）。
-    - 輸出經 **Softmax** 函數處理後得到 y'。
-- **目標：** 最小化 y' 與 ŷ 之間的 **Cross Entropy**。
+- **輸入：** 固定大小的圖片，例如 $100 \times 100$ 像素解析度。即使圖片大小不一，通常也會先 Rescale 到固定大小。
+- **輸出：** 每個類別用 **One-Hot Vector** 表示 ($\hat{y}$)。
+    - 向量長度決定可辨識的物體種類數量（例如：$2000$ 種物體，向量長度即為 $2000$）。
+    - 輸出經 **Softmax** 函數處理後得到 $y'$。
+- **目標：** 最小化 $y'$ 與 $\hat{y}$ 之間的 **Cross Entropy**。
 
 ### 影像的電腦表示：三維 Tensor
 - **概念：** 對於機器而言，一張圖片是一個三維的 Tensor。
@@ -43,15 +43,15 @@ tags:
         - 彩色圖片：R (紅), G (綠), B (藍) 三個 Channel。
         - 黑白圖片：1 個 Channel。
 - **數值：** 每個 Channel 的每個 Pixel 都有一個數值，代表該顏色的強度。
-- **例子：** 100x100 解析度的彩色圖片，包含 100 (寬) x 100 (高) x 3 (Channel) 個數值。
+- **例子：** $100 \times 100$ 解析度的彩色圖片，包含 $100 \text{ (寬)} \times 100 \text{ (高)} \times 3 \text{ (Channel)}$ 個數值。
 
 ### Fully Connected Network 的問題
 若將三維影像 Tensor 直接「拉直」（Flatten）成一個巨大的向量作為 Fully Connected Network 的輸入，將面臨以下問題：
 
 1.  **參數爆炸 (Huge Number of Parameters)：**
-    - 圖片輸入向量長度：100 x 100 x 3 = 30,000 維。
-    - 假設第一層有 1000 個 Neuron。
-    - 第一層的 Weight 數量：1000 (Neuron) x 30,000 (輸入維度) = 3 x 10^7 (3千萬) 個參數。
+    - 圖片輸入向量長度：$100 \times 100 \times 3 = 30{,}000$ 維。
+    - 假設第一層有 $1000$ 個 Neuron。
+    - 第一層的 Weight 數量：$1000 \text{ (Neuron)} \times 30{,}000 \text{ (輸入維度)} = 3 \times 10^7$ (3千萬) 個參數。
     - 這麼多參數會導致模型訓練困難且需要龐大的計算資源。
 
 2.  **Overfitting 風險增加：**
@@ -71,20 +71,20 @@ tags:
 #### Receptive Field (感受野) 的概念
 - **定義：** 每個 Neuron 只關心其定義的特定局部區域，這個區域稱為 Receptive Field (RF)。
 - **運作方式：**
-    1.   Neuron 定義一個 RF (例如 3x3x3 區域)。
-    2.  將 RF 內的 3x3x3 = 27 個數值拉直成向量，作為 Neuron 的輸入。
-    3.  Neuron 為這 27 維向量的每個維度分配一個 Weight，加上 Bias，再通過 Activation Function 產生輸出。
+    1.   Neuron 定義一個 RF (例如 $3 \times 3 \times 3$ 區域)。
+    2.  將 RF 內的 $3 \times 3 \times 3 = 27$ 個數值拉直成向量，作為 Neuron 的輸入。
+    3.  Neuron 為這 $27$ 維向量的每個維度分配一個 Weight，加上 Bias，再通過 Activation Function 產生輸出。
 - **RF 的靈活性與常見設定：**
     - **重疊：** Receptive Field 之間可以彼此重疊。
     - **多個 Neuron 守備：** 同一個 RF 範圍可以由多個不同的 Neuron 共同守備，以偵測不同的 Pattern。
-    - **大小：** RF 可以有不同大小 (例如 3x3, 11x11)，但一般不會設太大 (常見 3x3)。
+    - **大小：** RF 可以有不同大小 (例如 $3 \times 3$, $11 \times 11$)，但一般不會設太大 (常見 $3 \times 3$)。
     - **Channel 考量：** RF 通常會考慮所有 Channel (R, G, B)。
     - **形狀：** 通常為相連的正方形或長方形區域。
     - **Kernel Size：** Receptive Field 的高與寬合稱為 **Kernel Size**。
 
 #### RF 掃描機制：Stride 與 Padding
-- **Stride (步長)：** 決定 Receptive Field 移動的距離。例如 Stride=2 表示每次移動兩格。
-    - 為了確保 RF 之間有足夠重疊，以避免 Pattern 剛好落在 RF 之間而被遺漏，Stride 通常設為 1 或 2。
+- **Stride (步長)：** 決定 Receptive Field 移動的距離。例如 $\text{Stride} = 2$ 表示每次移動兩格。
+    - 為了確保 RF 之間有足夠重疊，以避免 Pattern 剛好落在 RF 之間而被遺漏，$\text{Stride}$ 通常設為 $1$ 或 $2$。
 - **Padding (補值)：** 當 RF 超出影像邊界時，為了不遺漏邊緣的 Pattern，會用特定數值（最常見是 0，稱為 Zero Padding）來補齊超出部分的像素值。
 
 ### 觀察二：相同 Pattern 具空間不變性 (Parameter Sharing / Weight Sharing)
@@ -118,14 +118,14 @@ tags:
 - **Filter 偵測 Pattern：** 每個 Filter 的作用就是在影像中捕捉特定的局部 Pattern。Filter 內的數值就是模型需要學習的參數。
 
 ### Convolution 操作實例
-- **假設：** 6x6 黑白圖片 (Channel=1)，Filter 大小 3x3。
+- **假設：** $6 \times 6$ 黑白圖片 ($\text{Channel} = 1$)，Filter 大小 $3 \times 3$。
 - **步驟：**
     1.  將 Filter 放在圖片的左上角。
     2.  將 Filter 內的所有數值與圖片該區域的數值進行 **內積 (Inner Product)** 運算，得到一個單一數值。
-    3.  Filter 根據 **Stride** 往右移動（例如 Stride=1），重複步驟 2。
-    4.  掃完一行後，Filter 往下移動（同樣根據 Stride），重複掃描整行。
+    3.  Filter 根據 **$\text{Stride}$** 往右移動（例如 $\text{Stride} = 1$），重複步驟 2。
+    4.  掃完一行後，Filter 往下移動（同樣根據 $\text{Stride}$），重複掃描整行。
     5.  直到 Filter 掃遍整張圖片為止。
-- **結果：** 一個 Filter 掃描圖片後，會產生一個數值矩陣，其中每個數值代表 Filter 在對應區域偵測到的 Pattern 強度。
+- **結果：** 一個 Filter 掃描圖片後，會產生一個數值矩陣，其中每個數值代表 Filter 在對應區域偵測到的 Pattern 强度。
 
 ### Feature Map 的生成
 - **概念：** 每個 Filter 掃描完圖片後，都會產生一個數值矩陣，這個矩陣稱為 **Feature Map (特徵圖)**。
@@ -133,11 +133,11 @@ tags:
 - **新的「圖片」：** 這些 Feature Map 可以被視為一張新的「圖片」，只是它的 Channel 數目不再是 RGB，而是與 Filter 的數量相同（例如 64 個 Channel）。
 
 ### 多層 Convolution 的效果：擴大感受野
-- **問題：** 如果 Filter 大小一直設為 3x3，如何偵測更大的 Pattern？
+- **問題：** 如果 Filter 大小一直設為 $3 \times 3$，如何偵測更大的 Pattern？
 - **解答：** 透過堆疊多層 Convolutional Layer。
-    - 例如，第一層使用 3x3 Filter，其輸出 Feature Map。
-    - 第二層再使用 3x3 Filter 處理第一層的 Feature Map。
-    - 雖然每一層都只看 3x3 的範圍，但在原始影像上，第二層的 3x3 Filter 實際上已經「看到」了原始影像的 5x5 範圍。
+    - 例如，第一層使用 $3 \times 3$ Filter，其輸出 Feature Map。
+    - 第二層再使用 $3 \times 3$ Filter 處理第一層的 Feature Map。
+    - 雖然每一層都只看 $3 \times 3$ 的範圍，但在原始影像上，第二層的 $3 \times 3$ Filter 實際上已經「看到」了原始影像的 $5 \times 5$ 範圍。
     - **結論：** Network 疊得越深，即使 Filter 尺寸不變，其在原始影像上的有效 **感受野** 也會越來越大，從而能偵測到更大的 Pattern。
 
 ## 5. 比較兩種 CNN 概念
@@ -156,24 +156,24 @@ tags:
 ## 6. Pooling Layer：縮小影像維度
 
 ### Pooling 的觀察基礎
-- **核心思想：** 對影像進行 Subsampling (例如將圖片縮小到 1/4)，通常不會影響我們對影像中物體的辨識。例如，一隻鳥的圖片縮小後，仍然是一隻鳥。
+- **核心思想：** 對影像進行 Subsampling (例如將圖片縮小到 $1/4$)，通常不會影響我們對影像中物體的辨識。例如，一隻鳥的圖片縮小後，仍然是一隻鳥。
 - **目的：** 透過縮小影像尺寸來減少運算量，同時保持關鍵特徵。
 
 ### Pooling 的運作方式 (Max Pooling 為例)
 - **特性：**
     - **無參數：** Pooling Layer 本身不包含任何可學習的參數 (Weight)。因此，它更像是一個操作 (Operator) 或激活函數 (Activation Function)，而非傳統的 Layer。
-    - **固定行為：** 它的運作規則是固定好的，不需根據資料學習。
+    - **固定行為：** 它的運言規則是固定好的，不需根據資料學習。
 - **Max Pooling：**
-    1.  將 Feature Map 中的數值，按固定大小分組 (例如 2x2)。
+    1.  將 Feature Map 中的數值，按固定大小分組 (例如 $2 \times 2$)。
     2.  在每一組中，選擇 **最大** 的數值作為該組的代表。
 - **其他 Pooling 方式：**
     - **Min Pooling：** 選擇最小值。
     - **Average Pooling：** 選擇平均值。
-    - **尺寸：** Pooling 的分組大小 (例如 2x2, 3x3, 4x4) 可自定義。
+    - **尺寸：** Pooling 的分組大小 (例如 $2 \times 2$, $3 \times 3$, $4 \times 4$) 可自定義。
 
 ### Pooling 的作用與應用模式
 - **作用：**
-    - 將 Feature Map 的空間尺寸縮小 (例如 4x4 變成 2x2)。
+    - 將 Feature Map 的空間尺寸縮小 (例如 $4 \times 4$ 變成 $2 \times 2$)。
     - Feature Map 的 Channel 數目保持不變。
     - 減少模型的參數和運算量。
 - **應用模式：** 通常是 Convolutional Layer 與 Pooling Layer 交替使用 (例如：兩次 Convolution 後接一次 Pooling)。
@@ -195,21 +195,23 @@ tags:
 ```mermaid
 graph TD
     Input_Image["影像輸入 (3D Tensor)"] --> Conv1["Convolutional Layer 1"]
-    Conv1 --> Pool1["Pooling Layer 1"]
+    Conv1 --> Feature_Map_1["Feature Map 1"]
+    Feature_Map_1 -- "輸出" --> Pool1["Pooling Layer 1"]
     Pool1 --> Conv2["Convolutional Layer 2"]
-    Conv2 --> Pool2["Pooling Layer 2"]
+    Conv2 --> Feature_Map_2["Feature Map 2"]
+    Feature_Map_2 -- "輸出" --> Pool2["Pooling Layer 2"]
     Pool2 --> Flatten["Flatten Layer"]
     Flatten --> FC1["Fully Connected Layer 1"]
     FC1 --> FC_Output["最終分類層 (Softmax)"]
     FC_Output --> Output["分類結果"]
 
-    subgraph 核心觀察
+    subgraph "核心觀察"
         Obs_Local["局部 Pattern 觀察"]
         Obs_Spatial["Pattern 空間不變性觀察"]
         Obs_Subsample["影像 Subsampling 觀察"]
     end
 
-    subgraph CNN 組件原理
+    subgraph "CNN 組件原理"
         RF["Receptive Field"]
         PS["Parameter Sharing"]
         Filter["Filter / Kernel"]
@@ -219,47 +221,41 @@ graph TD
     Obs_Local --> RF
     Obs_Spatial --> PS
     PS --> Filter
-    RF + Filter --> Conv_Principle["Convolutional Layer 原理"]
+    RF --> Conv_Principle["Convolutional Layer 原理"]
+    Filter --> Conv_Principle
 
     Conv_Principle --> Conv1
     Conv_Principle --> Conv2
 
-    Conv1 --> Feature_Map_1
-    Conv2 --> Feature_Map_2
-
-    Feature_Map_1 -- "輸出" --> Pool1
-    Feature_Map_2 -- "輸出" --> Pool2
-
     Obs_Subsample --> Pool_Principle["Pooling Layer 原理"]
     Pool_Principle --> Pool1
     Pool_Principle --> Pool2
-
 ```
 
 ## 8. CNN 的應用範例：AlphaGo
 
 ### 圍棋盤面的表示
 - **輸入：** 棋盤上的黑子、白子位置。
-- **輸出：** 下一步最佳落子位置（一個 19x19 個類別的分類問題）。
+- **輸出：** 下一步最佳落子位置（一個 $19 \times 19$ 個類別的分類問題）。
 - **盤面表示成圖片：**
-    - 棋盤可以視為 19x19 解析度的圖片。
-    - 每個棋盤位置 (Pixel) 以 **48 個 Channel** 來描述，包含該位置的各種棋局特性 (例如是否被叫吃、周圍顏色等)。
-    - 因此，AlphaGo 的輸入是一個 19x19x48 的三維 Tensor。
+    - 棋盤可以視為 $19 \times 19$ 解析度的圖片。
+    - 每個棋盤位置 (Pixel) 以 **$48$ 個 Channel** 來描述，包含該位置的各種棋局特性 (例如是否被叫吃、周圍顏色等)。
+    - 因此，AlphaGo 的輸入是一個 $19 \times 19 \times 48$ 的三維 Tensor。
 
 ### CNN 適用於圍棋的特性
 圍棋與影像有許多共通的特性，使得 CNN 適用於此任務：
 
 1.  **局部 Pattern：** 圍棋中許多重要 Pattern (例如「叫吃」) 只需要看棋盤的局部區域即可判斷。
-    - AlphaGo 的第一層 Filter 大小為 5x5，顯示設計者認為許多關鍵 Pattern 在 5x5 範圍內可被偵測。
+    - AlphaGo 的第一層 Filter 大小為 $5 \times 5$，顯示設計者認為許多關鍵 Pattern 在 $5 \times 5$ 範圍內可被偵測。
 2.  **Pattern 空間不變性：** 相同的 Pattern (例如「叫吃」) 可以出現在棋盤的任何位置。
     - 這與影像中「鳥嘴」可在不同位置出現的特性相似。
 
 ### AlphaGo 的網路架構揭密：無 Pooling 層的設計
 - **論文發現：** 仔細閱讀 AlphaGo 的原始論文附件會發現，其網路架構**並沒有使用 Pooling Layer**。
 - **AlphaGo 的結構：**
-    - 輸入：19x19x48 的 Image。
-    - 第一層：Zero Padding, Kernel Size 5x5, 192 個 Filter, Stride=1, 激活函數 ReLU。
-    - 第二層至第十二層：Zero Padding, Kernel Size 3x3, 192 個 Filter, Stride=1, 激活函數 ReLU。
+    - 輸入：$19 \times 19 \times 48$ 的 Image。
+    - 第一層：Zero Padding, Kernel Size $5 \times 5$, $192$ 個 Filter, $\text{Stride} = 1$, 激活函數 ReLU。
+    - 第二層至第十二層：Zero Padding, Kernel Size $3 \times 3$, $192$ 個 Filter, $\text{Stride} = 1$, 激活函數 ReLU。
     - 最後層：Softmax (用於分類)。
 - **重要啟示：**
     - 類神經網路的設計**存乎一心**。
@@ -302,7 +298,7 @@ graph TD
 <summary>點擊查看解答</summary>
 傳統的 Fully Connected Network 直接處理高解析度影像會面臨兩大問題：
 
-1.  **參數爆炸 (Huge Number of Parameters)：** 影像（如 100x100x3 的圖片）被拉直成一個巨大的向量作為輸入，如果第一層有許多 Neuron，將導致模型參數數量非常龐大。例如，100x100x3 維的輸入向量和 1000 個 Neuron 的第一層，會產生 3x10^7 個連接權重，這使得模型難以訓練且計算資源需求高。
+1.  **參數爆炸 (Huge Number of Parameters)：** 影像（如 $100 \times 100 \times 3$ 的圖片）被拉直成一個巨大的向量作為輸入，如果第一層有許多 Neuron，將導致模型參數數量非常龐大。例如，$100 \times 100 \times 3$ 維的輸入向量和 $1000$ 個 Neuron 的第一層，會產生 $3 \times 10^7$ 個連接權重，這使得模型難以訓練且計算資源需求高。
 2.  **Overfitting (過度擬合) 風險增加：** 參數數量過多雖然增加了模型的彈性，但也使其更容易在訓練資料上學習到過於細節或噪音的模式，導致在未見過的新資料上表現不佳。
 </details>
 

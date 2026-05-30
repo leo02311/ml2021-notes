@@ -18,6 +18,13 @@ tags:
 
 ## 2. 使用分段線性函數逼近連續曲線
 
+<div align="center">
+<picture>
+  <source srcset="assets/vid02_sigmoids_dark.png" media="(prefers-color-scheme: dark)">
+  <img src="assets/vid02_sigmoids_light.png" alt="Sigmoid Addition Approximation" style="max-width: 80%;">
+</picture>
+</div>
+
 任何連續的非線性曲線，都可以透過取點連線的方式，近似成**分段線性曲線 (Piecewise Linear Curves)**。
 而每一個分段線性曲線，都可以看作是一個常數，加上許多個「藍色函數 (Hard Sigmoid)」的組合。
 
@@ -63,7 +70,7 @@ $$ y = c \cdot \frac{1}{1 + e^{-(b + w x_1)}} $$
 尋找最佳參數 $\theta^*$ 的暴力破解法已經不可能做到，我們必須仰賴 **梯度下降 (Gradient Descent)**：
 1.  隨機初始化 $\theta^0$。
 2.  對每個參數計算微分（即計算 Gradient $\mathbf{g} = \nabla L(\theta^0)$）。
-3.  更新參數：$\theta^1 = \theta^0 - \eta \mathbf{g}$ （$\eta$ 為 Learning Rate）。
+3.  更新參數：$\theta^1 = \theta^0 - $\eta$ \mathbf{g}$ （$\eta$ 為 Learning Rate）。
 
 ---
 
@@ -71,20 +78,20 @@ $$ y = c \cdot \frac{1}{1 + e^{-(b + w x_1)}} $$
 
 ```mermaid
 graph TD
-    A["'線性模型 Limitation'"] -->|Model Bias| B["'無法擬合複雜曲線'"]
-    B --> C["'解決方案: 彈性函數'"]
-    C --> D["'Piecewise Linear Curves'"]
-    D --> E["'Hard Sigmoid 組合'"]
-    E --> F["'Sigmoid 逼近平滑化'"]
+    A["線性模型 Limitation"] -->|Model Bias| B["無法擬合複雜曲線"]
+    B --> C["解決方案: 彈性函數"]
+    C --> D["Piecewise Linear Curves"]
+    D --> E["Hard Sigmoid 組合"]
+    E --> F["Sigmoid 逼近平滑化"]
     
-    F --> G["'參數矩陣化'"]
-    G --> H["'r = Wx + b'"]
-    H --> I["'a = σ(r)'"]
-    I --> J["'y = c^T a + b'"]
+    F --> G["參數矩陣化"]
+    G --> H["r = Wx + b"]
+    H --> I["a = σ(r)"]
+    I --> J["y = c^T a + b"]
     
-    J --> K["'定義 Loss L("θ")'"]
-    K --> L["'Gradient Descent 最佳化'"]
-    L --> M["'更新參數 θ = θ - η∇L'"]
+    J --> K["定義 Loss L(θ)"]
+    K --> L["Gradient Descent 最佳化"]
+    L --> M["更新參數 θ = θ - η∇L"]
 ```
 
 ---

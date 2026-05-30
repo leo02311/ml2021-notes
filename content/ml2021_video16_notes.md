@@ -19,7 +19,7 @@ Batch Normalization 是一個用於改善深度學習模型訓練的技術。其
 在討論 Batch Normalization 之前，我們首先回顧機器學習中的優化問題。即使損失函數是凸函數（碗狀），也可能因為以下情況而難以訓練：
 
 *   **參數對 Loss 的斜率差異巨大**：
-    *   例如，W1 方向斜率變化小，W2 方向斜率變化大。
+    *   例如，$W_1$ 方向斜率變化小，$W_2$ 方向斜率變化大。
     *   若使用固定學習率 (learning rate)，很難得到好結果。
     *   這導致需要使用 Adam 等自適應學習率的優化器。
 
@@ -29,16 +29,16 @@ Batch Normalization 是一個用於改善深度學習模型訓練的技術。其
 
 **範例：簡單線性模型**
 
-*   模型：`y = W1 * x1 + W2 * x2 + b`
-*   Loss：`L = sum(e)` where `e = y - y_hat`
+*   模型：$y = W_1 \cdot x_1 + W_2 \cdot x_2 + b$
+*   Loss：$L = \sum e$ where $e = y - \hat{y}$
 
-**W1 對 Loss 的影響：**
-*   當 `x1` 的值普遍很小，`W1` 的微小變化對 `y` 和 `e` 的影響都小，導致 `L` 的變化也很小（`W1` 方向斜率小）。
+**$W_1$ 對 Loss 的影響：**
+*   當 $x_1$ 的值普遍很小，$W_1$ 的微小變化對 $y$ 和 $e$ 的影響都小，導致 $L$ 的變化也很小（$W_1$ 方向斜率小）。
 
-**W2 對 Loss 的影響：**
-*   當 `x2` 的值普遍很大，`W2` 的微小變化對 `y` 和 `e` 的影響都大，導致 `L` 的變化也很大（`W2` 方向斜率大）。
+**$W_2$ 對 Loss 的影響：**
+*   當 $x_2$ 的值普遍很大，$W_2$ 的微小變化對 $y$ 和 $e$ 的影響都大，導致 $L$ 的變化也很大（$W_2$ 方向斜率大）。
 
-**結論**：當輸入特徵 `x1` 和 `x2` 的數值範圍差異很大時，就會產生不同方向斜率差異巨大的 Error Surface，使得訓練變得困難。
+**結論**：當輸入特徵 $x_1$ 和 $x_2$ 的數值範圍差異很大時，就會產生不同方向斜率差異巨大的 Error Surface，使得訓練變得困難。
 
 ### 1.3 解決方案：Feature Normalization (特徵正規化)
 
@@ -46,54 +46,60 @@ Batch Normalization 是一個用於改善深度學習模型訓練的技術。其
 
 **標準化 (Standardization)** 是一種常見的特徵正規化方法：
 
-*   **計算方式**：對於第 `i` 個特徵維度：
-    1.  計算所有訓練資料中，第 `i` 個維度的平均值 `μ_i`。
-    2.  計算所有訓練資料中，第 `i` 個維度的標準差 `σ_i`。
-    3.  將原始特徵值 `x_i` 轉換為 `x̃_i = (x_i - μ_i) / σ_i`。
-*   **效果**：經過標準化後，該維度上的數值將平均值為 0，方差為 1，分佈在 0 上下。
+*   **計算方式**：對於第 $i$ 個特徵維度：
+    1.  計算所有訓練資料中，第 $i$ 個維度的平均值 $\mu_i$。
+    2.  計算所有訓練資料中，第 $i$ 個維度的標準差 $\sigma_i$。
+    3.  將原始特徵值 $x_i$ 轉換為：
+        $$\tilde{x}_i = \frac{x_i - \mu_i}{$\sigma_i$}$$
+*   **效果**：經過標準化後，該維度上的數值將平均值為 $0$，方差為 $1$，分佈在 $0$ 上下。
 *   **好處**：使 Gradient Descent 收斂更快、訓練更順利。
 
 ## 2. 深度學習中的 Batch Normalization
 
-Feature Normalization 不僅適用於輸入特徵 `x`，也應該考慮應用於深度網路的隱藏層輸出。
+Feature Normalization 不僅適用於輸入特徵 $x$，也應該考慮應用於深度網路的隱藏層輸出。
 
 ### 2.1 隱藏層的 Feature Normalization
 
-如果輸入 `x̃` 經過第一層 `W1` 得到 `z1`，但 `z1` 各維度數值分佈仍有差異，那麼訓練第二層 `W2` 的參數也會有困難。因此，我們也應該對隱藏層的輸出 `z` 或激活值 `a` 進行正規化。
+如果輸入 $\tilde{x}$ 經過第一層 $W_1$ 得到 $z_1$，但 $z_1$ 各維度數值分佈仍有差異，那麼訓練第二層 $W_2$ 的參數也會有困難。因此，我們也應該對隱藏層的輸出 $z$ 或激活值 $a$ 進行正規化。
 
 *   **實作考量**：
-    *   在激活函數 (activation function) **之前** (`z`) 或 **之後** (`a`) 進行正規化，實作差異不大。
-    *   若選擇 Sigmoid 函數，對 `z` 進行正規化可能更好，因為 Sigmoid 在 0 附近斜率較大，有助於梯度傳播。
+    *   在激活函數 (activation function) **之前** ($z$) 或 **之後** ($a$) 進行正規化，實作差異不大。
+    *   若選擇 Sigmoid 函數，對 $z$ 進行正規化可能更好，因為 Sigmoid 在 $0$ 附近斜率較大，有助於梯度傳播。
 
 ### 2.2 從 Feature Normalization 到 Batch Normalization
 
-傳統的 Feature Normalization 需要計算「所有」訓練資料中特定維度的平均值 `μ` 和標準差 `σ`。然而：
+傳統的 Feature Normalization 需要計算「所有」訓練資料中特定維度的平均值 $\mu$ 和標準差 $\sigma$。然而：
 
-*   **訓練資料量龐大**：實際的資料集往往有數百萬筆，無法一次性載入所有資料到記憶體中計算 `μ` 和 `σ`。
+*   **訓練資料量龐大**：實際的資料集往往有數百萬筆，無法一次性載入所有資料到記憶體中計算 $\mu$ 和 $\sigma$。
 *   **解決方案**：在實作時，我們不考慮整個訓練資料集，而只考慮「一個 Batch」中的範例。
 
 **Batch Normalization (BN) 的工作方式：**
 
 1.  **批次計算**：
     *   在每次訓練迭代時，從訓練資料中取出一個 Batch 的資料 (例如 64 筆)。
-    *   針對該 Batch 內的資料，計算隱藏層輸出 `z` 的每個維度的平均值 `μ_batch` 和標準差 `σ_batch`。
-    *   對該 Batch 內的 `z` 進行正規化：`z̃ = (z - μ_batch) / σ_batch`。
-    *   由於 `μ_batch` 和 `σ_batch` 是根據當前 Batch 計算的，因此 Batch Normalization 將每個 Batch 中的範例關聯起來，它被視為網路的一部分。
+    *   針對該 Batch 內的資料，計算隱藏層輸出 $z$ 的每個維度的平均值 $\mu_{\text{batch}}$ 和標準差 $\sigma_{\text{batch}}$。
+    *   對該 Batch 內的 $z$ 進行正規化：
+        $$\tilde{z} = \frac{z - \mu_{\text{batch}}}{\sigma_{\text{batch}}}$$
+    *   由於 $\mu_{\text{batch}}$ 和 $\sigma_{\text{batch}}$ 是根據當前 Batch 計算的，因此 Batch Normalization 將每個 Batch 中的範例關聯起來，它被視為網路的一部分。
 
-2.  **學習參數 γ 和 β**：
-    *   在 `z̃` 之後，Batch Normalization 還會引入兩個可學習的參數：`γ` (scale) 和 `β` (shift)。
-    *   最終的輸出是 `ẑ = γ * z̃ + β`。
-    *   **目的**：有人認為強制平均值為 0 和方差為 1 可能限制了網路的表達能力。`γ` 和 `β` 允許網路調整 `ẑ` 的分佈，使其不必強制平均值為 0 和方差為 1，從而有更大的彈性。
-    *   **初始值**：通常將 `γ` 初始化為全 1 向量，`β` 初始化為全 0 向量，這樣在訓練初期仍然保持正規化的好處。
+2.  **學習參數 $\gamma$ 和 $\beta$**：
+    *   在 $\tilde{z}$ 之後，Batch Normalization 還會引入兩個可學習的參數：$\gamma$ (scale) 和 $\beta$ (shift)。
+    *   最終的輸出是：
+        $$\hat{z} = \gamma \cdot \tilde{z} + \beta$$
+    *   **目的**：有人認為強制平均值為 $0$ 和方差為 $1$ 可能限制了網路的表達能力。$\gamma$ 和 $\beta$ 允許網路調整 $\hat{z}$ 的分佈，使其不必強制平均值為 $0$ 和方差為 $1$，從而有更大的彈性。
+    *   **初始值**：通常將 $\gamma$ 初始化為全 $1$ 向量，$\beta$ 初始化為全 $0$ 向量，這樣在訓練初期仍然保持正規化的好處。
 
 ### 2.3 Batch Normalization 在測試 (Inference) 階段的處理
 
-在測試或線上應用時，通常一次只處理一筆資料，沒有「Batch」的概念，因此無法計算 `μ_batch` 和 `σ_batch`。
+在測試或線上應用時，通常一次只處理一筆資料，沒有「Batch」的概念，因此無法計算 $\mu_{\text{batch}}$ 和 $\sigma_{\text{batch}}$。
 
 *   **解決方案：Moving Average (移動平均)**：
-    *   在訓練階段，每次計算出 `μ_batch` 和 `σ_batch` 時，都會使用移動平均的方式來更新全局的 `μ_bar` 和 `σ_bar`。
-    *   例如：`μ_bar_new = P * μ_bar_old + (1 - P) * μ_batch_current` (P 為超參數，如 0.9 或 0.99)。
-    *   在測試階段，直接使用訓練過程中累積得到的全局 `μ_bar` 和 `σ_bar` 來進行正規化：`ẑ = γ * ((z - μ_bar) / σ_bar) + β`。
+    *   在訓練階段，每次計算出 $\mu_{\text{batch}}$ 和 $\sigma_{\text{batch}}$ 時，都會使用移動平均的方式來更新全局的 $\bar{\mu}$ 和 $\bar{\sigma}$。
+    *   例如：
+        $$\bar{\mu}_{\text{new}} = P \cdot \bar{\mu}_{\text{old}} + (1 - P) \cdot \mu_{\text{batch\_current}}$$
+        (其中 $P$ 為超參數，如 $0.9$ 或 $0.99$)。
+    *   在測試階段，直接使用訓練過程中累積得到的全局 $\bar{\mu}$ 和 $\bar{\sigma}$ 來進行正規化：
+        $$\hat{z} = \gamma \cdot \left(\frac{z - \bar{\mu}}{\bar{\sigma}}\right) + \beta$$
 
 ## 3. Batch Normalization 的實驗結果與效益
 
@@ -144,19 +150,19 @@ Batch Normalization 並非唯一的正規化方法，還有許多其他變體，
 
 ```mermaid
 graph TD
-    subgraph BN 核心問題與動機
+    subgraph "BN 核心問題與動機"
         A["難以訓練的深度學習模型"] --> B["Error Surface 崎嶇不平"];
         B --> C["不同參數對 Loss 斜率差異大"];
         C --> D["輸入特徵尺度差異大"];
     end
 
-    subgraph Feature Normalization 基礎
+    subgraph "Feature Normalization 基礎"
         D --> E["解決方案: Feature Normalization"];
         E --> F["Standardization 標準化"];
         F --> G["目標: 均值為0, 方差為1"];
     end
 
-    subgraph Batch Normalization 實作
+    subgraph "Batch Normalization 實作"
         E --> H["應用於 Deep Network 內部層"];
         H --> I["選擇: 對 Z 或 A 進行標準化"];
         I --> J["訓練階段: 批次計算 μ_batch 與 Σ_batch"];
@@ -167,7 +173,7 @@ graph TD
         J --> M["限制: 需要足夠大的 Batch Size"];
     end
 
-    subgraph BN 在 Testing 階段
+    subgraph "BN 在 Testing 階段"
         N["Testing/Inference 階段"];
         N --> O["沒有 Batch 概念"];
         O --> P["解決方案: 訓練時計算 μ_bar 與 Σ_bar"];
@@ -175,14 +181,14 @@ graph TD
         Q --> R["Testing 時直接使用 μ_bar 與 Σ_bar"];
     end
 
-    subgraph BN 帶來的效益
+    subgraph "BN 帶來的效益"
         K --> S["提升訓練效率"];
         S --> S1["訓練速度更快"];
         S --> S2["允許更大的 Learning Rate"];
         S --> S3["改善 Sigmoid 等激活函數訓練"];
     end
 
-    subgraph BN 工作原理探討
+    subgraph "BN 工作原理探討"
         K --> T["BN 為何有效?"];
         T --> T1["原始假說: Internal Covariate Shift"];
         T1 --> T2["被後續研究駁斥"];
@@ -204,11 +210,11 @@ graph TD
 BN 的主要動機是為了解決深度學習模型訓練過程中，Error Surface 過於崎嶇導致優化困難的問題。這通常是因不同輸入特徵或隱藏層輸出各維度的數值範圍差異過大所引起。通過正規化這些數值，BN 試圖使 Error Surface 更平滑，從而加速訓練並提高模型的穩定性。
 </details>
 
-### 2. Batch Normalization 在訓練階段和測試階段計算平均值 ($\mu$) 和標準差 ($\sigma$) 的方式有何不同？
+### 2. Batch Normalization 在訓練階段 and 測試階段計算平均值 ($\mu$) 和標準差 ($\sigma$) 的方式有何不同？
 <details>
 <summary>點擊展開解答</summary>
-*   **訓練階段**：在訓練階段，每次迭代都會從資料集中取一個「Batch」的資料。BN 會針對當前這個 Batch 的資料，計算其隱藏層輸出的各維度平均值 ($\mu_{batch}$) 和標準差 ($\sigma_{batch}$)，然後用於正規化該 Batch 的資料。同時，這些批次統計量也會被用來更新全局的移動平均 ($\mu_{bar}$) 和移動標準差 ($\sigma_{bar}$)。
-*   **測試階段**：在測試階段（或線上推斷），通常一次只處理一筆資料，沒有「Batch」的概念。此時，BN 不會計算當前資料的 $\mu$ 和 $\sigma$，而是直接使用訓練階段累積得到的全局移動平均 ($\mu_{bar}$) 和移動標準差 ($\sigma_{bar}$) 來進行正規化。
+*   **訓練階段**：在訓練階段，每次迭代都會從資料集中取一個「Batch」的資料。BN 會針對當前這個 Batch 的資料，計算其隱藏層輸出的各維度平均值 ($\mu_{\text{batch}}$) 和標準差 ($\sigma_{\text{batch}}$)，然後用於正規化該 Batch 的資料。同時，這些批次統計量也會被用來更新全局的移動平均 ($\bar{\mu}$) 和移動標準差 ($\bar{\sigma}$)。
+*   **測試階段**：在測試階段（或線上推斷），通常一次只處理一筆資料，沒有「Batch」的概念。此時，BN 不會計算當前資料的 $\mu$ 和 $\sigma$，而是直接使用訓練階段累積得到的全局移動平均 ($\bar{\mu}$) 和移動標準差 ($\bar{\sigma}$) 來進行正規化。
 </details>
 
 ### 3. 在關於 Batch Normalization 為何有效的討論中，原始論文提出的是什麼假說？而後續的研究又提出了什麼不同的觀點？
