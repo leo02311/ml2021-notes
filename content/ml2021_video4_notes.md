@@ -1,7 +1,7 @@
 好的，我將根據您的要求，將李宏毅教授的機器學習課程逐字稿整理成排版精美的 Markdown 筆記。
 
 ---
-title: 第4堂課：Unknown Title (Video 4)
+title: 第4堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (一)： 局部最小值 (local minima) 與鞍點 (saddle point)
 tags:
   - MachineLearning
   - ML2021
@@ -13,7 +13,7 @@ tags:
   - Hessian
 ---
 
-# 【機器學習 2021】第4堂課：Unknown Title (Video 4)
+# 【機器學習 2021】第4堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (一)： 局部最小值 (local minima) 與鞍點 (saddle point)
 
 本堂課程深入探討機器學習中的**最佳化 (Optimization)** 問題，特別是如何在訓練過程中，當模型訓練停滯時，更好地理解並改進**梯度下降 (Gradient Descent)** 演算法。
 

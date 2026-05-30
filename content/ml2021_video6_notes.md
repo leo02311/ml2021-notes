@@ -1,7 +1,7 @@
 好的，我將扮演您的專業技術筆記整理專家，為您將李宏毅教授的機器學習課程逐字稿整理成精美的 Markdown 筆記。
 
 ---
-title: 第6堂課：Unknown Title (Video 6)
+title: 第6堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)
 tags:
   - MachineLearning
   - ML2021
@@ -15,7 +15,7 @@ tags:
   - LearningRateDecay
 ---
 
-# 【機器學習 2021】第6堂課：Unknown Title (Video 6)
+# 【機器學習 2021】第6堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)
 
 ## 課程引言：梯度下降 (Gradient Descent) 的挑戰
 

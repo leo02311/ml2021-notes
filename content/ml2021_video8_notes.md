@@ -1,7 +1,7 @@
 作為專業的技術筆記整理專家，我已將李宏毅教授的機器學習課程逐字稿整理成排版精美的 Markdown 筆記。
 
 ---
-title: 第8堂課：Unknown Title (Video 8)
+title: 第8堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (四)：損失函數 (Loss) 也可能有影響
 tags:
   - MachineLearning
   - ML2021
@@ -10,7 +10,7 @@ tags:
   - CrossEntropy
 ---
 
-# 【機器學習 2021】第8堂課：Unknown Title (Video 8)
+# 【機器學習 2021】第8堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (四)：損失函數 (Loss) 也可能有影響
 
 ## 課程簡介：分類問題 (Classification)
 

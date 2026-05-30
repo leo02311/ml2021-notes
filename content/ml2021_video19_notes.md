@@ -1,7 +1,7 @@
 好的，我將扮演專業的技術筆記整理專家，為您整理李宏毅教授機器學習課程第19堂課的逐字稿，製作成排版精美的 Markdown 筆記。
 
 ---
-title: 第19堂課：Unknown Title (Video 19)
+title: 第19堂課：[ML 2021 (English version)] Lecture 12: Transformer (1/2)
 tags:
   - MachineLearning
   - ML2021
@@ -11,7 +11,7 @@ tags:
   - SelfAttention
 ---
 
-# 【機器學習 2021】第19堂課：Unknown Title (Video 19)
+# 【機器學習 2021】第19堂課：[ML 2021 (English version)] Lecture 12: Transformer (1/2)
 
 ## 什麼是 Transformer？
 

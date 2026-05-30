@@ -1,13 +1,13 @@
 好的，這是一份根據李宏毅教授課程逐字稿整理而成的專業技術筆記。
 
 ---
-title: 第15堂課：Unknown Title (Video 15)
+title: 第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 【機器學習 2021】第15堂課：Unknown Title (Video 15)
+# 【機器學習 2021】第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)
 
 ## 1. 自注意力機制 (Self-Attention Mechanism) 概述
 

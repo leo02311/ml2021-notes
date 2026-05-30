@@ -1,11 +1,11 @@
 ---
-title: 第7堂課：Unknown Title (Video 7)
+title: 第7堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 【機器學習 2021】第7堂課：Unknown Title (Video 7)
+# 【機器學習 2021】第7堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)
 
 ## 課程大綱
 

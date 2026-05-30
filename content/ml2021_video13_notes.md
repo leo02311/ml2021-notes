@@ -1,7 +1,7 @@
 好的，我將扮演您的專業技術筆記整理專家，為您整理李宏毅教授機器學習課程第13堂課的逐字稿，製作成排版精美的 Markdown 筆記。
 
 ---
-title: 第13堂課：Unknown Title (Video 13) - 自注意力機制 Self-Attention
+title: 第13堂課：【機器學習2021】自注意力機制 (Self-attention) (下) - 自注意力機制 Self-Attention
 tags:
   - MachineLearning
   - ML2021
@@ -9,7 +9,7 @@ tags:
   - Transformer
 ---
 
-# 【機器學習 2021】第13堂課：Unknown Title (Video 13)
+# 【機器學習 2021】第13堂課：【機器學習2021】自注意力機制 (Self-attention) (下)
 
 這堂課深入講解了自注意力機制 (Self-Attention) 的運作原理，從向量層面逐步過渡到矩陣運算，並探討了其多種變形、應用以及與其他主流模型的比較。
 

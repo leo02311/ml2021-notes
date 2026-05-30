@@ -1,11 +1,11 @@
 ---
-title: 第18堂課：Unknown Title (Video 18)
+title: 第18堂課：【機器學習2021】Transformer (上)
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 【機器學習 2021】第18堂課：Unknown Title (Video 18)
+# 【機器學習 2021】第18堂課：【機器學習2021】Transformer (上)
 
 ## 課程簡介：Transformer 與 Seq2seq 模型
 
