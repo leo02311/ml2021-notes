@@ -27,6 +27,11 @@ Seq2seq 模型在多個領域都有關鍵應用，特別是當輸出序列的長
 *   **特性**：輸入聲音長度 `T` 與輸出文字長度 `N` 沒有絕對關係，由機器自行決定。
 
 ### 機器翻譯 (Machine Translation)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/vid16_seq2seq_dark.png">
+  <img alt="Cross-Attention Alignment Heatmap" src="../assets/vid16_seq2seq_light.png">
+</picture>
 *   **應用**：作業五將會實作機器翻譯。
 *   **輸入**：一種語言的句子（文字序列）。
 *   **輸出**：另一種語言的句子（文字序列）。

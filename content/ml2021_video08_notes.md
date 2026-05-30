@@ -91,6 +91,11 @@ Soft-max 函式的輸入 $y_i$ 通常被稱為 **Logit**。
 
 #### 平均平方誤差 (Mean Squared Error, MSE)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/vid08_bn_dark.png">
+  <img alt="Batch Normalization 3D Surface Smoothing" src="../assets/vid08_bn_light.png">
+</picture>
+
 *   **公式**：$$ e = \sum_i (y'_i - \hat{y}_i)^2 $$
 *   **問題**：雖然 MSE 也可以用來衡量兩個向量的距離，但在分類問題中，特別是當模型的預測離正確答案很遠時，MSE 的梯度可能會非常小，導致模型訓練緩慢或停滯。
 

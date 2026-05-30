@@ -83,6 +83,11 @@ tags:
     - **Kernel Size：** Receptive Field 的高與寬合稱為 **Kernel Size**。
 
 #### RF 掃描機制：Stride 與 Padding
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/vid10_cnn_dark.png">
+  <img alt="CNN Convolution Window Sliding" src="../assets/vid10_cnn_light.png">
+</picture>
 - **Stride (步長)：** 決定 Receptive Field 移動的距離。例如 $\text{Stride} = 2$ 表示每次移動兩格。
     - 為了確保 RF 之間有足夠重疊，以避免 Pattern 剛好落在 RF 之間而被遺漏，$\text{Stride}$ 通常設為 $1$ 或 $2$。
 - **Padding (補值)：** 當 RF 超出影像邊界時，為了不遺漏邊緣的 Pattern，會用特定數值（最常見是 0，稱為 Zero Padding）來補齊超出部分的像素值。
