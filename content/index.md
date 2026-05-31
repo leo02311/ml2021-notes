@@ -14,7 +14,7 @@ title: "機器學習 2021 課程筆記"
 * [[ml2021_video04_notes|第04堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (一)： 局部最小值 (local minima) 與鞍點 (saddle point)]]
 * [[ml2021_video05_notes|第05堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (二)： 批次 (batch) 與動量 (momentum)]]
 * [[ml2021_video06_notes|第06堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)]]
-* [[ml2021_video07_notes|第07堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)]]
+* [[ml2021_video07_notes|第07堂課：What to do when optimization fails? (3/4)]]
 * [[ml2021_video08_notes|第08堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (四)：損失函數 (Loss) 也可能有影響]]
 * [[ml2021_video09_notes|第09堂課：[ML 2021 (English version)] Lecture 8: Classification (Short Version)]]
 * [[ml2021_video10_notes|第10堂課：【機器學習2021】卷積神經網路 (Convolutional Neural Networks, CNN)]]
