@@ -1,5 +1,5 @@
 ---
-title: "Adversarial Attack (Part 2 of 2)"
+title: "第32堂課：Adversarial Attack (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -60,26 +60,26 @@ $$g = \text{sign}\left( \left. \frac{\partial L}{\partial x} \right|_{x=x^{t-1}}
 
 ```mermaid
 graph TD
-    "Adversarial Attack" --> "Goal"
-    "Adversarial Attack" --> "Method"
-    "Adversarial Attack" --> "Defense"
+    N5c3e30["Adversarial Attack"] --> N12c742["Goal"]
+    N5c3e30["Adversarial Attack"] --> N4c3880["Method"]
+    N5c3e30["Adversarial Attack"] --> N4b088a["Defense"]
     
-    "Goal" --> "Non-targeted"
-    "Goal" --> "Targeted"
+    N12c742["Goal"] --> Nce2586["Non-targeted"]
+    N12c742["Goal"] --> N6cb56f["Targeted"]
     
-    "Method" --> "White Box Attack"
-    "Method" --> "Black Box Attack"
+    N4c3880["Method"] --> Nb5940c["White Box Attack"]
+    N4c3880["Method"] --> N274726["Black Box Attack"]
     
-    "White Box Attack" --> "FGSM"
-    "White Box Attack" --> "Iterative FGSM"
+    Nb5940c["White Box Attack"] --> N9821eb["FGSM"]
+    Nb5940c["White Box Attack"] --> N06939d["Iterative FGSM"]
     
-    "Defense" --> "Passive Defense"
-    "Defense" --> "Proactive Defense"
+    N4b088a["Defense"] --> Nd9f965["Passive Defense"]
+    N4b088a["Defense"] --> N5ad478["Proactive Defense"]
     
-    "Passive Defense" --> "Smoothing"
-    "Passive Defense" --> "Compression"
+    Nd9f965["Passive Defense"] --> N7d2f4f["Smoothing"]
+    Nd9f965["Passive Defense"] --> N82af84["Compression"]
     
-    "Proactive Defense" --> "Adversarial Training"
+    N5ad478["Proactive Defense"] --> N6efd5e["Adversarial Training"]
 ```
 
 ---

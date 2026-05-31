@@ -1,5 +1,5 @@
 ---
-title: "Transformer (Part 1 of 2)"
+title: "第19堂課：Transformer (Part 1 of 2)"
 tags:
   - MachineLearning
   - ML2021

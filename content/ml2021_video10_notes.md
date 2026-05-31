@@ -1,5 +1,5 @@
 ---
-title: "卷積神經網路 (Convolutional Neural Networks, CNN)"
+title: "第10堂課：卷積神經網路 (Convolutional Neural Networks, CNN)"
 tags:
   - MachineLearning
   - ML2021

@@ -1,5 +1,5 @@
 ---
-title: "自注意力機制 (Self-attention) (下) - 自注意力機制 Self-Attention"
+title: "第13堂課：自注意力機制 (Self-attention) (下) - 自注意力機制 Self-Attention"
 tags:
   - MachineLearning
   - ML2021

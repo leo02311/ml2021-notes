@@ -1,5 +1,5 @@
 ---
-title: "類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)"
+title: "第06堂課：類神經網路訓練不起來怎麼辦 (三)：自動調整學習速率 (Learning Rate)"
 tags:
   - MachineLearning
   - ML2021

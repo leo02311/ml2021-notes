@@ -1,5 +1,5 @@
 ---
-title: "Generative Adversarial Network (GAN) (Part 3 of 4)"
+title: "第24堂課：Generative Adversarial Network (GAN) (Part 3 of 4)"
 tags:
   - MachineLearning
   - ML2021
@@ -37,18 +37,18 @@ $$V(G, D) = E_{y \sim P_{data}}[\log D(y)] + E_{y \sim P_G}[\log(1 - D(y))]$$
 
 ```mermaid
 graph TD
-    "Generative Models" --> "GAN"
-    "Generative Models" --> "VAE"
-    "Generative Models" --> "Flow-based Model"
-    "GAN" --> "Conditional GAN"
-    "GAN" --> "Cycle GAN"
-    "GAN" --> "WGAN"
-    "Conditional GAN" --> "Text-to-image"
-    "Conditional GAN" --> "Talking Head Generation"
-    "Cycle GAN" --> "Unsupervised Translation"
-    "GAN" --> "Evaluation"
-    "Evaluation" --> "Inception Score"
-    "Evaluation" --> "FID"
+    Ne4455e["Generative Models"] --> N787700["GAN"]
+    Ne4455e["Generative Models"] --> Na9423d["VAE"]
+    Ne4455e["Generative Models"] --> Ne9f0e5["Flow-based Model"]
+    N787700["GAN"] --> N4252af["Conditional GAN"]
+    N787700["GAN"] --> N47fe2d["Cycle GAN"]
+    N787700["GAN"] --> N1ea913["WGAN"]
+    N4252af["Conditional GAN"] --> N6e3eb8["Text-to-image"]
+    N4252af["Conditional GAN"] --> N592a03["Talking Head Generation"]
+    N47fe2d["Cycle GAN"] --> Ncd9f20["Unsupervised Translation"]
+    N787700["GAN"] --> Nb74a43["Evaluation"]
+    Nb74a43["Evaluation"] --> N8e2eff["Inception Score"]
+    Nb74a43["Evaluation"] --> N593d93["FID"]
 ```
 
 ## 四、 進階與挑戰

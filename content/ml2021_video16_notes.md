@@ -1,5 +1,5 @@
 ---
-title: "Batch Normalization"
+title: "第16堂課：Batch Normalization"
 tags:
   - MachineLearning
   - ML2021

@@ -1,5 +1,5 @@
 ---
-title: "Auto-encoder (Part 2 of 2)"
+title: "第30堂課：Auto-encoder (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -59,20 +59,20 @@ GPT 系列模型主要基於 Transformer Decoder，專注於生成任務。
 
 ```mermaid
 graph TD
-    "Self-Supervised Learning" --> "Language Modeling"
-    "Self-Supervised Learning" --> "Downstream Tasks"
-    "Language Modeling" --> "BERT"
-    "Language Modeling" --> "GPT"
-    "BERT" --> "Masked Token Prediction"
-    "BERT" --> "NSP/SOP"
-    "BERT" --> "Fine-tuning"
-    "GPT" --> "Predict Next Token"
-    "GPT" --> "In-context Learning"
-    "Beyond Text" --> "Speech"
-    "Beyond Text" --> "CV"
-    "Speech" --> "SUPERB"
-    "CV" --> "SimCLR"
-    "CV" --> "BYOL"
+    N8acbc7["Self-Supervised Learning"] --> Ncc7f4c["Language Modeling"]
+    N8acbc7["Self-Supervised Learning"] --> Ncfd995["Downstream Tasks"]
+    Ncc7f4c["Language Modeling"] --> N221c3e["BERT"]
+    Ncc7f4c["Language Modeling"] --> N1703f9["GPT"]
+    N221c3e["BERT"] --> Nf11b60["Masked Token Prediction"]
+    N221c3e["BERT"] --> N20ee2a["NSP/SOP"]
+    N221c3e["BERT"] --> Nbf001e["Fine-tuning"]
+    N1703f9["GPT"] --> N20abbc["Predict Next Token"]
+    N1703f9["GPT"] --> Nbf44b8["In-context Learning"]
+    Nd4e529["Beyond Text"] --> N04a839["Speech"]
+    Nd4e529["Beyond Text"] --> Na5c8c3["CV"]
+    N04a839["Speech"] --> Nd6882e["SUPERB"]
+    Na5c8c3["CV"] --> N9b7808["SimCLR"]
+    Na5c8c3["CV"] --> Nb650b6["BYOL"]
 ```
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Generative Adversarial Network (GAN) (Part 1 of 4)"
+title: "第21堂課：Generative Adversarial Network (GAN) (Part 1 of 4)"
 tags:
   - MachineLearning
   - ML2021
@@ -65,17 +65,17 @@ $$G^* = \arg \min_G \text{Div}(P_G, P_{data})$$
 
 ```mermaid
 graph TD
-    "Generative Models" --> "GAN"
-    "GAN" --> "Discriminator"
-    "GAN" --> "Generator"
-    "GAN" --> "Training Tips"
-    "GAN" --> "Conditional GAN"
-    "GAN" --> "Cycle GAN"
-    "Conditional GAN" --> "pix2pix"
-    "Evaluation" --> "Inception Score"
-    "Evaluation" --> "FID"
-    "Theory" --> "JS Divergence"
-    "Theory" --> "Wasserstein Distance"
+    Ne4455e["Generative Models"] --> N787700["GAN"]
+    N787700["GAN"] --> N3d07d0["Discriminator"]
+    N787700["GAN"] --> N92a8f0["Generator"]
+    N787700["GAN"] --> Ne0954a["Training Tips"]
+    N787700["GAN"] --> N4252af["Conditional GAN"]
+    N787700["GAN"] --> N47fe2d["Cycle GAN"]
+    N4252af["Conditional GAN"] --> Na36f79["pix2pix"]
+    Nb74a43["Evaluation"] --> N8e2eff["Inception Score"]
+    Nb74a43["Evaluation"] --> N593d93["FID"]
+    N700172["Theory"] --> Nbdbb61["JS Divergence"]
+    N700172["Theory"] --> N82fd2a["Wasserstein Distance"]
 ```
 
 ---

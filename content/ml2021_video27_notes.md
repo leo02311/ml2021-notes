@@ -1,5 +1,5 @@
 ---
-title: "Self-supervised Learning (aka Foundation Model) (Part 2 of 3)"
+title: "第27堂課：Self-supervised Learning (aka Foundation Model) (Part 2 of 3)"
 tags:
   - MachineLearning
   - ML2021
@@ -58,17 +58,17 @@ GPT (Generative Pre-trained Transformer) 基於 Transformer Decoder，主要擅�
 
 ```mermaid
 graph TD
-    "Self-Supervised Learning" --> "BERT Series"
-    "Self-Supervised Learning" --> "GPT Series"
-    "Self-Supervised Learning" --> "Speech Processing"
-    "Self-Supervised Learning" --> "Computer Vision"
-    "BERT Series" --> "Masked Token Prediction"
-    "BERT Series" --> "Downstream Tasks"
-    "GPT Series" --> "Predict Next Token"
-    "GPT Series" --> "Few-shot Learning"
-    "Speech Processing" --> "SUPERB Benchmark"
-    "Computer Vision" --> "SimCLR"
-    "Computer Vision" --> "BYOL"
+    N8acbc7["Self-Supervised Learning"] --> N3cbbaa["BERT Series"]
+    N8acbc7["Self-Supervised Learning"] --> N19c7e4["GPT Series"]
+    N8acbc7["Self-Supervised Learning"] --> N378c62["Speech Processing"]
+    N8acbc7["Self-Supervised Learning"] --> N753a22["Computer Vision"]
+    N3cbbaa["BERT Series"] --> Nf11b60["Masked Token Prediction"]
+    N3cbbaa["BERT Series"] --> Ncfd995["Downstream Tasks"]
+    N19c7e4["GPT Series"] --> N20abbc["Predict Next Token"]
+    N19c7e4["GPT Series"] --> N165306["Few-shot Learning"]
+    N378c62["Speech Processing"] --> N2fce0a["SUPERB Benchmark"]
+    N753a22["Computer Vision"] --> N9b7808["SimCLR"]
+    N753a22["Computer Vision"] --> Nb650b6["BYOL"]
 ```
 
 ---

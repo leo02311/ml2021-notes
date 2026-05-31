@@ -1,5 +1,5 @@
 ---
-title: "類神經網路訓練不起來怎麼辦 (二)： 批次 (batch) 與動量 (momentum)"
+title: "第05堂課：類神經網路訓練不起來怎麼辦 (二)： 批次 (batch) 與動量 (momentum)"
 tags:
   - MachineLearning
   - ML2021

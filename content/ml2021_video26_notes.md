@@ -1,5 +1,5 @@
 ---
-title: "Self-supervised Learning (aka Foundation Model) (Part 1 of 3)"
+title: "第26堂課：Self-supervised Learning (aka Foundation Model) (Part 1 of 3)"
 tags:
   - MachineLearning
   - ML2021
@@ -20,13 +20,13 @@ tags:
 
 ```mermaid
 graph TD
-    "自監督學習" --> "監督訊號來源"
-    "監督訊號來源" --> "利用部分輸入預測其餘部分"
-    "應用領域" --> "自然語言處理 (NLP)"
-    "應用領域" --> "語音處理 (Speech)"
-    "應用領域" --> "電腦視覺 (CV)"
-    "核心模型系列" --> "BERT系列"
-    "核心模型系列" --> "GPT系列"
+    Nb7d289["自監督學習"] --> N536f3e["監督訊號來源"]
+    N536f3e["監督訊號來源"] --> Nccefae["利用部分輸入預測其餘部分"]
+    N4d9820["應用領域"] --> Nb8c99b["自然語言處理 (NLP)"]
+    N4d9820["應用領域"] --> Nb5fe60["語音處理 (Speech)"]
+    N4d9820["應用領域"] --> Nd30d87["電腦視覺 (CV)"]
+    N466473["核心模型系列"] --> N1d9f34["BERT系列"]
+    N466473["核心模型系列"] --> Ndce60f["GPT系列"]
 ```
 
 ---

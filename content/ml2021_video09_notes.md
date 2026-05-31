@@ -1,5 +1,5 @@
 ---
-title: "Classification (Short Version)"
+title: "第09堂課：Classification (Short Version)"
 tags:
   - MachineLearning
   - ML2021

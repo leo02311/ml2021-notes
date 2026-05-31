@@ -1,5 +1,5 @@
 ---
-title: "Introduction of Reinforcement Learning (RL) (Part 1 of 5)"
+title: "第36堂課：Introduction of Reinforcement Learning (RL) (Part 1 of 5)"
 tags:
   - MachineLearning
   - ML2021
@@ -21,10 +21,10 @@ tags:
 
 ```mermaid
 graph TD
-    "Environment" -->|Observation| "Actor"
-    "Actor" -->|Action| "Environment"
-    "Environment" -->|Reward| "Actor"
-    "Actor" -- "Find policy maximizing total reward" --> "Actor"
+    N0ba29c["Environment"] -->|Observation| N1cc846["Actor"]
+    N1cc846["Actor"] -->|Action| N0ba29c["Environment"]
+    N0ba29c["Environment"] -->|Reward| N1cc846["Actor"]
+    N1cc846["Actor"] -- "Find policy maximizing total reward" --> N1cc846["Actor"]
 ```
 
 ## 2. Policy Gradient（策略梯度）

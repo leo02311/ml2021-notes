@@ -1,5 +1,5 @@
 ---
-title: "生成式對抗網路 (Generative Adversarial Network, GAN) (三) – 生成器效能評估與條件式生成"
+title: "第23堂課：生成式對抗網路 (Generative Adversarial Network, GAN) (三) – 生成器效能評估與條件式生成"
 tags:
   - MachineLearning
   - ML2021
@@ -39,19 +39,19 @@ $$\min_{G} \max_{D} V(D, G) = \mathbb{E}_{y \sim P_{\text{data}}}[\log D(y)] + \
 
 ```mermaid
 graph TD
-    "生成式模型" --> "GAN"
-    "GAN" --> "Generator"
-    "GAN" --> "Discriminator"
-    "GAN" --> "挑戰"
-    "挑戰" --> "Mode Collapse"
-    "挑戰" --> "Mode Dropping"
-    "GAN" --> "評估指標"
-    "評估指標" --> "Inception Score"
-    "評估指標" --> "FID"
-    "GAN" --> "變體"
-    "變體" --> "Conditional GAN"
-    "變體" --> "Cycle GAN"
-    "變體" --> "WGAN"
+    Neeade6["生成式模型"] --> N787700["GAN"]
+    N787700["GAN"] --> N92a8f0["Generator"]
+    N787700["GAN"] --> N3d07d0["Discriminator"]
+    N787700["GAN"] --> Nce9f34["挑戰"]
+    Nce9f34["挑戰"] --> N03aff4["Mode Collapse"]
+    Nce9f34["挑戰"] --> N58eb08["Mode Dropping"]
+    N787700["GAN"] --> N75b9d4["評估指標"]
+    N75b9d4["評估指標"] --> N8e2eff["Inception Score"]
+    N75b9d4["評估指標"] --> N593d93["FID"]
+    N787700["GAN"] --> N54604c["變體"]
+    N54604c["變體"] --> N4252af["Conditional GAN"]
+    N54604c["變體"] --> N47fe2d["Cycle GAN"]
+    N54604c["變體"] --> N1ea913["WGAN"]
 ```
 
 ---

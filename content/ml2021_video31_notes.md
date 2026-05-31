@@ -1,5 +1,5 @@
 ---
-title: "Adversarial Attack (Part 1 of 2)"
+title: "第31堂課：Adversarial Attack (Part 1 of 2)"
 tags:
   - MachineLearning
   - ML2021

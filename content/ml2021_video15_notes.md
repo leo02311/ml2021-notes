@@ -1,5 +1,5 @@
 ---
-title: "Self-attention (Part 2 of 2)"
+title: "第15堂課：Self-attention (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021

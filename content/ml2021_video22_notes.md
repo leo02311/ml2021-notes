@@ -1,5 +1,5 @@
 ---
-title: "Generative Adversarial Network (GAN) (Part 2 of 4)"
+title: "第22堂課：Generative Adversarial Network (GAN) (Part 2 of 4)"
 tags:
   - MachineLearning
   - ML2021
@@ -36,11 +36,11 @@ GAN 由兩個競爭的網路組成：
 
 ```mermaid
 graph LR
-    "標準常態分佈 z" --> "生成器 G"
-    "真實數據" --> "判別器 D"
-    "生成器 G" --> "生成數據 y"
-    "生成數據 y" --> "判別器 D"
-    "判別器 D" --> "輸出分數"
+    N1fc54a["標準常態分佈 z"] --> Nf8855f["生成器 G"]
+    N727dde["真實數據"] --> N58d8bc["判別器 D"]
+    Nf8855f["生成器 G"] --> N703d32["生成數據 y"]
+    N703d32["生成數據 y"] --> N58d8bc["判別器 D"]
+    N58d8bc["判別器 D"] --> Nea2ce4["輸出分數"]
 ```
 
 ## 3. 理論基礎與挑戰

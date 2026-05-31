@@ -1,5 +1,5 @@
 ---
-title: "Auto-encoder (Part 1 of 2)"
+title: "第29堂課：Auto-encoder (Part 1 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -19,20 +19,20 @@ tags:
 
 ```mermaid
 graph TD
-    "Input x" --> "Model"
-    "Model" --> "Output y"
-    "Output y" --"Label"--> "Ground Truth"
+    N2af839["Input x"] --> Na559b8["Model"]
+    Na559b8["Model"] --> Nec0918["Output y"]
+    Nec0918["Output y"] -- "Label" --> Na001bb["Ground Truth"]
     
-    subgraph "Supervised Learning"
-    "Input x"
-    "Model"
-    "Output y"
+    subgraph SupervisedLearning["Supervised Learning"]
+    N2af839["Input x"]
+    Na559b8["Model"]
+    Nec0918["Output y"]
     end
     
-    subgraph "Self-supervised Learning"
-    "x'" --"Input"--> "Model"
-    "Model" --> "y"
-    "x''" --"Supervisory Signal"--> "y"
+    subgraph SelfsupervisedLearning["Self-supervised Learning"]
+    N30b94b["x'"] -- "Input" --> Na559b8["Model"]
+    Na559b8["Model"] --> N415290["y"]
+    N341cf3["x''"] -- "Supervisory Signal" --> N415290["y"]
     end
 ```
 

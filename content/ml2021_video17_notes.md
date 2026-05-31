@@ -1,5 +1,5 @@
 ---
-title: "批次正規化 (Batch Normalization)"
+title: "第17堂課：批次正規化 (Batch Normalization)"
 tags:
   - MachineLearning
   - ML2021

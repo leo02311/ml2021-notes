@@ -1,5 +1,5 @@
 ---
-title: "Domain Adaptation"
+title: "第35堂課：Domain Adaptation"
 tags:
   - MachineLearning
   - ML2021
@@ -41,13 +41,13 @@ tags:
 
 ```mermaid
 graph TD
-    "Domain Adaptation" --> "Domain Shift"
-    "Domain Adaptation" --> "Domain Adversarial Training"
-    "Domain Adversarial Training" --> "Feature Extractor"
-    "Domain Adversarial Training" --> "Label Predictor"
-    "Domain Adversarial Training" --> "Domain Classifier"
-    "Feature Extractor" --> "Domain Invariant Features"
-    "Domain Shift" --> "Unlabeled Target Data"
+    Nb29e15["Domain Adaptation"] --> Naa506d["Domain Shift"]
+    Nb29e15["Domain Adaptation"] --> Ndd9b12["Domain Adversarial Training"]
+    Ndd9b12["Domain Adversarial Training"] --> N8be4eb["Feature Extractor"]
+    Ndd9b12["Domain Adversarial Training"] --> N150d69["Label Predictor"]
+    Ndd9b12["Domain Adversarial Training"] --> Nb6b247["Domain Classifier"]
+    N8be4eb["Feature Extractor"] --> N624e9c["Domain Invariant Features"]
+    Naa506d["Domain Shift"] --> Neb4f04["Unlabeled Target Data"]
 ```
 
 ---

@@ -1,5 +1,5 @@
 ---
-title: "GAN 的魔幻應用 - 非監督學習"
+title: "第25堂課：GAN 的魔幻應用 - 非監督學習"
 tags:
   - MachineLearning
   - ML2021
@@ -57,16 +57,16 @@ $$G^* = \arg \min_G \text{Div}(P_G, P_{data})$$
 
 ```mermaid
 graph TD
-    "Generator (G)" --> "Fake Object"
-    "Real Data" --> "Discriminator (D)"
-    "Fake Object" --> "Discriminator (D)"
-    "Condition (x)" --> "Generator (G)"
-    "Noise (z)" --> "Generator (G)"
-    "Discriminator (D)" --> "Scalar Score"
-    "Loss Function" --> "G Update"
-    "Loss Function" --> "D Update"
-    "GAN" --> "Conditional GAN"
-    "GAN" --> "Cycle GAN"
+    N4288f1["Generator (G)"] --> N93fe4a["Fake Object"]
+    Nd829eb["Real Data"] --> N6134e7["Discriminator (D)"]
+    N93fe4a["Fake Object"] --> N6134e7["Discriminator (D)"]
+    N8b3c19["Condition (x)"] --> N4288f1["Generator (G)"]
+    N4febeb["Noise (z)"] --> N4288f1["Generator (G)"]
+    N6134e7["Discriminator (D)"] --> N01f309["Scalar Score"]
+    Nc3ffde["Loss Function"] --> N2d3a25["G Update"]
+    Nc3ffde["Loss Function"] --> Nd9387d["D Update"]
+    N787700["GAN"] --> N4252af["Conditional GAN"]
+    N787700["GAN"] --> N47fe2d["Cycle GAN"]
 ```
 
 ## 5. 評估指標

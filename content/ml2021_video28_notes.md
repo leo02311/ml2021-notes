@@ -1,5 +1,5 @@
 ---
-title: "Self-supervised Learning (aka Foundation Model) (Part 3 of 3)"
+title: "第28堂課：Self-supervised Learning (aka Foundation Model) (Part 3 of 3)"
 tags:
   - MachineLearning
   - ML2021
@@ -17,12 +17,12 @@ tags:
 
 ```mermaid
 graph TD
-    "SelfSupervisedLearning" --> "BERTSeries"
-    "SelfSupervisedLearning" --> "GPTSeries"
-    "BERTSeries" --> "MaskedTokenPrediction"
-    "BERTSeries" --> "NextSentencePrediction"
-    "GPTSeries" --> "PredictNextToken"
-    "GPTSeries" --> "FewShotLearning"
+    N79ec4e["SelfSupervisedLearning"] --> N7d37a3["BERTSeries"]
+    N79ec4e["SelfSupervisedLearning"] --> N8b9b92["GPTSeries"]
+    N7d37a3["BERTSeries"] --> N37a996["MaskedTokenPrediction"]
+    N7d37a3["BERTSeries"] --> Ne89324["NextSentencePrediction"]
+    N8b9b92["GPTSeries"] --> Ne5d7ed["PredictNextToken"]
+    N8b9b92["GPTSeries"] --> N61379f["FewShotLearning"]
 ```
 
 ## BERT 系列 (BERT Series)
