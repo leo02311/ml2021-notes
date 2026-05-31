@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 13: Transformer (2/2)"
+title: "Transformer (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - Optimization
 ---
 
-# 第20堂課：[ML 2021 (English version)] Lecture 13: Transformer (2/2)
+# 第20堂課：Transformer (Part 2 of 2)
 
 本課程由李宏毅教授講解深度學習中關鍵的技術——**批次正規化 (Batch Normalization, BN)**。透過調整特徵分佈，BN 能夠有效解決訓練過程中的損失函數景觀（Loss Landscape）問題，從而加速神經網路的收斂。
 

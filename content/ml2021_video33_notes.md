@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 25: Explainable ML (1/2)"
+title: "Explainable ML (Part 1 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - Security
 ---
 
-# 第33堂課：[ML 2021 (English version)] Lecture 25: Explainable ML (1/2)
+# 第33堂課：Explainable ML (Part 1 of 2)
 
 本課程由李宏毅教授講解機器學習領域中的「對抗攻擊」（Adversarial Attack）。當我們將訓練好的神經網路部署到現實世界時，網路是否能夠抵禦專門為了「欺騙」它而設計的輸入呢？這就是對抗攻擊所探討的課題。
 

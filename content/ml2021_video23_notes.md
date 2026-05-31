@@ -1,5 +1,5 @@
 ---
-title: "【機器學習2021】生成式對抗網路 (Generative Adversarial Network, GAN) (三) – 生成器效能評估與條件式生成"
+title: "生成式對抗網路 (Generative Adversarial Network, GAN) (三) – 生成器效能評估與條件式生成"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - GAN
 ---
 
-# 第23堂課：【機器學習2021】生成式對抗網路 (Generative Adversarial Network, GAN) (三) – 生成器效能評估與條件式生成
+# 第23堂課：生成式對抗網路 (Generative Adversarial Network, GAN) (三) – 生成器效能評估與條件式生成
 
 本堂課主要介紹生成式模型（Generative Models），核心重點在於生成對抗網路（Generative Adversarial Network, GAN）的基本原理、運作機制、挑戰及其變體，並討論生成模型的評估方式。
 

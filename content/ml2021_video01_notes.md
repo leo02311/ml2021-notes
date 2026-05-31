@@ -1,11 +1,11 @@
 ---
-title: "[ML 2021 (English version)] Lecture 1: Predicting the views of this channel - ML Introduction (1/2)"
+title: "機器學習基本概念"
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 第01堂課：[ML 2021 (English version)] Lecture 1: Predicting the views of this channel - ML Introduction (1/2)
+# 第01堂課：機器學習基本概念
 
 本堂課為李宏毅教授 2021 年春季機器學習課程的導論，主要說明課程的定位、運作方式、評分標準以及作業規範。
 

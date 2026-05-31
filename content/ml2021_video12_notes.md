@@ -1,5 +1,5 @@
 ---
-title: "【機器學習2021】自注意力機制 (Self-attention) (上)"
+title: "Self-Attention 簡介 - 處理變長序列輸入"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - SequenceLabeling
 ---
 
-# 第12堂課：【機器學習2021】自注意力機制 (Self-attention) (上)
+# 第12堂課：Self-Attention 簡介 - 處理變長序列輸入
 
 ## 課程介紹與背景
 

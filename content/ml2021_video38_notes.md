@@ -5,7 +5,7 @@ tags:
   - ML2021
 ---
 
-# 第38堂課：ML2021 hw9 code English version
+# 第38堂課：第38堂課：ML2021 hw9 code English version
 
 本課程為作業 9 (hw9) 的英文版程式碼解說。
 

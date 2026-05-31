@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 17:  Generative Adversarial Network (GAN) (4/4)"
+title: "GAN 的魔幻應用 - 非監督學習"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - GAN
 ---
 
-# 第25堂課：[ML 2021 (English version)] Lecture 17:  Generative Adversarial Network (GAN) (4/4)
+# 第25堂課：GAN 的魔幻應用 - 非監督學習
 
 本堂課介紹了生成式模型（Generative Models）的核心概念，重點探討生成對抗網路（Generative Adversarial Network, GAN）的架構、訓練機制以及條件生成與非配對資料學習。
 

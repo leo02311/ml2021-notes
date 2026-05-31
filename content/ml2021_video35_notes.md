@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 27: Domain Adaptation"
+title: "Domain Adaptation"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - AdversarialTraining
 ---
 
-# 第35堂課：[ML 2021 (English version)] Lecture 27: Domain Adaptation
+# 第35堂課：Domain Adaptation
 
 在機器學習的實際應用中，我們經常會遇到「訓練資料」與「測試資料」分佈不同的情況，這被稱為 **領域偏移 (Domain Shift)**。即使在某個領域訓練出準確率極高的模型，直接套用到另一個領域時，效能往往會大幅下降。
 

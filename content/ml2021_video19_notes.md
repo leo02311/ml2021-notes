@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 12: Transformer (1/2)"
+title: "Transformer (Part 1 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - DeepLearning
 ---
 
-# 第19堂課：[ML 2021 (English version)] Lecture 12: Transformer (1/2)
+# 第19堂課：Transformer (Part 1 of 2)
 
 本堂課主要介紹深度學習中極為重要的技術——**批量歸一化 (Batch Normalization, BN)**。透過對神經網路中的特徵進行歸一化，可以有效改善訓練時的優化困難，提升收斂速度。
 

@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 22:  Auto-encoder (2/2)"
+title: "Auto-encoder (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - GPT
 ---
 
-# 第30堂課：[ML 2021 (English version)] Lecture 22:  Auto-encoder (2/2)
+# 第30堂課：Auto-encoder (Part 2 of 2)
 
 本堂課由李宏毅教授介紹「自我監督學習 (Self-supervised Learning)」。這是一種機器學習方法，系統會學習根據輸入的一部分來預測輸入的另一部分，從而無需人工標註即可獲取監督信號。
 

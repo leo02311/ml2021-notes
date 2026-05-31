@@ -1,5 +1,5 @@
 ---
-title: "【機器學習2021】類神經網路訓練不起來怎麼辦 (五)： 批次標準化 (Batch Normalization) 簡介"
+title: "Batch Normalization"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - DeepLearning
 ---
 
-# 第16堂課：【機器學習2021】類神經網路訓練不起來怎麼辦 (五)： 批次標準化 (Batch Normalization) 簡介
+# 第16堂課：Batch Normalization
 
 ## 1. Batch Normalization (BN) 簡介與動機
 

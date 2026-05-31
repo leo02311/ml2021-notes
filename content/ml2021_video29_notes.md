@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 21:  Auto-encoder (1/2)"
+title: "Auto-encoder (Part 1 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - SelfSupervisedLearning
 ---
 
-# 第29堂課：[ML 2021 (English version)] Lecture 21:  Auto-encoder (1/2)
+# 第29堂課：Auto-encoder (Part 1 of 2)
 
 本堂課由李宏毅教授講解 **自監督學習 (Self-Supervised Learning)**。自監督學習是現代 NLP 模型（如 BERT, GPT 系列）的核心技術，透過從輸入數據本身挖掘監督訊號，讓模型在大規模無標註資料上進行預訓練，進而遷移至下游任務。
 

@@ -1,12 +1,12 @@
 ---
-title: "[ML 2021 (English version)] Lecture 11: Self-attention (2/2)"
+title: "Self-attention (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021
   - Evaluation
 ---
 
-# 第15堂課：[ML 2021 (English version)] Lecture 11: Self-attention (2/2)
+# 第15堂課：Self-attention (Part 2 of 2)
 
 本堂課並非傳統的技術教學單元，而是由中華民國教育部發起的「機器學習能力測驗」前測說明。此測驗旨在評估與分析台灣機器學習相關課程的教學成效，並作為研究數據之用。
 

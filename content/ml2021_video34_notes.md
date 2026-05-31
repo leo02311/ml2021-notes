@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 26: Explainable ML (2/2)"
+title: "Explainable ML (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - Robustness
 ---
 
-# 第34堂課：[ML 2021 (English version)] Lecture 26: Explainable ML (2/2)
+# 第34堂課：Explainable ML (Part 2 of 2)
 
 ## 1. 什麼是 Adversarial Attack (對抗式攻擊)？
 

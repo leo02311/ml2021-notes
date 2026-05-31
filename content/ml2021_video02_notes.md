@@ -1,11 +1,11 @@
 ---
-title: "[ML 2021 (English version)] Lecture 2: Predicting the views of this channel - ML Introduction (2/2)"
+title: "深度學習基礎 - 突破線性模型的限制"
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 第02堂課：[ML 2021 (English version)] Lecture 2: Predicting the views of this channel - ML Introduction (2/2)
+# 第02堂課：深度學習基礎 - 突破線性模型的限制
 
 本堂課為李宏毅教授 2021 年機器學習課程的導論課，主要介紹課程目標、授課方式、作業與評分標準，以及各項嚴格的學術倫理規範。
 

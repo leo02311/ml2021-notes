@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 23:  Adversarial Attack (1/2)"
+title: "Adversarial Attack (Part 1 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - Security
 ---
 
-# 第31堂課：[ML 2021 (English version)] Lecture 23:  Adversarial Attack (1/2)
+# 第31堂課：Adversarial Attack (Part 1 of 2)
 
 本堂課介紹機器學習模型面臨的安全威脅——對抗式攻擊 (Adversarial Attack)。我們將探討如何透過對輸入資料加入微小的擾動 (Perturbation)，使得深度學習模型產生錯誤的預測，並討論相關的防禦機制。
 

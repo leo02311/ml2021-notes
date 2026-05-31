@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)"
+title: "What to do when optimization fails? (Part 3 of 4)"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - Optimization
 ---
 
-# 第07堂課：[ML 2021 (English version)] Lecture 6: What to do when optimization fails? (3/4)
+# 第07堂課：What to do when optimization fails? (Part 3 of 4)
 
 本堂課由李宏毅教授講解機器學習模型在訓練與測試過程中常見的問題，以及系統化的診斷流程。當模型表現不如預期時，我們應如何判斷問題所在並進行調整。
 

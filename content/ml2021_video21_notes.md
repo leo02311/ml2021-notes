@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 14:  Generative Adversarial Network (GAN) (1/4)"
+title: "Generative Adversarial Network (GAN) (Part 1 of 4)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - GAN
 ---
 
-# 第21堂課：[ML 2021 (English version)] Lecture 14:  Generative Adversarial Network (GAN) (1/4)
+# 第21堂課：Generative Adversarial Network (GAN) (Part 1 of 4)
 
 本堂課介紹了生成式模型（Generative Models）的核心概念，重點探討生成式對抗網路（GAN）的運作原理、訓練技巧以及在各種任務（如條件生成、非配對資料學習）中的應用。
 

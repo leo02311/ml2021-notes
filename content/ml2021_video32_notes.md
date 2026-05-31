@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 24:  Adversarial Attack (2/2)"
+title: "Adversarial Attack (Part 2 of 2)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - DeepLearning
 ---
 
-# 第32堂課：[ML 2021 (English version)] Lecture 24:  Adversarial Attack (2/2)
+# 第32堂課：Adversarial Attack (Part 2 of 2)
 
 在機器學習模型部署到現實世界時，我們必須考慮其魯棒性（Robustness）。這堂課介紹了「對抗式攻擊」（Adversarial Attack），探討如何透過微小的擾動（perturbation）讓神經網路產生錯誤判斷。
 

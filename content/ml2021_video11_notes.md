@@ -1,11 +1,11 @@
 ---
-title: "[ML 2021 (English version)] Lecture 9: Convolutional Neural Networks"
+title: "Convolutional Neural Networks"
 tags:
   - MachineLearning
   - ML2021
 ---
 
-# 第11堂課：[ML 2021 (English version)] Lecture 9: Convolutional Neural Networks
+# 第11堂課：Convolutional Neural Networks
 
 本堂課程主要為李宏毅教授機器學習課程（2021 Spring）中，針對教育部推動之機器學習能力評量所進行的「前測」說明。此測試旨在評估學生在課程學習前的基礎知識水平，作為後續教學成效分析的參考。
 

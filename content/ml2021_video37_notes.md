@@ -1,12 +1,12 @@
 ---
-title: "【機器學習2021】元學習 Meta Learning (二) - 萬物皆可 Meta"
+title: "元學習 Meta Learning (二) - 萬物皆可 Meta"
 tags:
   - MachineLearning
   - ML2021
   - MetaLearning
 ---
 
-# 第37堂課：【機器學習2021】元學習 Meta Learning (二) - 萬物皆可 Meta
+# 第37堂課：元學習 Meta Learning (二) - 萬物皆可 Meta
 
 在機器學習中，所謂的 "Meta" 意指「關於...的...」，因此 Meta Learning 即為 **"Learning to learn"（學習如何學習）**。
 

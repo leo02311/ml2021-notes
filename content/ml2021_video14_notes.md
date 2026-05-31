@@ -1,12 +1,12 @@
 ---
-title: "[ML 2021 (English version)] Lecture 10: Self-attention (1/2)"
+title: "自注意力機制 (Self-Attention) - 處理變長序列輸入"
 tags:
   - MachineLearning
   - ML2021
   - Evaluation
 ---
 
-# 第14堂課：[ML 2021 (English version)] Lecture 10: Self-attention (1/2)
+# 第14堂課：自注意力機制 (Self-Attention) - 處理變長序列輸入
 
 本堂課為李宏毅教授 2021 機器學習課程的第 14 堂課，主要內容為針對全台灣修習機器學習課程學生進行的「機器學習能力前測」。此問卷由中華民國教育部發起，旨在進行教育研究分析與成效評估。
 

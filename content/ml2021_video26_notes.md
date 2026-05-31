@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 18:  Self-supervised Learning (aka Foundation Model) (1/3)"
+title: "Self-supervised Learning (aka Foundation Model) (Part 1 of 3)"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - GPT
 ---
 
-# 第26堂課：[ML 2021 (English version)] Lecture 18:  Self-supervised Learning (aka Foundation Model) (1/3)
+# 第26堂課：Self-supervised Learning (aka Foundation Model) (Part 1 of 3)
 
 本堂課由李宏毅教授介紹**自監督學習 (Self-Supervised Learning)** 的概念，探討如何透過模型自行從數據中產生監督訊號，並詳細分析了 BERT 與 GPT 系列模型的核心技術與應用。
 

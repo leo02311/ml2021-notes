@@ -1,5 +1,5 @@
 ---
-title: "【機器學習2021】自注意力機制 (Self-attention) (下)"
+title: "自注意力機制 (Self-attention) (下) - 自注意力機制 Self-Attention"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - Transformer
 ---
 
-# 第13堂課：【機器學習2021】自注意力機制 (Self-attention) (下)
+# 第13堂課：自注意力機制 (Self-attention) (下) - 自注意力機制 Self-Attention
 
 這堂課深入講解了自注意力機制 (Self-Attention) 的運作原理，從向量層面逐步過渡到矩陣運算，並探討了其多種變形、應用以及與其他主流模型的比較。
 

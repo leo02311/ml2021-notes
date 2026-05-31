@@ -1,5 +1,5 @@
 ---
-title: "【機器學習2021】機器學習任務攻略"
+title: "機器學習任務攻略 (Overfitting & Optimization)"
 tags:
   - MachineLearning
   - DeepLearning
@@ -7,7 +7,7 @@ tags:
   - Optimization
 ---
 
-# 第03堂課：【機器學習2021】機器學習任務攻略
+# 第03堂課：機器學習任務攻略 (Overfitting & Optimization)
 
 > [!NOTE]
 > 講師：李宏毅 (Hung-yi Lee)

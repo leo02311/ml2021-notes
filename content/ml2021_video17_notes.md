@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 7: What to do when optimization fails? (4/4)"
+title: "批次正規化 (Batch Normalization)"
 tags:
   - MachineLearning
   - ML2021
@@ -7,7 +7,7 @@ tags:
   - BatchNormalization
 ---
 
-# 第17堂課：[ML 2021 (English version)] Lecture 7: What to do when optimization fails? (4/4)
+# 第17堂課：批次正規化 (Batch Normalization)
 
 本課程由李宏毅教授講解深度學習中關鍵的技術：**Batch Normalization (批次標準化)**。
 

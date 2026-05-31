@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 8: Classification (Short Version)"
+title: "Classification (Short Version)"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - Optimization
 ---
 
-# 第09堂課：[ML 2021 (English version)] Lecture 8: Classification (Short Version)
+# 第09堂課：Classification (Short Version)
 
 本堂課由李宏毅教授講解機器學習在開發流程中遇到錯誤時的診斷邏輯與解決方案。透過一套系統化的「一般指引 (General Guide)」，我們可以判斷模型的效能瓶頸源自於哪一個環節。
 

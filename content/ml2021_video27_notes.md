@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 19:  Self-supervised Learning (aka Foundation Model) (2/3)"
+title: "Self-supervised Learning (aka Foundation Model) (Part 2 of 3)"
 tags:
   - MachineLearning
   - ML2021
@@ -9,7 +9,7 @@ tags:
   - GPT
 ---
 
-# 第27堂課：[ML 2021 (English version)] Lecture 19:  Self-supervised Learning (aka Foundation Model) (2/3)
+# 第27堂課：Self-supervised Learning (aka Foundation Model) (Part 2 of 3)
 
 本堂課由李宏毅教授介紹自監督學習（Self-Supervised Learning, SSL）。SSL 的核心概念是讓系統學習從輸入的一部份去預測另一部份，利用輸入資料本身的資訊作為監督訊號，而非依賴人工標註的資料。
 

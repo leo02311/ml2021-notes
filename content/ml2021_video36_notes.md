@@ -1,12 +1,12 @@
 ---
-title: "[ML 2021 (English version)] Lecture 28: Introduction of Reinforcement Learning (RL) (1/5)"
+title: "Introduction of Reinforcement Learning (RL) (Part 1 of 5)"
 tags:
   - MachineLearning
   - ML2021
   - ReinforcementLearning
 ---
 
-# 第36堂課：[ML 2021 (English version)] Lecture 28: Introduction of Reinforcement Learning (RL) (1/5)
+# 第36堂課：Introduction of Reinforcement Learning (RL) (Part 1 of 5)
 
 這堂課由李宏毅教授介紹深度強化學習（Deep Reinforcement Learning, RL）的基礎概念，並將強化學習拆解為機器學習的三個基本步驟：定義函式、定義損失函數（Loss Function）、與優化。
 

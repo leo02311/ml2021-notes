@@ -1,5 +1,5 @@
 ---
-title: "[ML 2021 (English version)] Lecture 20:  Self-supervised Learning (aka Foundation Model) (3/3)"
+title: "Self-supervised Learning (aka Foundation Model) (Part 3 of 3)"
 tags:
   - MachineLearning
   - ML2021
@@ -8,7 +8,7 @@ tags:
   - GPT
 ---
 
-# 第28堂課：[ML 2021 (English version)] Lecture 20:  Self-supervised Learning (aka Foundation Model) (3/3)
+# 第28堂課：Self-supervised Learning (aka Foundation Model) (Part 3 of 3)
 
 在機器學習中，自我監督學習 (Self-supervised Learning) 是一種無需人工標註數據，而是利用數據本身的部分資訊作為監督訊號來訓練模型的方法。Yann LeCun 指出，「非監督學習 (Unsupervised Learning)」一詞容易造成混淆，因此建議改用「自我監督學習」。
 
