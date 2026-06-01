@@ -30,7 +30,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Install Quartz Plugins
-        run: npm run install-plugins
+        run: npx quartz plugin install
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact
