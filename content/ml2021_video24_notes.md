@@ -32,10 +32,10 @@ tags:
 ```mermaid
 graph LR
     subgraph "Generator"
-    z["簡單分佈 z (例如 Normal Distribution)"] --> Network["Neural Network"]
-    x["條件輸入 x (可選)"] --> Network
+    z['簡單分佈 z (例如 Normal Distribution)'] --> Network['Neural Network']
+    x['條件輸入 x (可選)'] --> Network
     end
-    Network --> y["複雜分佈 y (例如高解析度影像)"]
+    Network --> y['複雜分佈 y (例如高解析度影像)']
 ```
 
 透過每次隨機採樣不同的 $z$，同一個輸入 $x$ 就能對應到多個不同且清晰的輸出，從而學會真正的多樣性。
@@ -188,10 +188,10 @@ $$\mathcal{L}_{GAN}(G, D) + \lambda \mathbb{E}_{x, y} [||y - G(x, z)||_1]$$
 ```mermaid
 graph LR
     subgraph "Forward Cycle"
-    x["Domain X: 原圖 x"] --> G_XY["Generator G_X->Y"]
-    G_XY --> y_fake["Domain Y: 假圖 y'"]
-    y_fake --> G_YX["Generator G_Y->X"]
-    G_YX --> x_recon["重建圖 x*"]
+    x['Domain X: 原圖 x'] --> G_XY['Generator G_X-大於Y']
+    G_XY --> y_fake['Domain Y: 假圖 y'']
+    y_fake --> G_YX['Generator G_Y-大於X']
+    G_YX --> x_recon['重建圖 x*']
     end
     x_recon -- "計算 L1 距離 (Cycle Consistency Loss)" --- x
 ```
@@ -252,15 +252,15 @@ graph TD
     "WGAN" -->|需要 Lipschitz 約束| "WGAN-GP / Spectral Norm"
 
     "條件生成" --> "Conditional GAN"
-    "Conditional GAN" -->|解決 G 忽略條件的問題| "配對輸入 D(x, y)"
+    "Conditional GAN" -->|解決 G 忽略條件的問題| "配對輸入 D("x, y")"
     "Conditional GAN" --> "影像翻譯 pix2pix"
 
     "無成對資料 Style Transfer" --> "Cycle GAN"
     "Cycle GAN" -->|避免資訊流失與任意映射| "循環一致性損失"
 
     "生成模型" --> "評估指標"
-    "評估指標" --> "品質評估 P(c|y)"
-    "評估指標" --> "多樣性評估 P(c)"
+    "評估指標" --> "品質評估 P("c|y")"
+    "評估指標" --> "多樣性評估 P("c")"
     "評估指標" --> "FID (越小越好)"
 ```
 

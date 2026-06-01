@@ -123,41 +123,41 @@ Cross-entropy 是分類問題中最常用的損失函數。
 ```mermaid
 graph TD
     subgraph 機器學習分類核心
-        分類問題["分類問題 (Classification Problem)"]
-        迴歸類比法["迴歸類比法"]
-        數值化表示問題["數值化表示問題"]
-        類別表示方式["類別表示方式"]
-        OneHotVector["One-hot Vector"]
-        多輸出神經網路["多輸出神經網路"]
-        Softmax函數["Soft-max 函數"]
+        分類問題['分類問題 (Classification Problem)']
+        迴歸類比法['迴歸類比法']
+        數值化表示問題['數值化表示問題']
+        類別表示方式['類別表示方式']
+        OneHotVector['One-hot Vector']
+        多輸出神經網路['多輸出神經網路']
+        Softmax函數['Soft-max 函數']
     end
 
     subgraph Softmax詳解
-        Logits輸入["y₁ y₂ y₃ (Logits)"] --> Softmax計算原理["Soft-max 計算原理"]
-        Softmax計算原理 --> 取指數運算["取指數 (exp)"]
-        取指數運算 --> 歸一化處理["歸一化 (Normalization)"]
-        歸一化處理 --> 機率分佈輸出["y₁' y₂' y₃' (機率分佈)"]
-        Softmax特性["Soft-max 函式特性"]
-        值介於零壹["值介於 0-1"]
-        總和為壹["總和為 1"]
-        拉大數值差距["拉大數值差距"]
-        兩類等價Sigmoid["兩類等價於 Sigmoid"]
+        Logits輸入['y₁ y₂ y₃ (Logits)'] --> Softmax計算原理['Soft-max 計算原理']
+        Softmax計算原理 --> 取指數運算['取指數 (exp)']
+        取指數運算 --> 歸一化處理['歸一化 (Normalization)']
+        歸一化處理 --> 機率分佈輸出['y₁' y₂' y₃' (機率分佈)']
+        Softmax特性['Soft-max 函式特性']
+        值介於零壹['值介於 0-1']
+        總和為壹['總和為 1']
+        拉大數值差距['拉大數值差距']
+        兩類等價Sigmoid['兩類等價於 Sigmoid']
     end
 
     subgraph 分類損失函數
-        損失函數選擇["損失函數選擇"]
-        MSE損失["平均平方誤差 (MSE)"]
-        交叉熵損失["交叉熵 (Cross-entropy)"]
-        優化挑戰["優化挑戰"]
-        梯度平坦區["MSE 梯度平坦區"]
-        優化優勢["交叉熵優化優勢"]
+        損失函數選擇['損失函數選擇']
+        MSE損失['平均平方誤差 (MSE)']
+        交叉熵損失['交叉熵 (Cross-entropy)']
+        優化挑戰['優化挑戰']
+        梯度平坦區['MSE 梯度平坦區']
+        優化優勢['交叉熵優化優勢']
     end
 
     subgraph 實作與理論
-        最大似然關係["與最大似然 (Maximize Likelihood) 關係"]
-        PyTorch整合設計["PyTorch 整合設計"]
-        CrossEntropyLoss內建["CrossEntropyLoss 內建 Soft-max"]
-        重複Softmax風險["重複 Soft-max 風險"]
+        最大似然關係['與最大似然 (Maximize Likelihood) 關係']
+        PyTorch整合設計['PyTorch 整合設計']
+        CrossEntropyLoss內建['CrossEntropyLoss 內建 Soft-max']
+        重複Softmax風險['重複 Soft-max 風險']
     end
 
     分類問題 -- "需要" --> 類別表示方式

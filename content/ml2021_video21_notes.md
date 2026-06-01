@@ -15,19 +15,19 @@ tags:
 
 ```mermaid
 graph TD
-    A["生成模型 Generative Models"] --> B["生成對抗網路 GAN"]
-    B --> C["核心組件 Components"]
-    C --> C1["生成器 Generator"]
-    C --> C2["判別器 Discriminator"]
-    B --> D["數學理論 Foundations"]
-    D --> D1["JS 散度 JS Divergence"]
-    D --> D2["瓦瑟斯坦距離 Wasserstein Distance"]
-    B --> E["架構變體 Variants"]
-    E --> E1["條件生成 Conditional GAN"]
-    E --> E2["循環生成對抗網路 CycleGAN"]
-    B --> F["評估指標 Evaluation"]
-    F --> F1["設想分數 Inception Score"]
-    F --> F2["弗雷歇設想距離 FID"]
+    A['生成模型 Generative Models'] --> B['生成對抗網路 GAN']
+    B --> C['核心組件 Components']
+    C --> C1['生成器 Generator']
+    C --> C2['判別器 Discriminator']
+    B --> D['數學理論 Foundations']
+    D --> D1['JS 散度 JS Divergence']
+    D --> D2['瓦瑟斯坦距離 Wasserstein Distance']
+    B --> E['架構變體 Variants']
+    E --> E1['條件生成 Conditional GAN']
+    E --> E2['循環生成對抗網路 CycleGAN']
+    B --> F['評估指標 Evaluation']
+    F --> F1['設想分數 Inception Score']
+    F --> F2['弗雷歇設想距離 FID']
 ```
 
 ---

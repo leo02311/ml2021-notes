@@ -57,16 +57,16 @@ $$G^* = \arg \min_G \text{Div}(P_G, P_{data})$$
 
 ```mermaid
 graph TD
-    N4288f1["Generator (G)"] --> N93fe4a["Fake Object"]
-    Nd829eb["Real Data"] --> N6134e7["Discriminator (D)"]
-    N93fe4a["Fake Object"] --> N6134e7["Discriminator (D)"]
-    N8b3c19["Condition (x)"] --> N4288f1["Generator (G)"]
-    N4febeb["Noise (z)"] --> N4288f1["Generator (G)"]
-    N6134e7["Discriminator (D)"] --> N01f309["Scalar Score"]
-    Nc3ffde["Loss Function"] --> N2d3a25["G Update"]
-    Nc3ffde["Loss Function"] --> Nd9387d["D Update"]
-    N787700["GAN"] --> N4252af["Conditional GAN"]
-    N787700["GAN"] --> N47fe2d["Cycle GAN"]
+    N4288f1['Generator (G)'] --> N93fe4a['Fake Object']
+    Nd829eb['Real Data'] --> N6134e7['Discriminator (D)']
+    N93fe4a['Fake Object'] --> N6134e7['Discriminator (D)']
+    N8b3c19['Condition (x)'] --> N4288f1['Generator (G)']
+    N4febeb['Noise (z)'] --> N4288f1['Generator (G)']
+    N6134e7['Discriminator (D)'] --> N01f309['Scalar Score']
+    Nc3ffde['Loss Function'] --> N2d3a25['G Update']
+    Nc3ffde['Loss Function'] --> Nd9387d['D Update']
+    N787700['GAN'] --> N4252af['Conditional GAN']
+    N787700['GAN'] --> N47fe2d['Cycle GAN']
 ```
 
 ## 5. 評估指標

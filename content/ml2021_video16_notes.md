@@ -151,52 +151,52 @@ Batch Normalization 並非唯一的正規化方法，還有許多其他變體，
 ```mermaid
 graph TD
     subgraph "BN 核心問題與動機"
-        A["難以訓練的深度學習模型"] --> B["Error Surface 崎嶇不平"];
-        B --> C["不同參數對 Loss 斜率差異大"];
-        C --> D["輸入特徵尺度差異大"];
+        A['難以訓練的深度學習模型'] --> B['Error Surface 崎嶇不平'];
+        B --> C['不同參數對 Loss 斜率差異大'];
+        C --> D['輸入特徵尺度差異大'];
     end
 
     subgraph "Feature Normalization 基礎"
-        D --> E["解決方案: Feature Normalization"];
-        E --> F["Standardization 標準化"];
-        F --> G["目標: 均值為0, 方差為1"];
+        D --> E['解決方案: Feature Normalization'];
+        E --> F['Standardization 標準化'];
+        F --> G['目標: 均值為0, 方差為1'];
     end
 
     subgraph "Batch Normalization 實作"
-        E --> H["應用於 Deep Network 內部層"];
-        H --> I["選擇: 對 Z 或 A 進行標準化"];
-        I --> J["訓練階段: 批次計算 μ_batch 與 Σ_batch"];
-        J --> K["BN 公式: z̃ = (z - μ_batch) / Σ_batch"];
-        K --> L["增加學習參數: ẑ = γ * z̃ + β"];
-        L --> L1["γ 初始值為1"];
-        L --> L2["β 初始值為0"];
-        J --> M["限制: 需要足夠大的 Batch Size"];
+        E --> H['應用於 Deep Network 內部層'];
+        H --> I['選擇: 對 Z 或 A 進行標準化'];
+        I --> J['訓練階段: 批次計算 μ_batch 與 Σ_batch'];
+        J --> K['BN 公式: z̃ = (z - μ_batch) / Σ_batch'];
+        K --> L['增加學習參數: ẑ = γ * z̃ + β'];
+        L --> L1['γ 初始值為1'];
+        L --> L2['β 初始值為0'];
+        J --> M['限制: 需要足夠大的 Batch Size'];
     end
 
     subgraph "BN 在 Testing 階段"
-        N["Testing/Inference 階段"];
-        N --> O["沒有 Batch 概念"];
-        O --> P["解決方案: 訓練時計算 μ_bar 與 Σ_bar"];
-        P --> Q["使用 Moving Average 更新"];
-        Q --> R["Testing 時直接使用 μ_bar 與 Σ_bar"];
+        N['Testing/Inference 階段'];
+        N --> O['沒有 Batch 概念'];
+        O --> P['解決方案: 訓練時計算 μ_bar 與 Σ_bar'];
+        P --> Q['使用 Moving Average 更新'];
+        Q --> R['Testing 時直接使用 μ_bar 與 Σ_bar'];
     end
 
     subgraph "BN 帶來的效益"
-        K --> S["提升訓練效率"];
-        S --> S1["訓練速度更快"];
-        S --> S2["允許更大的 Learning Rate"];
-        S --> S3["改善 Sigmoid 等激活函數訓練"];
+        K --> S['提升訓練效率'];
+        S --> S1['訓練速度更快'];
+        S --> S2['允許更大的 Learning Rate'];
+        S --> S3['改善 Sigmoid 等激活函數訓練'];
     end
 
     subgraph "BN 工作原理探討"
-        K --> T["BN 為何有效?"];
-        T --> T1["原始假說: Internal Covariate Shift"];
-        T1 --> T2["被後續研究駁斥"];
-        T --> T3["主流解釋: 使 Error Surface 更平滑"];
-        T3 --> U["如同偶然的發現 (Serendipitous)"];
+        K --> T['BN 為何有效?'];
+        T --> T1['原始假說: Internal Covariate Shift'];
+        T1 --> T2['被後續研究駁斥'];
+        T --> T3['主流解釋: 使 Error Surface 更平滑'];
+        T3 --> U['如同偶然的發現 (Serendipitous)'];
     end
 
-    V["其他 Normalization 方法"]
+    V['其他 Normalization 方法']
     A --> V;
 ```
 

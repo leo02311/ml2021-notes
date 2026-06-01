@@ -22,35 +22,35 @@ tags:
 
 ```mermaid
 graph TD
-    A["對抗性攻擊 (Adversarial Attack)"] --> B["攻擊目標分類"]
-    A --> C["攻擊限制條件"]
-    A --> D["攻擊演算法"]
-    A --> E["攻擊場景與類型"]
-    A --> F["防禦策略"]
+    A['對抗性攻擊 (Adversarial Attack)'] --> B['攻擊目標分類']
+    A --> C['攻擊限制條件']
+    A --> D['攻擊演算法']
+    A --> E['攻擊場景與類型']
+    A --> F['防禦策略']
 
-    B --> B1["非目標攻擊 (Non-targeted)"]
-    B --> B2["目標攻擊 (Targeted)"]
+    B --> B1['非目標攻擊 (Non-targeted)']
+    B --> B2['目標攻擊 (Targeted)']
 
-    C --> C1["L2 範數 (L2-norm)"]
-    C --> C2["L-infinity 範數 (L-infinity-norm)"]
+    C --> C1['L2 範數 (L2-norm)']
+    C --> C2['L-infinity 範數 (L-infinity-norm)']
 
-    D --> D1["FGSM (單步梯度符號法)"]
-    D --> D2["Iterative FGSM (迭代法)"]
-    D --> D3["單像素攻擊 (One Pixel Attack)"]
+    D --> D1['FGSM (單步梯度符號法)']
+    D --> D2['Iterative FGSM (迭代法)']
+    D --> D3['單像素攻擊 (One Pixel Attack)']
 
-    E --> E1["白箱攻擊 (White Box)"]
-    E --> E2["黑箱攻擊 (Black Box)"]
-    E --> E3["實體世界攻擊 (Physical Attack)"]
-    E --> E4["模型後門攻擊 (Backdoor Attack)"]
+    E --> E1['白箱攻擊 (White Box)']
+    E --> E2['黑箱攻擊 (Black Box)']
+    E --> E3['實體世界攻擊 (Physical Attack)']
+    E --> E4['模型後門攻擊 (Backdoor Attack)']
 
-    F --> F1["被動防禦 (Passive Defense)"]
-    F --> F2["主動防禦 (Proactive Defense)"]
+    F --> F1['被動防禦 (Passive Defense)']
+    F --> F2['主動防禦 (Proactive Defense)']
 
-    F1 --> F11["影像平滑化 (Smoothing)"]
-    F1 --> F12["影像壓縮 (Compression)"]
-    F1 --> F13["隨機化機制 (Randomization)"]
+    F1 --> F11['影像平滑化 (Smoothing)']
+    F1 --> F12['影像壓縮 (Compression)']
+    F1 --> F13['隨機化機制 (Randomization)']
 
-    F2 --> F21["對抗性訓練 (Adversarial Training)"]
+    F2 --> F21['對抗性訓練 (Adversarial Training)']
 ```
 
 ---
