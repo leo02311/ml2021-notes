@@ -1,115 +1,246 @@
 ---
-title: "第26堂課：Self-supervised Learning (aka Foundation Model) (Part 1 of 3)"
+title: "第26堂課：Self-Supervised Learning (Video 26)"
 tags:
   - MachineLearning
   - ML2021
-  - SelfSupervisedLearning
-  - BERT
-  - GPT
 ---
 
-# 第26堂課：Self-supervised Learning (aka Foundation Model) (Part 1 of 3)
+# 第26堂課：Self-Supervised Learning (Video 26)
 
-本堂課由李宏毅教授介紹**自監督學習 (Self-Supervised Learning)** 的概念，探討如何透過模型自行從數據中產生監督訊號，並詳細分析了 BERT 與 GPT 系列模型的核心技術與應用。
+本堂課程由李宏毅教授深入探討**自監督學習 (Self-Supervised Learning, SSL)** 的核心概念，特別聚焦於自然語言處理（NLP）中的兩大標竿巨作：**BERT 系列（Encoder 架構）**與 **GPT 系列（Decoder 架構）**。
+
+自監督學習近年來在語音（Speech）與電腦視覺（CV）領域亦取得突破性進展，開啟了預訓練大模型（Foundation Models）的新紀元。本篇筆記將詳實梳理自監督學習的理論基礎、演算法細節、下游任務適應（Downstream Fine-tuning）以及模型背後的運作機制。
 
 ---
 
-## 一、 自監督學習的核心概念
-
-傳統監督學習 (Supervised Learning) 依賴人工標記的標籤 $y$，而自監督學習則是讓系統學習從輸入 $x$ 的一部分預測另一部分。Yann LeCun 將其定義為「使用部分輸入作為剩餘部分的監督訊號」。
+## 1. 知識圖譜 (Knowledge Graph)
 
 ```mermaid
 graph TD
-    Nb7d289["自監督學習"] --> N536f3e["監督訊號來源"]
-    N536f3e["監督訊號來源"] --> Nccefae["利用部分輸入預測其餘部分"]
-    N4d9820["應用領域"] --> Nb8c99b["自然語言處理 (NLP)"]
-    N4d9820["應用領域"] --> Nb5fe60["語音處理 (Speech)"]
-    N4d9820["應用領域"] --> Nd30d87["電腦視覺 (CV)"]
-    N466473["核心模型系列"] --> N1d9f34["BERT系列"]
-    N466473["核心模型系列"] --> Ndce60f["GPT系列"]
+    A["Self-Supervised Learning"] --> B["BERT Series (Encoder-only)"]
+    A --> C["GPT Series (Decoder-only)"]
+    A --> D["Seq2Seq Pre-training (Encoder-Decoder)"]
+    A --> E["SSL Beyond Text"]
+
+    B --> B1["Pre-training Tasks"]
+    B1 --> B1a["Masked Language Modeling (MLM)"]
+    B1 --> B1b["Sentence Order Prediction (SOP)"]
+    B --> B2["Downstream Tasks (Fine-tuning)"]
+    B2 --> B2a["Sequence Classification (Sentiment Analysis)"]
+    B2 --> B2b["POS Tagging (Sequence Labeling)"]
+    B2 --> B2c["Natural Language Inference (NLI)"]
+    B2 --> B2d["Extraction-based QA"]
+    B --> B3["Contextualized Embeddings"]
+    B --> B4["Multi-lingual Alignment"]
+
+    C --> C1["Predict Next Token (Autoregressive)"]
+    C --> C2["In-context Learning (Few-shot/Zero-shot)"]
+
+    D --> D1["MASS / BART (Text Corruption)"]
+    D --> D2["T5 (Text-to-Text Framework)"]
+
+    E --> E1["Computer Vision (SimCLR, BYOL)"]
+    E --> E2["Speech Processing (SUPERB Benchmark)"]
 ```
 
 ---
 
-## 二、 BERT 系列：從編碼器 (Encoder) 出發
+## 2. 自監督學習的核心概念 (Core Concept of SSL)
 
-BERT (Bidirectional Encoder Representations from Transformers) 是基於 Transformer Encoder 的預訓練模型，擁有 340M 參數。
+### 2.1 什麼是自監督學習？
+在傳統的**監督學習 (Supervised Learning)** 中，我們需要成對的輸入與標籤 $(x, \hat{y})$，其中標籤 $\hat{y}$ 通常需要昂貴的人工標記。
 
-### 1. 預訓練方法 (Pre-train)
-*   **Masked Token Prediction**: 隨機遮蔽部分 tokens (使用 `[MASK]` 或隨機替換)，透過 Transformer Encoder 輸出並接上線性層 (Linear)，最小化與真實詞彙的交叉熵 (Cross Entropy)。
-*   **Next Sentence Prediction (NSP)**: 判斷兩句句子是否連續（在 RoBERTa 等後續改進中，該方法被認為效果不佳；ALBERT 則改用 SOP: Sentence Order Prediction）。
+而**自監督學習 (Self-Supervised Learning)** 則是從無標記數據（Unlabeled Data）本身挖掘監督訊號。其核心思想如深度學習巨頭 Yann LeCun 所述：
+> *"The system learns to predict part of its input from other parts of its input."*  
+> （系統透過輸入的某一部分，去預測輸入的另一部分。）
 
-### 2. 下游任務 (Downstream Tasks) 的微調 (Fine-tuning)
-透過大量的無標記資料進行預訓練，再針對少量標記資料的任務進行微調：
-*   **Case 1 (序列分類)**: 如情緒分析，將 `[CLS]` 輸出的 embedding 接上 Linear 層。
-*   **Case 2 (序列標記)**: 如詞性標注 (POS tagging)，對每個 token 的輸出分別進行分類。
-*   **Case 3 (自然語言推論 NLI)**: 判斷前提 (Premise) 與假設 (Hypothesis) 的關係 (entailment, contradiction, neutral)。
-*   **Case 4 (問答系統 QA)**: 提取式問答，預測答案在文件中的開始位置 $s$ 與結束位置 $e$。
+自監督學習將無標記數據 $x$ 分割為兩部分：
+1. 輸入部分 $x'$
+2. 剩餘部分 $x''$（作為目標，即自建的 Label）
 
----
+模型透過預測 $x''$ 來學習數據的底層特徵與表徵（Representations）。
 
-## 三、 GPT 系列：從解碼器 (Decoder) 出發
+$$x \xrightarrow{\text{Split}} \{x', x''\} \quad \Longrightarrow \quad \text{Model}(x') \to y \quad \text{vs.} \quad x'' \ (\text{Label})$$
 
-GPT (Generative Pre-trained Transformer) 系列專注於生成任務，透過「預測下一個 Token (Predict Next Token)」來進行預訓練。
+### 2.2 模型參數量的巨型化趨勢
+隨著自監督學習的興起，模型規模呈現指數型增長：
+* **ELMo (2018)**: 94M 參數
+* **BERT (2018)**: 340M 參數
+* **GPT-2 (2019)**: 1.5B (1542M) 參數
+* **Megatron (2019)**: 8B 參數
+* **T5 (2019)**: 11B 參數
+* **Turing NLG**: 17B 參數
+* **GPT-3 (2020)**: 175B 參數（參數規模已是 Turing NLG 的 10 倍以上）
+* **Switch Transformer (2021)**: 1.6T (萬億) 參數
 
-*   **生成能力**: GPT 系列如 GPT-2, GPT-3 具有極強的文字生成能力，能根據提示 (Prompt) 進行創意寫作。
-*   **In-context Learning**: 無需梯度下降，透過給予任務描述與少許範例（Few-shot learning），模型即可在推論時執行指定任務。
-
----
-
-## 四、 多語言與跨領域應用
-
-*   **多語言 BERT (Multi-lingual BERT)**: 在多種語言資料上進行訓練，使模型具備跨語言能力。
-    *   **零樣本閱讀理解 (Zero-shot Reading Comprehension)**: 即使僅使用英文資料進行訓練，模型在中文問答測試上也能有不錯表現，顯示模型學到了跨語言的對齊 (Alignment)。
-*   **跨領域應用**: 
-    *   將 BERT 應用於生物資訊（蛋白質、DNA 序列）與音樂分類，效果往往優於隨機初始化的模型。
+這類超大型預訓練模型（Large Pre-trained Models）展現出驚人的「湧現能力」（Emergent Abilities）。
 
 ---
 
-## 五、 自監督學習的發展趨勢
+## 3. BERT 系列：雙向編碼器表徵 (BERT Series)
 
-除了文字領域，自監督學習也廣泛應用於語音與影像：
-*   **語音處理**: 透過 SUPERB (Speech processing Universal PERformance Benchmark) 框架，比較不同自監督預訓練模型在語音辨識、說話者識別、情感分類等任務的表現。
-*   **電腦視覺**: 如 SimCLR (Maximize agreement between two views) 與 BYOL (Bootstrap your own latent)，透過對比學習 (Contrastive learning) 等方式提取影像表徵。
+BERT 全稱為 **Bidirectional Encoder Representations from Transformers**，其架構本質上就是一個 **Transformer Encoder**。BERT 的預訓練過程包含兩個核心任務：
+
+### 3.1 預訓練任務一：遮罩輸入 (Masking Input / MLM)
+在輸入句子中，隨機選取約 $15\%$ 的 Token 進行遮罩。遮罩的具體策略為：
+* $80\%$ 的機率替換為特殊 Token `[MASK]`。
+* $10\%$ 的機率隨機替換為另一個 Token。
+* $10\%$ 的機率保持不變。
+
+#### MLM 預測機制：
+BERT 輸出被遮罩位置的特徵向量，通過一個隨機初始化的線性層（Linear Layer）與 Softmax，預測被遮罩的真實 Token。優化目標是**最小化預測機率與真實 Ground Truth 的交叉熵（Cross-Entropy）**：
+
+$$\mathcal{L}_{\text{MLM}} = - \sum_{i \in \text{masked}} \log P(w_i | X_{\backslash i})$$
+
+以輸入「台灣[MASK]學」為例，模型需要預測出被遮罩字為「大」。
+
+### 3.2 預訓練任務二：下一句預測 (Next Sentence Prediction - NSP)
+輸入兩個句子，在開頭加入特殊 Token `[CLS]`，兩句之間用 `[SEP]` 分隔。
+* `[CLS] 句子A [SEP] 句子B`
+* BERT 輸出 `[CLS]` 的向量，通過線性分類器預測「句子B是否為句子A的下一句」（Binary Classification: Yes/No）。
+
+> **技術演進備註**：後續研究（如 RoBERTa）指出 **NSP 任務對下游任務幫助有限**，甚至會帶來負面影響。因此，在 ALBERT 中，NSP 被替換為**句子順序預測 (Sentence Order Prediction, SOP)**。SOP 的正樣本為連續兩句，負樣本為將這兩句的順序顛倒，這迫使模型學習更細緻的段落相干性。
 
 ---
 
-## 隨堂測驗
+## 4. 如何使用 BERT：下游任務微調 (Downstream Fine-tuning)
 
-1. **問：根據李宏毅教授的觀點，為什麼 BERT 應用在 DNA 序列分類時，表現通常優於隨機初始化的模型？**
-   <details>
-   <summary>點擊展開解答</summary>
-   因為 BERT 在預訓練階段已經學會了處理序列資訊（Contextualized embedding），即便資料類型從自然語言換成 DNA 序列，模型捕捉序列特徵的能力仍然能幫助下游分類任務。
-   </details>
+預訓練完成的 BERT 相當於一個強大的「特徵提取器」，我們只需在其上方疊加一個簡單的線性層（Linear Layer），並在特定的下游任務（Downstream Tasks）上進行**微調 (Fine-tuning)**。
 
-2. **問：在 GPT 的 "Few-shot" Learning 中，訓練過程中是否需要進行梯度下降 (Gradient Descent)？**
-   <details>
-   <summary>點擊展開解答</summary>
-   不需要。GPT 的 Few-shot Learning 屬於 "In-context" Learning，模型是透過提示 (Prompt) 中的範例直接進行推論，不需更新模型權重。
-   </details>
+BERT 能夠輕鬆適應 GLUE（General Language Understanding Evaluation）基準測試中的各類任務，主要分為以下四種 Case：
 
-3. **問：BERT 進行 Masked Token Prediction 時，輸入端除了 `[MASK]` token 之外，還有什麼方式來破壞輸入資料以供模型預測？**
-   <details>
-   <summary>點擊展開解答</summary>
-   使用隨機的其他 token (Random tokens) 進行替換。
-   </details>
+### Case 1: 序列分類 (Sequence Classification)
+* **輸入**：單一序列（如：評論）。
+* **輸出**：類別標籤（如：正面/負面情緒分析）。
+* **方法**：
+  在開頭放置 `[CLS]` Token，將其經過 BERT 得到的輸出向量 $h_{\text{[CLS]}}$ 輸入至線性分類器 $W_y$ 中，得到類別預測。微調時，**BERT 的參數與線性層的參數同時進行梯度更新**（此方法顯著優於從頭隨機初始化訓練，收斂速度與最終 Loss 皆更佳）。
 
-## 來自課程原聲的重點摘要
+$$\hat{y} = \text{Softmax}(W_y h_{\text{[CLS]}} + b_y)$$
 
-## 來自課程原聲的重點摘要
+### Case 2: 序列標註 (Sequence Labeling / POS Tagging)
+* **輸入**：一個句子。
+* **輸出**：每個 Token 對應的標籤（如：詞性標記 POS Tagging，"I saw a saw" $\to$ "Pronoun, Verb, Determiner, Noun"）。
+* **方法**：
+  BERT 輸出每個 Token 對應的向量 $h_i$，分別送入同一個線性分類器，預測其詞性類別。
 
-* **關於自監督學習模型（Self-supervised Learning Models）的命名規則：**
-  * 教授以芝麻街（Sesame Street）的角色來為這些模型命名。例如：ELMo 是取自芝麻街中的紅色怪獸角色；BERT 是為了要跟 ELMo 湊在一起，取自芝麻街中與 ELMo 是好朋友的角色。
-  * 這種取名方式通常帶有一點隨性或惡趣味，並沒有嚴謹的命名邏輯。
+$$\hat{y}_i = \text{Softmax}(W_{\text{pos}} h_i + b_{\text{pos}})$$
 
-* **模型規模的直觀比喻：**
-  * **GPT-3 的體積：** 教授將 BERT 比作一個「超級巨大的巨人」，而 GPT-3 則是比 BERT 大上 10 倍的巨型模型。
-  * **如何感受參數的大小：** 為了讓學生對參數數量級有感，教授將模型的大小視覺化。他將 BERT 的參數數量（3.4 億）比喻為一個「1 米高」的身高，而 GPT-3 的體積則大約是台北 101 大樓的高度，藉此讓學生理解這些模型在硬體算力上的驚人差異。
-  * **更驚人的 Switch Transformer：** 當模型大到 1.6 萬億（1.6 Trillion）參數時，其複雜度已經超越了人類大腦的預估神經元數量（1,000 億）。
+### Case 3: 自然語言推理 (Natural Language Inference, NLI)
+* **輸入**：兩個序列（Premise 前提 與 Hypothesis 假設）。
+* **輸出**：三分類（Contradiction 矛盾、Entailment 蘊含、Neutral 中立）。
+* **方法**：
+  格式化為 `[CLS] Premise [SEP] Hypothesis` 輸入 BERT，利用 `[CLS]` 的輸出向量進行三分類預測。
 
-* **教授特別強調的觀點：**
-  * **這門課並非在討論卡通：** 儘管教授大量運用芝麻街的角色來舉例，但他強調這純粹是為了方便記憶與趣味性。這些模型的命名規則反映了深度學習領域中，研究者們喜歡透過特定創意來為研究成果命名的文化。
-  * **「不看」的隱喻：** 在提到模型原理或潛在風險時，教授會幽默地請同學「閉上眼睛、摀住耳朵」，這種互動方式是用來緩解課程中較為枯燥或艱深部分的學習壓力，同時也提醒同學即將進入較為艱深的技術細節。
+### Case 4: 抽取式問答 (Extraction-based Question Answering, QA)
+* **輸入**：問題 $Q = \{q_1, \dots, q_M\}$ 與 文章 Document $D = \{d_1, \dots, d_N\}$。
+* **輸出**：文章中的起始位置 $s$ 與結束位置 $e$（答案即為 $A = \{d_s, \dots, d_e\}$）。
+* **機制**：
+  1. 將輸入拼接為 `[CLS] Q [SEP] D` 送入 BERT，得到文章中每個 Token 的輸出向量 $d_i \in \mathbb{R}^d$。
+  2. 隨機初始化兩個等維度向量：**Start Vector $s \in \mathbb{R}^d$** 與 **End Vector $e \in \mathbb{R}^d$**。
+  3. 計算 $s$ 與各個文章 Token 向量 $d_i$ 的內積（Inner Product），並經過 Softmax 得到起始機率分布：
 
-* **學習上的注意事項：**
-  * 同學們不需要過度鑽研這些怪異的命名，重點在於理解這些模型（如 BERT, GPT）背後的「自監督學習」架構及其在不同任務中的應用價值。
+$$P_{\text{start}}(i) = \frac{\exp(s \cdot d_i)}{\sum_{j=1}^N \exp(s \cdot d_j)}$$
+
+  4. 同理，計算 $e$ 與 $d_i$ 的內積以得到結束機率分布：
+
+$$P_{\text{end}}(i) = \frac{\exp(e \cdot d_i)}{\sum_{j=1}^N \exp(e \cdot d_j)}$$
+
+  5. 取機率最大者作為預測的邊界 $s$ 與 $e$。微調時更新 BERT 參數及向量 $s, e$。
+
+---
+
+## 5. 為什麼 BERT 如此強大？(Why does BERT work?)
+
+### 5.1 脈絡化單字嵌入 (Contextualized Word Embeddings)
+在傳統的 Word2Vec 或 GloVe 中，不論上下文為何，同一個單字（如「蘋果」）對應的向量都是固定的（Static Word Embedding）。
+
+而 BERT 產出的則是**脈絡化單字嵌入 (Contextualized Word Embeddings)**。同一個字在不同的上下文環境中，會產生完全不同的向量表示：
+* 「吃**蘋果**」中的「蘋果」向量會接近「草莓」、「水果」。
+* 「**蘋果**手機」中的「蘋果」向量則會接近「電腦」、「手機」。
+
+這完美體現了語言學家 John Rupert Firth 的著名觀點：
+> *"You shall know a word by the company it keeps."*  
+> （欲知一字，且看其伴。）
+
+### 5.2 跨領域遷移能力 (Cross-domain Transfer Ability)
+李宏毅教授團隊的研究成果顯示，將預訓練於英文語料的 BERT 模型，直接應用於 **DNA 序列分類、蛋白質分類、甚至音樂分類**（將 DNA 的 A, T, C, G 鹼基或音樂特徵映射為英文字），其表現顯著優於從頭訓練（Random Initialization）或單純的特徵重建。
+
+這表明 **BERT 學習到了普適的序列結構與長距離依賴關係**，其內部的 Attention 分布具備極強的結構泛化能力。
+
+---
+
+## 6. 多語言 BERT 與跨語言對齊 (Multi-lingual BERT)
+
+Google 曾推出在 104 種語言上同時訓練的 **Multi-lingual BERT (mBERT)**。令人驚奇的是，mBERT 展現出了極強的 **Zero-shot 跨語言遷移能力**：
+> **實驗**：使用「英文 QA 數據集」來微調 mBERT，模型**從未看過任何中文 QA 範例**。接著直接在「中文 QA 數據集」上進行測試，模型竟然能正確回答中文問題！
+
+### 6.1 跨語言對齊的秘密：語言空間的平移向量 (Translation Vector)
+mBERT 是如何將英文與中文對齊到同一個語意空間的？
+
+研究發現，mBERT 並非完全消除語言界線。在向量空間中，中英文向量之所以能互通，是因為：
+$$\mathbf{v}_{\text{Chinese}} \approx \mathbf{v}_{\text{English}} + \vec{u}_{\text{shift}}$$
+
+其中 $\vec{u}_{\text{shift}}$ 是一個代表「語言特徵偏置」的固定平移向量。
+* 如果我們計算出中文與英文 Embedding 的平均值差：
+$$\vec{u}_{\text{shift}} = \mathbf{\mu}_{\text{Chinese}} - \mathbf{\mu}_{\text{English}}$$
+* 將中文特徵向量扣除這個 $\vec{u}_{\text{shift}}$，就可以在**完全無監督**的情況下，直接進行 Token 等級的跨語言翻譯。
+
+---
+
+## 7. Seq2Seq 預訓練模型與 GPT 系列
+
+### 7.1 Seq2Seq 模型預訓練 (MASS / BART / T5)
+若要預訓練一個完整的 **Encoder-Decoder (Seq2Seq)** 架構，通常會使用「破壞文本再重建」的策略。
+* **BART** 的破壞策略非常多元，包含：Token 遮罩、Token 刪除、文本填充（Text Infilling，將一段區間代換為單一 `[MASK]`）、句子隨機排列（Sentence Permutation）與文檔旋轉（Document Rotation）。
+* **T5 (Text-to-Text Transfer Transformer)** 將所有 NLP 任務都統整為「Text-to-Text」的形式。
+
+### 7.2 GPT 系列：自迴歸生成 (Predict Next Token)
+不同於 BERT 的雙向編碼，**GPT (Generative Pre-trained Transformer)** 是一個 **Decoder-only** 架構。其核心任務是**預測下一個 Token（Autoregressive 語言模型）**：
+
+$$P(X) = \prod_{t=1}^T P(w_t | w_1, w_2, \dots, w_{t-1})$$
+
+在預訓練時，因為 Decoder 具有 Masked Self-Attention 機制，模型在預測第 $t$ 個字時，無法看到 $t$ 之後的資訊。
+
+#### GPT-3 的 In-context Learning (上下文學習)
+GPT-3 擁有高達 175B 的參數。它最震撼的特點是：在進行下游任務時，**不需要進行任何參數梯度的更新（No Gradient Descent）**。
+用戶只需在輸入（Prompt）中給出：
+1. 任務描述 (Task Description)
+2. 幾個範例 (Few-shot Examples)
+3. 待求解的問題 (Prompt)
+
+模型便能藉由強大的注意力機制，直接生成正確答案。這種創新的學習範式被稱為 **In-context Learning**。
+
+---
+
+## 8. 隨堂測驗 (Quizzes)
+
+### 測驗 1：BERT 的遮罩輸入 (MLM) 策略
+在 BERT 的 MLM 預訓練中，為什麼被選中的 $15\%$ Token 不全部替換為 `[MASK]`，而是保留 $10\%$ 的隨機替換與 $10\%$ 的保持不變？
+<details>
+<summary>點擊展開解答</summary>
+因為在下游任務的微調（Fine-tuning）和實際推理時，輸入文本中<b>絕對不會出現 <code>[MASK]</code> 這種特殊 Token</b>。如果預訓練時只學習預測 <code>[MASK]</code>，會導致預訓練與微調階段的輸入分布不一致（Discrepancy）。保留隨機替換與保持不變，能迫使 BERT 在沒有 <code>[MASK]</code> 的情況下，依然保持對上下文語意特徵的魯棒提取能力。
+</details>
+
+---
+
+### 測驗 2：抽取式問答 (Case 4) 的數學推導
+在問答任務中，若一篇文章長度為 $N$，BERT 分別學到了 Start Vector $s$ 與 End Vector $e$。試問模型預測出之答案區間 $[s_{\text{pred}}, e_{\text{pred}}]$，其联合概率最大化公式應如何表示（假設起點與終點選擇相互獨立）？
+<details>
+<summary>點擊展開解答</summary>
+我們需要尋找一對起點 $i$ 與終點 $j$（且滿足合理約束 $i \le j$），使得它們的聯合機率最大：
+$$(s_{\text{pred}}, e_{\text{pred}}) = \arg\max_{1 \le i \le j \le N} P_{\text{start}}(i) \times P_{\text{end}}(j)$$
+而在實作中，通常會轉為對數空間進行計算，以避免數值下溢：
+$$(s_{\text{pred}}, e_{\text{pred}}) = \arg\max_{1 \le i \le j \le N} \left( s \cdot d_i + e \cdot d_j \right)$$
+</details>
+
+---
+
+### 測驗 3：GPT 與 BERT 的本質架構差異
+請說明為什麼 BERT 適合用於自然語言理解（NLU）任務（如問答、分類），而 GPT 更擅長用於自然語言生成（NLG）任務？
+<details>
+<summary>點擊展開解答</summary>
+<ul>
+  <li><b>BERT (Encoder-only)</b>：採用<b>雙向自注意力機制（Bidirectional Self-Attention）</b>。在提取任一位置的特徵時，皆能同時觀測到左側與右側的上下文（全域資訊）。這使其能非常精準地理解並抽取文本語意，極度適合 NLU 任務。</li>
+  <li><b>GPT (Decoder-only)</b>：採用<b>單向/遮罩自注意力機制（Causal/Masked Self-Attention）</b>。模型在生成第 $t$ 個字時，只能依賴前 $t-1$ 個字。這種自迴歸（Autoregressive）結構與人類逐字寫作、說話的生成邏輯完全一致，因此天生擅長 NLG 任務。</li>
+</ul>
+</details>
