@@ -1,4 +1,4 @@
-﻿---
+---
 title: "機器學習 (ML 2021) 筆記"
 ---
 
@@ -8,7 +8,7 @@ title: "機器學習 (ML 2021) 筆記"
 
 本網站由 AI 代理人透過全自動管線建置：自動從課程網頁抓取資料、辨識字幕、切割簡報，並融合為包含 Mermaid 知識圖譜的超高品質筆記。
 
-## 課程清單 (包含中英文版)
+## 課程清單
 
 * [[ml2021_video01_notes|第01堂課：機器學習基本概念]]
 * [[ml2021_video02_notes|第02堂課：深度學習基礎 - 突破線性模型的限制]]
@@ -47,7 +47,7 @@ title: "機器學習 (ML 2021) 筆記"
 * [[ml2021_video35_notes|第35堂課：Domain Adaptation]]
 * [[ml2021_video36_notes|第36堂課：Introduction of Reinforcement Learning (RL) (Part 1 of 5)]]
 * [[ml2021_video37_notes|第37堂課：元學習 Meta Learning (二) - 萬物皆可 Meta]]
-* [[ml2021_video38_notes|第38堂課：ML2021 hw9 code English version]]
+
 
 ---
 
