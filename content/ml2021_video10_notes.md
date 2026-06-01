@@ -200,40 +200,40 @@ tags:
 
 ```mermaid
 graph TD
-    Input_Image['影像輸入 (3D Tensor)'] --> Conv1['Convolutional Layer 1']
-    Conv1 --> Feature_Map_1['Feature Map 1']
-    Feature_Map_1 -- "輸出" --> Pool1['Pooling Layer 1']
-    Pool1 --> Conv2['Convolutional Layer 2']
-    Conv2 --> Feature_Map_2['Feature Map 2']
-    Feature_Map_2 -- "輸出" --> Pool2['Pooling Layer 2']
-    Pool2 --> Flatten['Flatten Layer']
-    Flatten --> FC1['Fully Connected Layer 1']
-    FC1 --> FC_Output['最終分類層 (Softmax)']
-    FC_Output --> Output['分類結果']
+    Input_Image["影像輸入 (3D Tensor)Node1["] --> Conv1["]Convolutional Layer 1"]
+    Conv1 --> Feature_Map_1["Feature Map 1"]
+    Feature_Map_1 -- Node2["輸出"] --> Pool1["Pooling Layer 1"]
+    Pool1 --> Conv2["Convolutional Layer 2"]
+    Conv2 --> Feature_Map_2["Feature Map 2"]
+    Feature_Map_2 -- Node2["輸出"] --> Pool2["Pooling Layer 2"]
+    Pool2 --> Flatten["Flatten Layer"]
+    Flatten --> FC1["Fully Connected Layer 1"]
+    FC1 --> FC_Output["最終分類層 (Softmax)"]
+    FC_Output --> Output["分類結果"]
 
-    subgraph "核心觀察"
-        Obs_Local['局部 Pattern 觀察']
-        Obs_Spatial['Pattern 空間不變性觀察']
-        Obs_Subsample['影像 Subsampling 觀察']
+    subgraph Node3["核心觀察"]
+        Obs_Local["局部 Pattern 觀察"]
+        Obs_Spatial["Pattern 空間不變性觀察"]
+        Obs_Subsample["影像 Subsampling 觀察"]
     end
 
-    subgraph "CNN 組件原理"
-        RF['Receptive Field']
-        PS['Parameter Sharing']
-        Filter['Filter / Kernel']
-        Feature_Map['Feature Map']
+    subgraph Node4["CNN 組件原理"]
+        RF["Receptive Field"]
+        PS["Parameter Sharing"]
+        Filter["Filter / Kernel"]
+        Feature_Map["Feature Map"]
     end
 
     Obs_Local --> RF
     Obs_Spatial --> PS
     PS --> Filter
-    RF --> Conv_Principle['Convolutional Layer 原理']
+    RF --> Conv_Principle["Convolutional Layer 原理"]
     Filter --> Conv_Principle
 
     Conv_Principle --> Conv1
     Conv_Principle --> Conv2
 
-    Obs_Subsample --> Pool_Principle['Pooling Layer 原理']
+    Obs_Subsample --> Pool_Principle["Pooling Layer 原理"]
     Pool_Principle --> Pool1
     Pool_Principle --> Pool2
 ```

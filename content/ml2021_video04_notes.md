@@ -235,37 +235,37 @@ $$ u^T H u = u^T (\lambda u) = \lambda (u^T u) = \lambda \|u\|^2 $$
 
 ```mermaid
 graph TD
-    A['最佳化問題 Optimization'] --> B{"訓練損失停滯 Training Loss Plateaus"}
-    B --> C{"梯度為零 Gradient = 0"}
-    C --> D['關鍵點 Critical Point']
+    A["最佳化問題 Optimization"] --> B{Node1["訓練損失停滯 Training Loss Plateaus"]}
+    B --> C{Node2["梯度為零 Gradient = 0"]}
+    C --> D["關鍵點 Critical Point"]
 
-    D --> D1['區域最小值 Local Minima']
-    D --> D2['鞍點 Saddle Point']
-    D --> D3['區域最大值 Local Maxima']
+    D --> D1["區域最小值 Local Minima"]
+    D --> D2["鞍點 Saddle Point"]
+    D --> D3["區域最大值 Local Maxima"]
 
-    C -- "依賴" --> E['泰勒展開式 Taylor Series']
-    E -- "包含" --> F['梯度 g (一次微分) Gradient']
-    E -- "包含" --> G['海森矩陣 H (二次微分) Hessian Matrix']
+    C -- Node3["依賴"] --> E["泰勒展開式 Taylor Series"]
+    E -- Node4["包含"] --> F["梯度 g (一次微分) Gradient"]
+    E -- Node4["包含"] --> G["海森矩陣 H (二次微分) Hessian Matrix"]
 
-    G -- "判斷依據" --> H1['正定矩陣 Positive Definite']
-    H1 -- "特性" --> H1A['所有特徵值 大於 0 All Eigenvalues 大於 0']
+    G -- Node5["判斷依據"] --> H1["正定矩陣 Positive Definite"]
+    H1 -- Node6["特性"] --> H1A["所有特徵值 大於 0 All Eigenvalues 大於 0"]
     H1A --> D1
 
-    G -- "判斷依據" --> H2['負定矩陣 Negative Definite']
-    H2 -- "特性" --> H2A['所有特徵值 小於 0 All Eigenvalues 小於 0']
+    G -- Node5["判斷依據"] --> H2["負定矩陣 Negative Definite"]
+    H2 -- Node6["特性"] --> H2A["所有特徵值 小於 0 All Eigenvalues 小於 0"]
     H2A --> D3
 
-    G -- "判斷依據" --> H3['不定矩陣 Indefinite Matrix']
-    H3 -- "特性" --> H3A['特徵值有正有負 Mixed Eigenvalues']
+    G -- Node5["判斷依據"] --> H3["不定矩陣 Indefinite Matrix"]
+    H3 -- Node6["特性"] --> H3A["特徵值有正有負 Mixed Eigenvalues"]
     H3A --> D2
 
-    D2 -- "逃脫策略" --> I['利用海森矩陣特徵向量 Escape using Eigenvectors']
-    I -- "尋找" --> I1['負特徵值 Negative Eigenvalue']
-    I -- "尋找" --> I2['對應特徵向量 Corresponding Eigenvector']
-    I2 --> J['沿特徵向量方向更新參數 Update along Eigenvector direction']
+    D2 -- Node7["逃脫策略"] --> I["利用海森矩陣特徵向量 Escape using Eigenvectors"]
+    I -- Node8["尋找"] --> I1["負特徵值 Negative Eigenvalue"]
+    I -- Node8["尋找"] --> I2["對應特徵向量 Corresponding Eigenvector"]
+    I2 --> J["沿特徵向量方向更新參數 Update along Eigenvector direction"]
 
-    K['高維度空間 High Dimensional Space'] --> L['更多鞍點 More Saddle Points']
-    L --> M['更少區域最小值 Fewer Local Minima']
-    L -- "啟示" --> N['鞍點沒有那麼可怕 Saddle Points less 'Scary'']
+    K["高維度空間 High Dimensional Space"] --> L["更多鞍點 More Saddle Points"]
+    L --> M["更少區域最小值 Fewer Local Minima"]
+    L -- Node9["啟示"] --> N["鞍點沒有那麼可怕 Saddle Points less 'Scary'"]
     J --> N
 ```

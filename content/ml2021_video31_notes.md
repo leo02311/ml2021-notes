@@ -208,33 +208,33 @@ $$x^t \leftarrow x^{t-1} - \eta \cdot \text{sign}(g)$$
 ```mermaid
 graph TD
 
-    Main['對抗攻擊與防禦'] --> Attack['對抗攻擊 (Attack)']
-    Main --> Defense['對抗防禦 (Defense)']
+    Main["對抗攻擊與防禦Node1["] --> Attack["]對抗攻擊 (Attack)"]
+    Main --> Defense["對抗防禦 (Defense)"]
 
-    Attack --> AttackType['按目標分類']
-    AttackType --> NonTargeted['非目標攻擊 (Non-targeted) 小於br大於 最大化預測與真值之距離']
-    AttackType --> Targeted['目標攻擊 (Targeted) 小於br大於 導向指定類別']
+    Attack --> AttackType["按目標分類"]
+    AttackType --> NonTargeted["非目標攻擊 (Non-targeted) 小於br大於 最大化預測與真值之距離"]
+    AttackType --> Targeted["目標攻擊 (Targeted) 小於br大於 導向指定類別"]
 
-    Attack --> DistanceMetric['距離約束']
-    DistanceMetric --> L2Norm['L2 範數 小於br大於 限制擾動總量']
-    DistanceMetric --> LInfNorm['L-infinity 範數 小於br大於 限制單像素最大變化 小於br大於 最符合人眼感知']
+    Attack --> DistanceMetric["距離約束"]
+    DistanceMetric --> L2Norm["L2 範數 小於br大於 限制擾動總量"]
+    DistanceMetric --> LInfNorm["L-infinity 範數 小於br大於 限制單像素最大變化 小於br大於 最符合人眼感知"]
 
-    Attack --> Method['攻擊算法']
-    Method --> FGSM['FGSM 小於br大於 單步快速梯度標誌法']
-    Method --> PGD['PGD / Iterative FGSM 小於br大於 多步投影梯度下降法']
+    Attack --> Method["攻擊算法"]
+    Method --> FGSM["FGSM 小於br大於 單步快速梯度標誌法"]
+    Method --> PGD["PGD / Iterative FGSM 小於br大於 多步投影梯度下降法"]
 
-    Attack --> BoxType['按知識掌握程度']
-    BoxType --> WhiteBox['白箱攻擊 小於br大於 掌握模型參數及架構']
-    BoxType --> BlackBox['黑箱攻擊 小於br大於 僅能進行 API 查詢']
-    BlackBox --> Transferability['遷移性 小於br大於 訓練替代模型 (Proxy Network)']
+    Attack --> BoxType["按知識掌握程度"]
+    BoxType --> WhiteBox["白箱攻擊 小於br大於 掌握模型參數及架構"]
+    BoxType --> BlackBox["黑箱攻擊 小於br大於 僅能進行 API 查詢"]
+    BlackBox --> Transferability["遷移性 小於br大於 訓練替代模型 (Proxy Network)"]
 
-    Defense --> Passive['被動防禦 (Passive) 小於br大於 處理輸入訊號']
-    Passive --> Blurring['平滑濾波 (Blurring)']
-    Passive --> Compression['圖像壓縮 (Compression)']
-    Passive --> Randomization['隨機化 (Randomization) 小於br大於 破壞像素精確對齊']
+    Defense --> Passive["被動防禦 (Passive) 小於br大於 處理輸入訊號"]
+    Passive --> Blurring["平滑濾波 (Blurring)"]
+    Passive --> Compression["圖像壓縮 (Compression)"]
+    Passive --> Randomization["隨機化 (Randomization) 小於br大於 破壞像素精確對齊"]
 
-    Defense --> Proactive['主動防禦 (Proactive) 小於br大於 增強模型本身']
-    Proactive --> AdvTraining['對抗訓練 (Adversarial Training) 小於br大於 結合對抗樣本重新訓練']
+    Defense --> Proactive["主動防禦 (Proactive) 小於br大於 增強模型本身"]
+    Proactive --> AdvTraining["對抗訓練 (Adversarial Training) 小於br大於 結合對抗樣本重新訓練"]
 ```
 
 ---

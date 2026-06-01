@@ -42,16 +42,16 @@ $$\bar{\mu} \leftarrow p\bar{\mu} + (1 - p)\mu^t$$
 
 ```mermaid
 graph TD
-    A['Batch Normalization'] --> B['解決優化困難']
-    B --> C['平滑 Loss Surface']
-    A --> D['標準化流程']
-    D --> E['計算 Batch 統計量 mu, sigma']
-    D --> F['應用偏移與縮放 beta, gamma']
-    A --> G['測試階段']
-    G --> H['使用移動平均 Moving Average']
-    A --> I['機制探討']
-    I --> J['Internal Covariate Shift (傳統觀點)']
-    I --> K['改變 Loss Landscape (實驗證據)']
+    A["Batch Normalization"] --> B["解決優化困難"]
+    B --> C["平滑 Loss Surface"]
+    A --> D["標準化流程"]
+    D --> E["計算 Batch 統計量 mu, sigma"]
+    D --> F["應用偏移與縮放 beta, gamma"]
+    A --> G["測試階段"]
+    G --> H["使用移動平均 Moving Average"]
+    A --> I["機制探討"]
+    I --> J["Internal Covariate Shift (傳統觀點)"]
+    I --> K["改變 Loss Landscape (實驗證據)"]
 ```
 
 ## 4. 關於 Internal Covariate Shift 的辯論

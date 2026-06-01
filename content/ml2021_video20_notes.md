@@ -41,16 +41,16 @@ $$\tilde{x}_i^r \leftarrow \frac{x_i^r - m_i}{\sigma_i}$$
 
 ```mermaid
 graph TD
-    "Batch Normalization" --> "核心目標"
-    "Batch Normalization" --> "訓練流程"
-    "Batch Normalization" --> "測試策略"
-    "核心目標" --> "解決誤差表面陡峭問題"
-    "核心目標" --> "加速模型收斂"
-    "訓練流程" --> "計算平均值與變異數"
-    "訓練流程" --> "標準化 z"
-    "訓練流程" --> "Scale and Shift"
-    "測試策略" --> "使用移動平均"
-    "測試策略" --> "不依賴當前 Batch"
+    Node1["Batch Normalization"] --> Node2["核心目標"]
+    Node1["Batch Normalization"] --> Node3["訓練流程"]
+    Node1["Batch Normalization"] --> Node4["測試策略"]
+    Node2["核心目標"] --> Node5["解決誤差表面陡峭問題"]
+    Node2["核心目標"] --> Node6["加速模型收斂"]
+    Node3["訓練流程"] --> Node7["計算平均值與變異數"]
+    Node3["訓練流程"] --> Node8["標準化 z"]
+    Node3["訓練流程"] --> Node9["Scale and Shift"]
+    Node4["測試策略"] --> Node10["使用移動平均"]
+    Node4["測試策略"] --> Node11["不依賴當前 Batch"]
 ```
 
 ## 4. 關於 Internal Covariate Shift 的反思

@@ -46,16 +46,16 @@ $$\tilde{x}_i^r \leftarrow \frac{x_i^r - m_i}{\sigma_i}$$
 
 ```mermaid
 graph TD
-    "Batch Normalization" --> "核心目的"
-    "Batch Normalization" --> "運作原理"
-    "Batch Normalization" --> "測試策略"
-    "核心目的" --> "平滑損失函數平面"
-    "核心目的" --> "加速收斂"
-    "運作原理" --> "計算Batch統計量"
-    "計算Batch統計量" --> "平均值mu"
-    "計算Batch統計量" --> "標準差sigma"
-    "運作原理" --> "參數縮放gamma與beta"
-    "測試策略" --> "移動平均Moving Average"
+    Node1["Batch Normalization"] --> Node2["核心目的"]
+    Node1["Batch Normalization"] --> Node3["運作原理"]
+    Node1["Batch Normalization"] --> Node4["測試策略"]
+    Node2["核心目的"] --> Node5["平滑損失函數平面"]
+    Node2["核心目的"] --> Node6["加速收斂"]
+    Node3["運作原理"] --> Node7["計算Batch統計量"]
+    Node7["計算Batch統計量"] --> Node8["平均值mu"]
+    Node7["計算Batch統計量"] --> Node9["標準差sigma"]
+    Node3["運作原理"] --> Node10["參數縮放gamma與beta"]
+    Node4["測試策略"] --> Node11["移動平均Moving Average"]
 ```
 
 ---

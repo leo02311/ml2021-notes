@@ -15,34 +15,34 @@ tags:
 
 ```mermaid
 graph TD
-    "Self-Supervised Learning" --> "BERT Family"
-    "Self-Supervised Learning" --> "GPT Family"
-    "Self-Supervised Learning" --> "Multi-modal & Other Fields"
+    Node1["Self-Supervised Learning"] --> Node2["BERT Family"]
+    Node1["Self-Supervised Learning"] --> Node3["GPT Family"]
+    Node1["Self-Supervised Learning"] --> Node4["Multi-modal & Other Fields"]
 
-    "BERT Family" --> "Pre-training Tasks"
-    "Pre-training Tasks" --> "Masked Language Modeling (MLM)"
-    "Pre-training Tasks" --> "Next Sentence Prediction (NSP)"
-    "Pre-training Tasks" --> "Sentence Order Prediction (SOP)"
+    Node2["BERT Family"] --> Node5["Pre-training Tasks"]
+    Node5["Pre-training Tasks"] --> Node6["Masked Language Modeling (MLM)"]
+    Node5["Pre-training Tasks"] --> Node7["Next Sentence Prediction (NSP)"]
+    Node5["Pre-training Tasks"] --> Node8["Sentence Order Prediction (SOP)"]
     
-    "BERT Family" --> "Downstream Fine-tuning"
-    "Downstream Fine-tuning" --> "Case 1: Sequence Classification"
-    "Downstream Fine-tuning" --> "Case 2: Token Tagging"
-    "Downstream Fine-tuning" --> "Case 3: NLI (Sequence Pairs)"
-    "Downstream Fine-tuning" --> "Case 4: Extraction-based QA"
+    Node2["BERT Family"] --> Node9["Downstream Fine-tuning"]
+    Node9["Downstream Fine-tuning"] --> Node10["Case 1: Sequence Classification"]
+    Node9["Downstream Fine-tuning"] --> Node11["Case 2: Token Tagging"]
+    Node9["Downstream Fine-tuning"] --> Node12["Case 3: NLI (Sequence Pairs)"]
+    Node9["Downstream Fine-tuning"] --> Node13["Case 4: Extraction-based QA"]
 
-    "BERT Family" --> "Seq2Seq Models"
-    "Seq2Seq Models" --> "BART / MASS"
-    "Seq2Seq Models" --> "T5 (C4 Corpus)"
+    Node2["BERT Family"] --> Node14["Seq2Seq Models"]
+    Node14["Seq2Seq Models"] --> Node15["BART / MASS"]
+    Node14["Seq2Seq Models"] --> Node16["T5 (C4 Corpus)"]
 
-    "GPT Family" --> "Autoregressive Prediction"
-    "Autoregressive Prediction" --> "Predict Next Token"
-    "GPT Family" --> "In-context Learning"
-    "In-context Learning" --> "Few-shot / One-shot / Zero-shot"
+    Node3["GPT Family"] --> Node17["Autoregressive Prediction"]
+    Node17["Autoregressive Prediction"] --> Node18["Predict Next Token"]
+    Node3["GPT Family"] --> Node19["In-context Learning"]
+    Node19["In-context Learning"] --> Node20["Few-shot / One-shot / Zero-shot"]
 
-    "Multi-modal & Other Fields" --> "Cross-lingual BERT"
-    "Multi-modal & Other Fields" --> "Biology (DNA / Protein)"
-    "Multi-modal & Other Fields" --> "Speech Processing (SUPERB)"
-    "Multi-modal & Other Fields" --> "Computer Vision (SimCLR / BYOL)"
+    Node4["Multi-modal & Other Fields"] --> Node21["Cross-lingual BERT"]
+    Node4["Multi-modal & Other Fields"] --> Node22["Biology (DNA / Protein)"]
+    Node4["Multi-modal & Other Fields"] --> Node23["Speech Processing (SUPERB)"]
+    Node4["Multi-modal & Other Fields"] --> Node24["Computer Vision (SimCLR / BYOL)"]
 ```
 
 ---

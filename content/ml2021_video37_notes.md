@@ -15,19 +15,19 @@ tags:
 
 ```mermaid
 graph TD
-    "Meta Learning" --> "Goal: Find Learning Algorithm F"
-    "Meta Learning" --> "Three Steps of Meta-ML"
-    "Three Steps of Meta-ML" --> "Step 1: Define F_phi with learnable parameters phi"
-    "Three Steps of Meta-ML" --> "Step 2: Define Loss L_phi across tasks"
-    "Three Steps of Meta-ML" --> "Step 3: Optimize phi to minimize L_phi"
-    "Step 1: Define F_phi with learnable parameters phi" --> "Learnable components"
-    "Learnable components" --> "Initialization parameters: MAML / Reptile"
-    "Learnable components" --> "Optimizer: Learning to update"
-    "Learnable components" --> "Network Architecture Search: NAS"
-    "Learnable components" --> "Data Augmentation & Sample Reweighting"
-    "Step 2: Define Loss L_phi across tasks" --> "Across-task training"
-    "Across-task training" --> "Support Set: Within-task training"
-    "Across-task training" --> "Query Set: Within-task testing for Loss evaluation"
+    Node1["Meta Learning"] --> Node2["Goal: Find Learning Algorithm F"]
+    Node1["Meta Learning"] --> Node3["Three Steps of Meta-ML"]
+    Node3["Three Steps of Meta-ML"] --> Node4["Step 1: Define F_phi with learnable parameters phi"]
+    Node3["Three Steps of Meta-ML"] --> Node5["Step 2: Define Loss L_phi across tasks"]
+    Node3["Three Steps of Meta-ML"] --> Node6["Step 3: Optimize phi to minimize L_phi"]
+    Node4["Step 1: Define F_phi with learnable parameters phi"] --> Node7["Learnable components"]
+    Node7["Learnable components"] --> Node8["Initialization parameters: MAML / Reptile"]
+    Node7["Learnable components"] --> Node9["Optimizer: Learning to update"]
+    Node7["Learnable components"] --> Node10["Network Architecture Search: NAS"]
+    Node7["Learnable components"] --> Node11["Data Augmentation & Sample Reweighting"]
+    Node5["Step 2: Define Loss L_phi across tasks"] --> Node12["Across-task training"]
+    Node12["Across-task training"] --> Node13["Support Set: Within-task training"]
+    Node12["Across-task training"] --> Node14["Query Set: Within-task testing for Loss evaluation"]
 ```
 
 ---

@@ -15,33 +15,33 @@ tags:
 
 ```mermaid
 graph TD
-    "Self-Supervised Learning" --> "BERT Series (Encoder-based)"
-    "Self-Supervised Learning" --> "GPT Series (Decoder-based)"
-    "Self-Supervised Learning" --> "Seq2Seq Pre-training"
+    Node1["Self-Supervised Learning"] --> Node2["BERT Series (Encoder-based)"]
+    Node1["Self-Supervised Learning"] --> Node3["GPT Series (Decoder-based)"]
+    Node1["Self-Supervised Learning"] --> Node4["Seq2Seq Pre-training"]
     
-    "BERT Series (Encoder-based)" --> "Masked Language Modeling (MLM)"
-    "BERT Series (Encoder-based)" --> "Next Sentence Prediction (NSP) / SOP"
-    "BERT Series (Encoder-based)" --> "Contextualized Word Embeddings"
+    Node2["BERT Series (Encoder-based)"] --> Node5["Masked Language Modeling (MLM)"]
+    Node2["BERT Series (Encoder-based)"] --> Node6["Next Sentence Prediction (NSP) / SOP"]
+    Node2["BERT Series (Encoder-based)"] --> Node7["Contextualized Word Embeddings"]
     
-    "Contextualized Word Embeddings" --> "Downstream Fine-tuning Cases"
-    "Downstream Fine-tuning Cases" --> "Case 1: Sequence Classification"
-    "Downstream Fine-tuning Cases" --> "Case 2: Token Classification (POS Tagging)"
-    "Downstream Fine-tuning Cases" --> "Case 3: Natural Language Inference (NLI)"
-    "Downstream Fine-tuning Cases" --> "Case 4: Extraction-based QA"
+    Node7["Contextualized Word Embeddings"] --> Node8["Downstream Fine-tuning Cases"]
+    Node8["Downstream Fine-tuning Cases"] --> Node9["Case 1: Sequence Classification"]
+    Node8["Downstream Fine-tuning Cases"] --> Node10["Case 2: Token Classification (POS Tagging)"]
+    Node8["Downstream Fine-tuning Cases"] --> Node11["Case 3: Natural Language Inference (NLI)"]
+    Node8["Downstream Fine-tuning Cases"] --> Node12["Case 4: Extraction-based QA"]
     
-    "BERT Series (Encoder-based)" --> "Multi-lingual BERT (Cross-lingual Alignment)"
-    "Multi-lingual BERT (Cross-lingual Alignment)" --> "Language Shift Vector Theory"
+    Node2["BERT Series (Encoder-based)"] --> Node13["Multi-lingual BERT (Cross-lingual Alignment)"]
+    Node13["Multi-lingual BERT (Cross-lingual Alignment)"] --> Node14["Language Shift Vector Theory"]
     
-    "Seq2Seq Pre-training" --> "MASS"
-    "Seq2Seq Pre-training" --> "BART"
-    "Seq2Seq Pre-training" --> "T5"
+    Node4["Seq2Seq Pre-training"] --> Node15["MASS"]
+    Node4["Seq2Seq Pre-training"] --> Node16["BART"]
+    Node4["Seq2Seq Pre-training"] --> Node17["T5"]
     
-    "GPT Series (Decoder-based)" --> "Autoregressive Next Token Prediction"
-    "GPT Series (Decoder-based)" --> "In-context Learning (Few-shot/One-shot/Zero-shot)"
+    Node3["GPT Series (Decoder-based)"] --> Node18["Autoregressive Next Token Prediction"]
+    Node3["GPT Series (Decoder-based)"] --> Node19["In-context Learning (Few-shot/One-shot/Zero-shot)"]
     
-    "Self-Supervised Learning" --> "Beyond Text"
-    "Beyond Text" --> "Speech (SUPERB, wav2vec 2.0)"
-    "Beyond Text" --> "Computer Vision (SimCLR, BYOL)"
+    Node1["Self-Supervised Learning"] --> Node20["Beyond Text"]
+    Node20["Beyond Text"] --> Node21["Speech (SUPERB, wav2vec 2.0)"]
+    Node20["Beyond Text"] --> Node22["Computer Vision (SimCLR, BYOL)"]
 ```
 
 ---

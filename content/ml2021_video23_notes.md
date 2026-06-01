@@ -18,13 +18,13 @@ tags:
 
 ```mermaid
 graph LR
-    subgraph "輸入端"
-        X['條件輸入 x (選填)']
-        Z['簡單隨機分布 z (如高斯分布)']
+    subgraph Node1["輸入端"]
+        X["條件輸入 x (選填)"]
+        Z["簡單隨機分布 z (如高斯分布)"]
     end
     
-    Net['神經網路 (Generator)']
-    Out['複雜目標分布 y (如影像、文字)']
+    Net["神經網路 (Generator)"]
+    Out["複雜目標分布 y (如影像、文字)"]
 
     X --> Net
     Z --> Net
@@ -45,12 +45,12 @@ GAN 的核心思想在於**生成器（Generator, G）**與**鑑別器（Discrim
 
 ```mermaid
 graph TD
-    subgraph "GAN 系統架構"
-        Z['隨機雜訊 z'] --> G['生成器 G']
-        G --> Fake['生成樣本 G('z')']
-        Real['真實資料庫 X_real'] --> D['鑑別器 D']
+    subgraph Node1["GAN 系統架構"]
+        Z["隨機雜訊 z"] --> G["生成器 G"]
+        G --> Fake["生成樣本 G('z')"]
+        Real["真實資料庫 X_real"] --> D["鑑別器 D"]
         Fake --> D
-        D --> Score['輸出純量 (評分/機率)']
+        D --> Score["輸出純量 (評分/機率)"]
     end
 ```
 
@@ -184,10 +184,10 @@ $$\max_{D \in \text{1-Lipschitz}} \left\{ \mathbb{E}_{y \sim P_{data}}[D(y)] - \
 
 ```mermaid
 graph LR
-    subgraph "Conditional Generator"
-        Cond['條件輸入 x'] --> G_cond['G']
-        Noise['隨機雜訊 z'] --> G_cond
-        G_cond --> GenY['生成影像 y']
+    subgraph Node1["Conditional Generator"]
+        Cond["條件輸入 x"] --> G_cond["G"]
+        Noise["隨機雜訊 z"] --> G_cond
+        G_cond --> GenY["生成影像 y"]
     end
 ```
 
@@ -204,9 +204,9 @@ graph LR
 
 ```mermaid
 graph TD
-    X['條件 x (如: 紅眼)'] --> D['鑑別器 D']
-    Y['影像 y'] --> D
-    D --> Score['輸出 0 或 1']
+    X["條件 x (如: 紅眼)Node1["] --> D["]鑑別器 D"]
+    Y["影像 y"] --> D
+    D --> Score["輸出 0 或 1"]
     
 ```
 
@@ -227,12 +227,12 @@ graph TD
 
 ```mermaid
 graph LR
-    X['輸入 x (Domain X)'] --> G_XY['G_X-大於Y']
-    G_XY --> Y_fake['過渡影像 y_fake']
-    Y_fake --> G_YX['G_Y-大於X']
-    G_YX --> X_recon['重建影像 x_recon']
+    X["輸入 x (Domain X)Node1["] --> G_XY["]G_X-大於Y"]
+    G_XY --> Y_fake["過渡影像 y_fake"]
+    Y_fake --> G_YX["G_Y-大於X"]
+    G_YX --> X_recon["重建影像 x_recon"]
     
-    X -.->|"循環一致性損失 (x ≈ x_recon)"| X_recon
+    X -.->|Node2["循環一致性損失 (x ≈ x_recon)"]| X_recon
 ```
 
 * **循環損失（Cycle Loss）**：要求 $x \approx G_{Y \to X}(G_{X \to Y}(x))$。

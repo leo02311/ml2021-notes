@@ -29,16 +29,16 @@ tags:
 
 ```mermaid
 graph TD
-    "Machine Learning 2021" --> "課程目標"
-    "Machine Learning 2021" --> "作業考核"
-    "Machine Learning 2021" --> "教學支援"
-    "課程目標" --> "深入學習"
-    "課程目標" --> "包含最新技術"
-    "作業考核" --> "Kaggle競賽"
-    "作業考核" --> "選擇題"
-    "作業考核" --> "程式實作"
-    "教學支援" --> "教學助理 TA"
-    "教學支援" --> "助教時間 TA Hour"
+    Node1["Machine Learning 2021"] --> Node2["課程目標"]
+    Node1["Machine Learning 2021"] --> Node3["作業考核"]
+    Node1["Machine Learning 2021"] --> Node4["教學支援"]
+    Node2["課程目標"] --> Node5["深入學習"]
+    Node2["課程目標"] --> Node6["包含最新技術"]
+    Node3["作業考核"] --> Node7["Kaggle競賽"]
+    Node3["作業考核"] --> Node8["選擇題"]
+    Node3["作業考核"] --> Node9["程式實作"]
+    Node4["教學支援"] --> Node10["教學助理 TA"]
+    Node4["教學支援"] --> Node11["助教時間 TA Hour"]
 ```
 
 ## 作業與評分規範

@@ -127,7 +127,7 @@ graph TD
         迴歸類比法['迴歸類比法']
         數值化表示問題['數值化表示問題']
         類別表示方式['類別表示方式']
-        OneHotVector['One-hot Vector']
+        OneHotVector["One-hot Vector"]
         多輸出神經網路['多輸出神經網路']
         Softmax函數['Soft-max 函數']
     end
@@ -141,7 +141,7 @@ graph TD
         值介於零壹['值介於 0-1']
         總和為壹['總和為 1']
         拉大數值差距['拉大數值差距']
-        兩類等價Sigmoid['兩類等價於 Sigmoid']
+        兩類等價Sigmoid["兩類等價於 Sigmoid"]
     end
 
     subgraph 分類損失函數
@@ -160,26 +160,26 @@ graph TD
         重複Softmax風險['重複 Soft-max 風險']
     end
 
-    分類問題 -- "需要" --> 類別表示方式
-    分類問題 -- "可嘗試" --> 迴歸類比法
-    迴歸類比法 -- "引發" --> 數值化表示問題
-    數值化表示問題 -- "解決方案" --> OneHotVector
-    OneHotVector -- "定義目標" --> 多輸出神經網路
-    多輸出神經網路 -- "輸出" --> Logits輸入
-    Logits輸入 -- "經處理" --> Softmax函數
-    Softmax函數 -- "細節" --> Softmax詳解
+    分類問題 -- Node1["需要"] --> 類別表示方式
+    分類問題 -- Node2["可嘗試"] --> 迴歸類比法
+    迴歸類比法 -- Node3["引發"] --> 數值化表示問題
+    數值化表示問題 -- Node4["解決方案"] --> OneHotVector
+    OneHotVector -- Node5["定義目標"] --> 多輸出神經網路
+    多輸出神經網路 -- Node6["輸出"] --> Logits輸入
+    Logits輸入 -- Node7["經處理"] --> Softmax函數
+    Softmax函數 -- Node8["細節"] --> Softmax詳解
     Softmax詳解 --> Softmax特性
-    機率分佈輸出 -- "作為輸入" --> 損失函數選擇
-    OneHotVector -- "作為目標" --> 損失函數選擇
-    損失函數選擇 -- "包含" --> MSE損失
-    損失函數選擇 -- "包含" --> 交叉熵損失
-    MSE損失 -- "造成" --> 優化挑戰
-    優化挑戰 -- "表現為" --> 梯度平坦區
-    交叉熵損失 -- "擁有" --> 優化優勢
-    交叉熵損失 -- "理論基礎" --> 最大似然關係
-    交叉熵損失 -- "實作於" --> PyTorch整合設計
-    PyTorch整合設計 -- "提供" --> CrossEntropyLoss內建
-    CrossEntropyLoss內建 -- "使用不當導致" --> 重複Softmax風險
+    機率分佈輸出 -- Node9["作為輸入"] --> 損失函數選擇
+    OneHotVector -- Node10["作為目標"] --> 損失函數選擇
+    損失函數選擇 -- Node11["包含"] --> MSE損失
+    損失函數選擇 -- Node11["包含"] --> 交叉熵損失
+    MSE損失 -- Node12["造成"] --> 優化挑戰
+    優化挑戰 -- Node13["表現為"] --> 梯度平坦區
+    交叉熵損失 -- Node14["擁有"] --> 優化優勢
+    交叉熵損失 -- Node15["理論基礎"] --> 最大似然關係
+    交叉熵損失 -- Node16["實作於"] --> PyTorch整合設計
+    PyTorch整合設計 -- Node17["提供"] --> CrossEntropyLoss內建
+    CrossEntropyLoss內建 -- Node18["使用不當導致"] --> 重複Softmax風險
 
 ```
 

@@ -31,11 +31,11 @@ tags:
 
 ```mermaid
 graph LR
-    subgraph "Generator"
-    z['簡單分佈 z (例如 Normal Distribution)'] --> Network['Neural Network']
-    x['條件輸入 x (可選)'] --> Network
+    subgraph Node1["Generator"]
+    z["簡單分佈 z (例如 Normal Distribution)Node2["] --> Network["]Neural Network"]
+    x["條件輸入 x (可選)"] --> Network
     end
-    Network --> y['複雜分佈 y (例如高解析度影像)']
+    Network --> y["複雜分佈 y (例如高解析度影像)"]
 ```
 
 透過每次隨機採樣不同的 $z$，同一個輸入 $x$ 就能對應到多個不同且清晰的輸出，從而學會真正的多樣性。
@@ -58,11 +58,11 @@ graph LR
 
 ```mermaid
 graph TD
-    "初始化 G 與 D" --> "步驟 1：固定 G，更新 D"
-    "步驟 1：固定 G，更新 D" --> "D 學會區分真假圖"
-    "D 學會區分真假圖" --> "步驟 2：固定 D，更新 G"
-    "步驟 2：固定 D，更新 G" --> "G 學會產生更逼真的圖以欺騙 D"
-    "G 學會產生更逼真的圖以欺騙 D" --> "進入下一輪訓練"
+    Node1["初始化 G 與 D"] --> Node2["步驟 1：固定 G，更新 D"]
+    Node2["步驟 1：固定 G，更新 D"] --> Node3["D 學會區分真假圖"]
+    Node3["D 學會區分真假圖"] --> Node4["步驟 2：固定 D，更新 G"]
+    Node4["步驟 2：固定 D，更新 G"] --> Node5["G 學會產生更逼真的圖以欺騙 D"]
+    Node5["G 學會產生更逼真的圖以欺騙 D"] --> Node6["進入下一輪訓練"]
 ```
 
 ### 2.2 訓練演算法 (Training Algorithm)
@@ -187,13 +187,13 @@ $$\mathcal{L}_{GAN}(G, D) + \lambda \mathbb{E}_{x, y} [||y - G(x, z)||_1]$$
 
 ```mermaid
 graph LR
-    subgraph "Forward Cycle"
-    x['Domain X: 原圖 x'] --> G_XY['Generator G_X-大於Y']
-    G_XY --> y_fake['Domain Y: 假圖 y'']
-    y_fake --> G_YX['Generator G_Y-大於X']
-    G_YX --> x_recon['重建圖 x*']
+    subgraph Node1["Forward Cycle"]
+    x["Domain X: 原圖 x"] --> G_XY["Generator G_X-大於Y"]
+    G_XY --> y_fake["Domain Y: 假圖 y'"]
+    y_fake --> G_YX["Generator G_Y-大於X"]
+    G_YX --> x_recon["重建圖 x*"]
     end
-    x_recon -- "計算 L1 距離 (Cycle Consistency Loss)" --- x
+    x_recon -- Node2["計算 L1 距離 (Cycle Consistency Loss)"] --- x
 ```
 
 同時，也有一個反向的循環（從 Domain $Y \to$ Domain $X \to$ Domain $Y$）。Cycle GAN 包含了兩套生成器與判別器：
@@ -238,30 +238,30 @@ $$P(c) = \frac{1}{N} \sum_{n=1}^N P(c|y^n)$$
 
 ```mermaid
 graph TD
-    "生成模型" --> "無條件生成"
-    "生成模型" --> "條件生成"
-    "生成模型" --> "無成對資料 Style Transfer"
+    Node1["生成模型"] --> Node2["無條件生成"]
+    Node1["生成模型"] --> Node3["條件生成"]
+    Node1["生成模型"] --> Node4["無成對資料 Style Transfer"]
 
-    "無條件生成" --> "GAN 核心架構"
-    "GAN 核心架構" --> "生成器 G"
-    "GAN 核心架構" --> "判別器 D"
-    "判別器 D" --> "等價於極大化 JS 散度"
+    Node2["無條件生成"] --> Node5["GAN 核心架構"]
+    Node5["GAN 核心架構"] --> Node6["生成器 G"]
+    Node5["GAN 核心架構"] --> Node7["判別器 D"]
+    Node7["判別器 D"] --> Node8["等價於極大化 JS 散度"]
 
-    "JS 散度" -->|缺陷: 不重疊分佈梯度消失| "Wasserstein 距離"
-    "Wasserstein 距離" --> "WGAN"
-    "WGAN" -->|需要 Lipschitz 約束| "WGAN-GP / Spectral Norm"
+    Node9["JS 散度"] -->|缺陷: 不重疊分佈梯度消失| Node10["Wasserstein 距離"]
+    Node10["Wasserstein 距離"] --> Node11["WGAN"]
+    Node11["WGAN"] -->|需要 Lipschitz 約束| Node12["WGAN-GP / Spectral Norm"]
 
-    "條件生成" --> "Conditional GAN"
-    "Conditional GAN" -->|解決 G 忽略條件的問題| "配對輸入 D("x, y")"
-    "Conditional GAN" --> "影像翻譯 pix2pix"
+    Node3["條件生成"] --> Node13["Conditional GAN"]
+    Node13["Conditional GAN"] -->|解決 G 忽略條件的問題| Node14["配對輸入 D("]x, y")"
+    Node13["Conditional GAN"] --> Node15["影像翻譯 pix2pix"]
 
-    "無成對資料 Style Transfer" --> "Cycle GAN"
-    "Cycle GAN" -->|避免資訊流失與任意映射| "循環一致性損失"
+    Node4["無成對資料 Style Transfer"] --> Node16["Cycle GAN"]
+    Node16["Cycle GAN"] -->|避免資訊流失與任意映射| Node17["循環一致性損失"]
 
-    "生成模型" --> "評估指標"
-    "評估指標" --> "品質評估 P("c|y")"
-    "評估指標" --> "多樣性評估 P("c")"
-    "評估指標" --> "FID (越小越好)"
+    Node1["生成模型"] --> Node18["評估指標"]
+    Node18["評估指標"] --> Node19["品質評估 P("]c|y")"
+    Node18["評估指標"] --> Node20["多樣性評估 P("]c")"
+    Node18["評估指標"] --> Node21["FID (越小越好)"]
 ```
 
 ---

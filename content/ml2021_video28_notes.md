@@ -15,39 +15,39 @@ tags:
 
 ```mermaid
 graph TD
-    "Self-Supervised Learning" --> "Pre-training"
-    "Pre-training" --> "BERT Series"
-    "Pre-training" --> "GPT Series"
-    "Pre-training" --> "Seq2Seq Models"
+    Node1["Self-Supervised Learning"] --> Node2["Pre-training"]
+    Node2["Pre-training"] --> Node3["BERT Series"]
+    Node2["Pre-training"] --> Node4["GPT Series"]
+    Node2["Pre-training"] --> Node5["Seq2Seq Models"]
     
-    "BERT Series" --> "Masked Language Modeling"
-    "BERT Series" --> "Next Sentence Prediction"
-    "BERT Series" --> "Sentence Order Prediction"
-    "BERT Series" --> "Downstream Fine-tuning"
+    Node3["BERT Series"] --> Node6["Masked Language Modeling"]
+    Node3["BERT Series"] --> Node7["Next Sentence Prediction"]
+    Node3["BERT Series"] --> Node8["Sentence Order Prediction"]
+    Node3["BERT Series"] --> Node9["Downstream Fine-tuning"]
     
-    "Downstream Fine-tuning" --> "Sequence Classification"
-    "Downstream Fine-tuning" --> "Sequence Labeling"
-    "Downstream Fine-tuning" --> "Natural Language Inference"
-    "Downstream Fine-tuning" --> "Extraction-based QA"
+    Node9["Downstream Fine-tuning"] --> Node10["Sequence Classification"]
+    Node9["Downstream Fine-tuning"] --> Node11["Sequence Labeling"]
+    Node9["Downstream Fine-tuning"] --> Node12["Natural Language Inference"]
+    Node9["Downstream Fine-tuning"] --> Node13["Extraction-based QA"]
     
-    "BERT Series" --> "Multi-lingual BERT"
-    "Multi-lingual BERT" --> "Cross-lingual Alignment"
+    Node3["BERT Series"] --> Node14["Multi-lingual BERT"]
+    Node14["Multi-lingual BERT"] --> Node15["Cross-lingual Alignment"]
     
-    "GPT Series" --> "Predict Next Token"
-    "GPT Series" --> "In-context Learning"
-    "In-context Learning" --> "Few-shot Learning"
-    "In-context Learning" --> "Zero-shot Learning"
+    Node4["GPT Series"] --> Node16["Predict Next Token"]
+    Node4["GPT Series"] --> Node17["In-context Learning"]
+    Node17["In-context Learning"] --> Node18["Few-shot Learning"]
+    Node17["In-context Learning"] --> Node19["Zero-shot Learning"]
     
-    "Seq2Seq Models" --> "MASS"
-    "Seq2Seq Models" --> "BART"
-    "Seq2Seq Models" --> "T5"
+    Node5["Seq2Seq Models"] --> Node20["MASS"]
+    Node5["Seq2Seq Models"] --> Node21["BART"]
+    Node5["Seq2Seq Models"] --> Node22["T5"]
     
-    "Self-Supervised Learning" --> "Beyond Text"
-    "Beyond Text" --> "Computer Vision SSL"
-    "Beyond Text" --> "Speech SSL"
-    "Computer Vision SSL" --> "SimCLR"
-    "Computer Vision SSL" --> "BYOL"
-    "Speech SSL" --> "SUPERB Benchmark"
+    Node1["Self-Supervised Learning"] --> Node23["Beyond Text"]
+    Node23["Beyond Text"] --> Node24["Computer Vision SSL"]
+    Node23["Beyond Text"] --> Node25["Speech SSL"]
+    Node24["Computer Vision SSL"] --> Node26["SimCLR"]
+    Node24["Computer Vision SSL"] --> Node27["BYOL"]
+    Node25["Speech SSL"] --> Node28["SUPERB Benchmark"]
 ```
 
 ---

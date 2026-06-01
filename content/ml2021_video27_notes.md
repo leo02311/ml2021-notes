@@ -15,33 +15,33 @@ tags:
 
 ```mermaid
 graph TD
-    "Self-Supervised Learning" --> "BERT Series"
-    "Self-Supervised Learning" --> "GPT Series"
-    "Self-Supervised Learning" --> "Seq2Seq Models"
-    "Self-Supervised Learning" --> "Beyond Text"
+    Node1["Self-Supervised Learning"] --> Node2["BERT Series"]
+    Node1["Self-Supervised Learning"] --> Node3["GPT Series"]
+    Node1["Self-Supervised Learning"] --> Node4["Seq2Seq Models"]
+    Node1["Self-Supervised Learning"] --> Node5["Beyond Text"]
 
-    "BERT Series" --> "Masked Language Model"
-    "BERT Series" --> "Next Sentence Prediction"
-    "BERT Series" --> "Downstream Fine-tuning"
-    "BERT Series" --> "Multi-lingual BERT"
+    Node2["BERT Series"] --> Node6["Masked Language Model"]
+    Node2["BERT Series"] --> Node7["Next Sentence Prediction"]
+    Node2["BERT Series"] --> Node8["Downstream Fine-tuning"]
+    Node2["BERT Series"] --> Node9["Multi-lingual BERT"]
 
-    "GPT Series" --> "Predict Next Token"
-    "GPT Series" --> "In-context Learning"
+    Node3["GPT Series"] --> Node10["Predict Next Token"]
+    Node3["GPT Series"] --> Node11["In-context Learning"]
 
-    "Seq2Seq Models" --> "BART"
-    "Seq2Seq Models" --> "T5"
+    Node4["Seq2Seq Models"] --> Node12["BART"]
+    Node4["Seq2Seq Models"] --> Node13["T5"]
 
-    "Beyond Text" --> "Speech: SUPERB"
-    "Beyond Text" --> "CV: SimCLR & BYOL"
+    Node5["Beyond Text"] --> Node14["Speech: SUPERB"]
+    Node5["Beyond Text"] --> Node15["CV: SimCLR & BYOL"]
 
-    "Downstream Fine-tuning" --> "Case 1: Sequence Classification"
-    "Downstream Fine-tuning" --> "Case 2: Sequence Labeling"
-    "Downstream Fine-tuning" --> "Case 3: NLI (Natural Language Inference)"
-    "Downstream Fine-tuning" --> "Case 4: Extraction-based QA"
+    Node8["Downstream Fine-tuning"] --> Node16["Case 1: Sequence Classification"]
+    Node8["Downstream Fine-tuning"] --> Node17["Case 2: Sequence Labeling"]
+    Node8["Downstream Fine-tuning"] --> Node18["Case 3: NLI (Natural Language Inference)"]
+    Node8["Downstream Fine-tuning"] --> Node19["Case 4: Extraction-based QA"]
 
-    "In-context Learning" --> "Few-shot"
-    "In-context Learning" --> "One-shot"
-    "In-context Learning" --> "Zero-shot"
+    Node11["In-context Learning"] --> Node20["Few-shot"]
+    Node11["In-context Learning"] --> Node21["One-shot"]
+    Node11["In-context Learning"] --> Node22["Zero-shot"]
 ```
 
 ---

@@ -20,25 +20,25 @@ tags:
 
 ```mermaid
 graph TD
-    A['Reinforcement Learning'] --> B['Policy Gradient']
-    A --> C['Actor-Critic']
-    A --> D['Sparse Reward & Reward Shaping']
-    A --> E['Imitation Learning']
+    A["Reinforcement Learning"] --> B["Policy Gradient"]
+    A --> C["Actor-Critic"]
+    A --> D["Sparse Reward & Reward Shaping"]
+    A --> E["Imitation Learning"]
 
-    B --> B1['On-policy vs Off-policy']
-    B1 --> B2['Proximal Policy Optimization (PPO)']
-    B --> B3['Cumulative Reward']
+    B --> B1["On-policy vs Off-policy"]
+    B1 --> B2["Proximal Policy Optimization (PPO)"]
+    B --> B3["Cumulative Reward"]
 
-    C --> C1['State Value Function V('s')']
-    C1 --> C2['Monte-Carlo (MC)']
-    C1 --> C3['Temporal-Difference (TD)']
-    C --> C4['Advantage Actor-Critic (A2C)']
+    C --> C1["State Value Function V('s')"]
+    C1 --> C2["Monte-Carlo (MC)"]
+    C1 --> C3["Temporal-Difference (TD)"]
+    C --> C4["Advantage Actor-Critic (A2C)"]
 
-    D --> D1['Curiosity-driven Exploration']
+    D --> D1["Curiosity-driven Exploration"]
 
-    E --> E1['Behavior Cloning']
-    E --> E2['Inverse Reinforcement Learning (IRL)']
-    E2 --> E3['GAN-like Framework']
+    E --> E1["Behavior Cloning"]
+    E --> E2["Inverse Reinforcement Learning (IRL)"]
+    E2 --> E3["GAN-like Framework"]
 ```
 
 ---

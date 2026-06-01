@@ -19,37 +19,37 @@ tags:
 
 ```mermaid
 graph TD
-    "Adversarial Attack" --> "Attack Goal"
-    "Adversarial Attack" --> "Attack Constraints"
-    "Adversarial Attack" --> "Attack Methods"
-    "Adversarial Attack" --> "Defense Strategies"
+    Node1["Adversarial Attack"] --> Node2["Attack Goal"]
+    Node1["Adversarial Attack"] --> Node3["Attack Constraints"]
+    Node1["Adversarial Attack"] --> Node4["Attack Methods"]
+    Node1["Adversarial Attack"] --> Node5["Defense Strategies"]
 
-    "Attack Goal" --> "Non-targeted Attack"
-    "Attack Goal" --> "Targeted Attack"
-    "Attack Goal" --> "Adversarial Reprogramming"
+    Node2["Attack Goal"] --> Node6["Non-targeted Attack"]
+    Node2["Attack Goal"] --> Node7["Targeted Attack"]
+    Node2["Attack Goal"] --> Node8["Adversarial Reprogramming"]
 
-    "Attack Constraints" --> "L2 Norm"
-    "Attack Constraints" --> "L-infinity Norm"
-    "L-infinity Norm" --> "Better for Human Perception"
+    Node3["Attack Constraints"] --> Node9["L2 Norm"]
+    Node3["Attack Constraints"] --> Node10["L-infinity Norm"]
+    Node10["L-infinity Norm"] --> Node11["Better for Human Perception"]
 
-    "Attack Methods" --> "White Box Attack"
-    "Attack Methods" --> "Black Box Attack"
+    Node4["Attack Methods"] --> Node12["White Box Attack"]
+    Node4["Attack Methods"] --> Node13["Black Box Attack"]
 
-    "White Box Attack" --> "FGSM"
-    "White Box Attack" --> "Iterative FGSM / PGD"
-    "White Box Attack" --> "One Pixel Attack"
+    Node12["White Box Attack"] --> Node14["FGSM"]
+    Node12["White Box Attack"] --> Node15["Iterative FGSM / PGD"]
+    Node12["White Box Attack"] --> Node16["One Pixel Attack"]
 
-    "Black Box Attack" --> "Proxy Model"
-    "Black Box Attack" --> "Ensemble Attack"
+    Node13["Black Box Attack"] --> Node17["Proxy Model"]
+    Node13["Black Box Attack"] --> Node18["Ensemble Attack"]
 
-    "Defense Strategies" --> "Passive Defense"
-    "Defense Strategies" --> "Proactive Defense"
+    Node5["Defense Strategies"] --> Node19["Passive Defense"]
+    Node5["Defense Strategies"] --> Node20["Proactive Defense"]
 
-    "Passive Defense" --> "Image Smoothing"
-    "Passive Defense" --> "Image Compression"
-    "Passive Defense" --> "Randomization"
+    Node19["Passive Defense"] --> Node21["Image Smoothing"]
+    Node19["Passive Defense"] --> Node22["Image Compression"]
+    Node19["Passive Defense"] --> Node23["Randomization"]
 
-    "Proactive Defense" --> "Adversarial Training"
+    Node20["Proactive Defense"] --> Node24["Adversarial Training"]
 ```
 
 ---

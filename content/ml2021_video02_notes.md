@@ -22,20 +22,20 @@ tags:
 
 ```mermaid
 graph TD
-    "Machine Learning 2021" --> "課程目標"
-    "Machine Learning 2021" --> "評分與作業"
-    "Machine Learning 2021" --> "學術倫理"
+    Node1["Machine Learning 2021"] --> Node2["課程目標"]
+    Node1["Machine Learning 2021"] --> Node3["評分與作業"]
+    Node1["Machine Learning 2021"] --> Node4["學術倫理"]
     
-    "課程目標" --> "深度學習"
-    "課程目標" --> "最新技術"
+    Node2["課程目標"] --> Node5["深度學習"]
+    Node2["課程目標"] --> Node6["最新技術"]
     
-    "評分與作業" --> "15個作業"
-    "評分與作業" --> "最高分10個計分"
-    "評分與作業" --> "Kaggle競賽"
+    Node3["評分與作業"] --> Node7["15個作業"]
+    Node3["評分與作業"] --> Node8["最高分10個計分"]
+    Node3["評分與作業"] --> Node9["Kaggle競賽"]
     
-    "學術倫理" --> "禁止抄襲"
-    "學術倫理" --> "禁止合作/共謀"
-    "學術倫理" --> "懲罰機制"
+    Node4["學術倫理"] --> Node10["禁止抄襲"]
+    Node4["學術倫理"] --> Node11["禁止合作/共謀"]
+    Node4["學術倫理"] --> Node12["懲罰機制"]
 ```
 
 ## 作業與評分機制

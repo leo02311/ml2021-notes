@@ -17,30 +17,30 @@ tags:
 
 ```mermaid
 graph TD
-    A['Self-Supervised Learning'] --> B['BERT Series (Encoder-only)']
-    A --> C['GPT Series (Decoder-only)']
-    A --> D['Seq2Seq Pre-training (Encoder-Decoder)']
-    A --> E['SSL Beyond Text']
+    A["Self-Supervised Learning"] --> B["BERT Series (Encoder-only)"]
+    A --> C["GPT Series (Decoder-only)"]
+    A --> D["Seq2Seq Pre-training (Encoder-Decoder)"]
+    A --> E["SSL Beyond Text"]
 
-    B --> B1['Pre-training Tasks']
-    B1 --> B1a['Masked Language Modeling (MLM)']
-    B1 --> B1b['Sentence Order Prediction (SOP)']
-    B --> B2['Downstream Tasks (Fine-tuning)']
-    B2 --> B2a['Sequence Classification (Sentiment Analysis)']
-    B2 --> B2b['POS Tagging (Sequence Labeling)']
-    B2 --> B2c['Natural Language Inference (NLI)']
-    B2 --> B2d['Extraction-based QA']
-    B --> B3['Contextualized Embeddings']
-    B --> B4['Multi-lingual Alignment']
+    B --> B1["Pre-training Tasks"]
+    B1 --> B1a["Masked Language Modeling (MLM)"]
+    B1 --> B1b["Sentence Order Prediction (SOP)"]
+    B --> B2["Downstream Tasks (Fine-tuning)"]
+    B2 --> B2a["Sequence Classification (Sentiment Analysis)"]
+    B2 --> B2b["POS Tagging (Sequence Labeling)"]
+    B2 --> B2c["Natural Language Inference (NLI)"]
+    B2 --> B2d["Extraction-based QA"]
+    B --> B3["Contextualized Embeddings"]
+    B --> B4["Multi-lingual Alignment"]
 
-    C --> C1['Predict Next Token (Autoregressive)']
-    C --> C2['In-context Learning (Few-shot/Zero-shot)']
+    C --> C1["Predict Next Token (Autoregressive)"]
+    C --> C2["In-context Learning (Few-shot/Zero-shot)"]
 
-    D --> D1['MASS / BART (Text Corruption)']
-    D --> D2['T5 (Text-to-Text Framework)']
+    D --> D1["MASS / BART (Text Corruption)"]
+    D --> D2["T5 (Text-to-Text Framework)"]
 
-    E --> E1['Computer Vision (SimCLR, BYOL)']
-    E --> E2['Speech Processing (SUPERB Benchmark)']
+    E --> E1["Computer Vision (SimCLR, BYOL)"]
+    E --> E2["Speech Processing (SUPERB Benchmark)"]
 ```
 
 ---

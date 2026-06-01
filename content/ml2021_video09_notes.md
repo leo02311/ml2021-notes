@@ -29,12 +29,12 @@ tags:
 
 ```mermaid
 graph TD
-    "Loss on Training Data" -->|large| "Model Bias"
-    "Loss on Training Data" -->|large| "Optimization Issue"
-    "Loss on Training Data" -->|small| "Loss on Testing Data"
-    "Loss on Testing Data" -->|large| "Overfitting"
-    "Loss on Testing Data" -->|large| "Mismatch"
-    "Loss on Testing Data" -->|small| "Success"
+    Node1["Loss on Training Data"] -->|large| Node2["Model Bias"]
+    Node1["Loss on Training Data"] -->|large| Node3["Optimization Issue"]
+    Node1["Loss on Training Data"] -->|small| Node4["Loss on Testing Data"]
+    Node4["Loss on Testing Data"] -->|large| Node5["Overfitting"]
+    Node4["Loss on Testing Data"] -->|large| Node6["Mismatch"]
+    Node4["Loss on Testing Data"] -->|small| Node7["Success"]
 ```
 
 ### 1. 訓練損失過大 (Large Training Loss)

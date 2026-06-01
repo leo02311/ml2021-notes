@@ -19,27 +19,27 @@ tags:
 
 ```mermaid
 graph TD
-    "Generative Adversarial Network" --> "Generator (G)"
-    "Generative Adversarial Network" --> "Discriminator (D)"
-    "Generative Adversarial Network" --> "Theoretical Foundation"
-    "Generative Adversarial Network" --> "Advanced Variations"
-    "Generative Adversarial Network" --> "Evaluation Methods"
+    Node1["Generative Adversarial Network"] --> Node2["Generator (G)"]
+    Node1["Generative Adversarial Network"] --> Node3["Discriminator (D)"]
+    Node1["Generative Adversarial Network"] --> Node4["Theoretical Foundation"]
+    Node1["Generative Adversarial Network"] --> Node5["Advanced Variations"]
+    Node1["Generative Adversarial Network"] --> Node6["Evaluation Methods"]
 
-    "Generator (G)" --> "Input: Condition & Noise"
-    "Discriminator (D)" --> "Binary Classification"
-    "Discriminator (D)" --> "Output: Real/Fake Score"
+    Node2["Generator (G)"] --> Node7["Input: Condition & Noise"]
+    Node3["Discriminator (D)"] --> Node8["Binary Classification"]
+    Node3["Discriminator (D)"] --> Node9["Output: Real/Fake Score"]
 
-    "Theoretical Foundation" --> "JS Divergence Problem"
-    "Theoretical Foundation" --> "Wasserstein Distance"
-    "Wasserstein Distance" --> "WGAN (1-Lipschitz Constraint)"
+    Node4["Theoretical Foundation"] --> Node10["JS Divergence Problem"]
+    Node4["Theoretical Foundation"] --> Node11["Wasserstein Distance"]
+    Node11["Wasserstein Distance"] --> Node12["WGAN (1-Lipschitz Constraint)"]
 
-    "Advanced Variations" --> "Conditional GAN"
-    "Advanced Variations" --> "CycleGAN (Unpaired Data)"
-    "Conditional GAN" --> "Condition-Aware Discriminator"
-    "CycleGAN (Unpaired Data)" --> "Cycle Consistency Loss"
+    Node5["Advanced Variations"] --> Node13["Conditional GAN"]
+    Node5["Advanced Variations"] --> Node14["CycleGAN (Unpaired Data)"]
+    Node13["Conditional GAN"] --> Node15["Condition-Aware Discriminator"]
+    Node14["CycleGAN (Unpaired Data)"] --> Node16["Cycle Consistency Loss"]
 
-    "Evaluation Methods" --> "Inception Score (IS)"
-    "Evaluation Methods" --> "Fréchet Inception Distance (FID)"
+    Node6["Evaluation Methods"] --> Node17["Inception Score (IS)"]
+    Node6["Evaluation Methods"] --> Node18["Fréchet Inception Distance (FID)"]
 ```
 
 ---
